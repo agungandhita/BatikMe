@@ -1,0 +1,209 @@
+<?php
+
+namespace App\Http\Controllers\admin;
+
+use App\Models\Produk;
+use App\Models\Category;
+use App\Models\ProdukImage;
+use Illuminate\Http\Request;
+use App\Repositories\SaveImages;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+
+class ProdukController extends Controller
+{
+
+    private $saveImage;
+
+    public function __construct()
+    {
+        $this->saveImage = new SaveImages;
+    }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $data = Produk::with(['kategori','produkImage'])->latest();
+        $item = ProdukImage::with('produk')->latest();
+
+        $kategori = Category::where('kategori_id', request('jenis'))->first();
+
+
+
+        if (request('search')) {
+            $data->where('name', 'like', '%' . request('search') . '%');
+        }
+
+
+
+        return view('admin.produk.index', [
+            'data' => $data->paginate(10),
+            'title' => 'produk',
+            'kategori' => Category::get(),
+            'gambar' => ProdukImage::get()
+        ]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        $cek = $request->validate([
+            'nama_produk' => 'required|max:255',
+            'deskripsi' => 'required',
+            'model' => 'required',
+            'size' => 'required',
+            'kategori' => 'required',
+            'image.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'harga' => 'required',
+            'qty' => 'required'
+        ]);
+
+        $image = array();
+        $no = 1;
+
+
+        if ($files = $request->file('image')) {
+            foreach ($files as $file) {
+                $extension = $file->getClientOriginalExtension();
+                $name = hash('sha256', time()) . $no++ . '.' . $extension;
+                $file->move('produk', $name);
+                $image[] = $name;
+            }
+        }
+        $produk = Produk::create([
+            'nama_produk' => $cek['nama_produk'],
+            'kategori_id' => $cek['kategori'],
+            'deskripsi' => $cek['deskripsi'],
+            'model' => $cek['model'],
+            'size' => $cek['size'],
+            'harga' => $cek['harga'],
+            'qty' => $cek['qty'],
+            'user_created' => Auth::id(),
+            'created_at' => now(),
+            'updated_at' => null
+        ]);
+
+
+        foreach ($image as $gambar) {
+            ProdukImage::create([
+                'produk_id' => $produk->produk_id,
+                'image' => $gambar,
+                'user_created' => Auth::id(),
+                'created_at' => now(),
+                'updated_at' => null
+
+            ]);
+        }
+
+
+
+        return redirect('/admin/produk')->with('success', 'successful additional to the Produk');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Produk  $produk
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Produk $produk)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\Produk  $produk
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(Produk $produk)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\Produk  $produk
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        $cek = $request->validate([
+            'nama_produk' => 'required|max:255',
+            'deskripsi' => 'required',
+            'size' => 'required',
+            'harga' => 'required',
+            'qty' => 'required'
+        ]);
+
+    
+        Produk::find($id)->update([
+            'nama_produk' => $cek['nama_produk'],
+            'deskripsi' => $cek['deskripsi'],
+            'size' => $cek['size'],
+            'harga' => $cek['harga'],
+            'qty' => $cek['qty']
+        ]);
+
+        return redirect('/admin/produk');
+    }
+
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\Produk  $produk
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Produk $produk, $id)
+    {
+        $data = Produk::with('produkImage')->where('produk_id', $id)->first();
+        $image = $data->produkImage;
+        ProdukImage::where('produk_id', $id)->update([
+            'user_deleted' => auth()->user()->user_id,
+            'deleted' => true,
+            'deleted_at' => now()
+        ]);
+
+        $update = Produk::where('produk_id',$id)->update([
+            'user_deleted' => auth()->user()->user_id,
+            'deleted' => true
+        ]);
+
+        if ($update) {
+            $delete = ProdukImage::where('produk_id', $id)->delete();
+            if ($delete) {
+            foreach($image as $kontol){
+
+                $storage = public_path('produk/' . $kontol->image);
+                unlink($storage);
+            }
+            }
+        }
+
+
+
+        return redirect('/admin/produk')->with('success', 'Delete successful to the Guide');
+    }
+}
