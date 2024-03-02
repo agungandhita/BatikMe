@@ -14,6 +14,7 @@ use App\Http\Controllers\admin\ProdukController;
 use App\Http\Controllers\auth\RegisterController;
 use App\Http\Controllers\admin\DashboarController;
 use App\Http\Controllers\admin\ProdukImageController;
+use App\Http\Controllers\admin\TeamController;
 use App\Http\Controllers\admin\TentangController;
 use App\Http\Controllers\client\DashboardController;
 
@@ -39,9 +40,10 @@ Route::get('/', [DashboardController::class, 'index']);
 //     return view('admin.produk.kategori');
 // });
 
-// Route::get('/tes', function () {
-//     return view('admin.user.index');
-// });
+
+Route::get('/tes', action: function () {
+    return view('auth.copyreg');
+});
 
 Route::get('/coba', function () {
     return view('client.home.index');
@@ -102,10 +104,18 @@ Route::middleware('admin')->group(function () {
     // Route::get('/about', [AboutController::class,'index']);
     // Route::post('/about/create', [AboutController::class,'store']);
 
-    Route::get('/about', [AboutController::class, 'index']);
-    Route::post('/about/create', [AboutController::class, 'store']);
-    Route::post('/about/create/update/{id}', [AboutController::class, 'update']);
-    Route::post('/about/delete/{id}', [AboutController::class,'destroy']);
+    // Route::get('/about', [AboutController::class, 'index']);
+    // Route::post('/about/create', [AboutController::class, 'store']);
+    // Route::post('/about/create/update/{id}', [AboutController::class, 'update']);
+    // Route::post('/about/delete/{id}', [AboutController::class,'destroy']);
+
+    Route::get('/team', [TeamController::class, 'index']);
+    Route::post('/team/create', [TeamController::class, 'store']);
+    Route::post('/team/create/update/{id}', [TeamController::class, 'update']);
+    Route::post('/team/delete/{id}', [TeamController::class,'destroy']);
+
+
+
 
     //berita
     Route::get('/berita', [BeritaController::class,'index']);
@@ -114,6 +124,8 @@ Route::middleware('admin')->group(function () {
     Route::get('/admin/berita/edit/{id}', [BeritaController::class,'edit']);
     Route::post('/admin/berita/update/{id}', [BeritaController::class,'update']);
     Route::post('/admin/berita/delete/{id}', [BeritaController::class, 'destroy']);
+    Route::get('/admin/berita/read/{id}', [BeritaController::class, 'read']);
+
 
    
 

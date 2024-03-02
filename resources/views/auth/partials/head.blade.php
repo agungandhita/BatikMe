@@ -8,4 +8,4 @@
     @vite(['resources/css/app.css','resources/js/app.js'])
     <title>Document</title>
 </head>
-<body class="bg-white">
+<body class="bg-slate-200">

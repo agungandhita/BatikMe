@@ -1,7 +1,7 @@
 @extends('auth.layouts.main')
 
 @section('container')
-    <section class="h-screen">
+    <section class="h-screen    ">
         <div class="container h-full px-6 py-24">
             <div class="g-6 flex h-full flex-wrap items-center justify-center lg:justify-between">
                 <!-- Left column container with background-->

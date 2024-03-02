@@ -80,9 +80,10 @@ class BeritaController extends Controller
      * @param  \App\Models\Berita  $berita
      * @return \Illuminate\Http\Response
      */
-    public function show(Berita $berita)
+    public function show(Berita $berita, $id)
     {
-        //
+
+      
     }
 
     /**
@@ -179,4 +180,20 @@ class BeritaController extends Controller
 
         return redirect('/berita')->with('success', 'Delete successful to the Guide');
     }
+
+    public function read(Berita $id)
+    {
+        $data = $id;
+
+
+        // if ($data !== null) {
+        //     $data->update([
+        //         'views' => $data->views + 1
+        //     ]);
+        // }
+        // return $data;
+        
+        return view('admin.berita.read',compact('data'));
+    }
+
 }

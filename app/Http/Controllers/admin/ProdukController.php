@@ -188,15 +188,16 @@ class ProdukController extends Controller
 
         $update = Produk::where('produk_id',$id)->update([
             'user_deleted' => auth()->user()->user_id,
+            'deleted_at' => now(),
             'deleted' => true
         ]);
 
         if ($update) {
             $delete = ProdukImage::where('produk_id', $id)->delete();
             if ($delete) {
-            foreach($image as $kontol){
+            foreach($image as $cek){
 
-                $storage = public_path('produk/' . $kontol->image);
+                $storage = public_path('produk/' . $cek->image);
                 unlink($storage);
             }
             }

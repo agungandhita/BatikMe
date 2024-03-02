@@ -4,15 +4,15 @@
     <div class="px-4 pt-20 mb-8">
         <h1 class="text-gray-900 dark:text-white font-semibold text-xl mb-8">Gambar Produk</h1>
 
-        @foreach ($data->produkImage as $key => $item)
         <button class="btn text-white font-semibold bg-blue-500 border-transparent"
-            onclick="create_{{ $key }}.showModal()">Tambah</button>
+            onclick="create_tambah.showModal()">Tambah</button>
 
 
 
         <div class="flex flex-wrap gap-4 mt-10">
             {{-- @dd($data->produkImage) --}}
 
+            @foreach ($data->produkImage as $key => $item)
 
                 <div class="bg-white border-none dark:bg-gray-700 p-2 rounded-lg w-[20%]">
 
@@ -95,7 +95,7 @@
 
     {{-- tambah --}}
 
-    <dialog id="create_{{ $key }}" class="modal modal-bottom sm:modal-middle ">
+    <dialog id="create_tambah" class="modal modal-bottom sm:modal-middle ">
         <form action="/admin/produk-image/create/{{ $produk_id }}" method="POST" enctype="multipart/form-data"
             class="modal-box bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
             @csrf

@@ -73,7 +73,6 @@
             </p>
 
 
-
             <div class="grid grid-cols-2 justify-around">
                 @foreach ($data as $key => $user)
                     <div
@@ -136,7 +135,7 @@
                         </button>
                     </div>
                     <!-- Modal body -->
-                    <form class="p-4 md:p-5" action="/about/create" method="POST" enctype="multipart/form-data">
+                    <form class="p-4 md:p-5" action="/team/create" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="grid gap-4 mb-4 grid-cols-2">
                             <div class="col-span-2">
@@ -199,7 +198,7 @@
                             </h3>
                         </div>
                         <!-- Modal body -->
-                        <form class="p-4 md:p-5" action="/about/create/update/{{ $edit->aboutus_id }}" method="POST"
+                        <form class="p-4 md:p-5" action="/team/create/update/{{ $edit->team_id }}" method="POST"
                             enctype="multipart/form-data">
                             <div class="grid gap-4 mb-4 grid-cols-2">
                                 @csrf
@@ -262,7 +261,7 @@
     {{-- modal cancel end --}}
     
     <dialog id="delete_{{ $key }}" class="modal modal-bottom sm:modal-middle ">
-        <form action="/about/delete/{{ $hapus->aboutus_id }}" method="POST"
+        <form action="/team/delete/{{ $hapus->team_id }}" method="POST"
         class="modal-box bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
         @csrf
         <p class="py-4">Apakah kamu yakin mau menghapus data ini ?</p>

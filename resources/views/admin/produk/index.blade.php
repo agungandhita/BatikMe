@@ -118,9 +118,8 @@
                                     <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
 
                                         <td class="flex items-center p-4 mr-12 space-x-6 whitespace-nowrap">
-
                                             <img class="w-10 h-10"
-                                                src="{{ asset('produk/' . $user->produkImage[0]->image) }}">
+                                                src="{{ asset('produk/' . $user->produkImage[1]->image) }}">
 
                                             <div class="text-sm font-normal text-gray-500 dark:text-gray-400">
                                                 <div class="text-base font-semibold text-gray-900 dark:text-white">
@@ -134,7 +133,7 @@
                                         <td
                                             class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-white">
 
-                                            {{ $user->kategori->jenis }}</td>
+                                            {{ $user->kategori->nama_kategori }}</td>
 
                                         <td
                                             class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-white">
