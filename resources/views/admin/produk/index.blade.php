@@ -139,7 +139,7 @@
                                             class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-white">
                                             {{ $user->size }}</td>
                                         <td
-                                            class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                            class="p-4 text-base font-medium text-gray-900 line-clamp-2 dark:text-white l">
                                             {{ $user->deskripsi }}</td>
                                         <td
                                             class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">
