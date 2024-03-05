@@ -68,7 +68,7 @@
 
                         // Dapatkan daftar kesalahan libxml
                         $errors = libxml_get_errors();
-
+                $deskripsi = 'cok';
                         // Periksa apakah ada kesalahan
                         if (!empty($errors)) {
                             // Lakukan penanganan kesalahan di sini
