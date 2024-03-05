@@ -6,7 +6,7 @@
     <div class="dark:bg-slate-800 shadow-best shadow-white bg-white rounded-md justify-between">
         <div class="flex">
         <p class="text-4xl font-semibold py-4 mx-4 text-[#CCA9DD]">
-            Hallo, Andhi
+            Hallo, {{ auth()->user()->username   }}
         </p>
         <img src="{{ asset ('img/hello.png') }}" class="object-contain w-16 justify-end" alt="">
     </div>

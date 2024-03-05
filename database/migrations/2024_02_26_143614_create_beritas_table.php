@@ -19,7 +19,6 @@ return new class extends Migration
             $table->text('slug');
             $table->text('image');
             $table->text('isi');
-            $table->integer('views')->default(0);
             $table->text('kategori');
             $table->integer('user_created')->nullable();
             $table->timestamps();

@@ -90,6 +90,8 @@ Route::middleware('admin')->group(function () {
     Route::get('/produk/kategori', [CategoryController::class,'index']);
     Route::post('/produk/kategori/add', [CategoryController::class,'store']);
     Route::post('/produk/kategori/update/{id}', [CategoryController::class,'update']);
+    Route::post('/produk/kategori/delete/{id}', [CategoryController::class,'destroy']);
+
 
 
 
@@ -101,13 +103,10 @@ Route::middleware('admin')->group(function () {
 
 
     //about
-    // Route::get('/about', [AboutController::class,'index']);
-    // Route::post('/about/create', [AboutController::class,'store']);
-
-    // Route::get('/about', [AboutController::class, 'index']);
-    // Route::post('/about/create', [AboutController::class, 'store']);
-    // Route::post('/about/create/update/{id}', [AboutController::class, 'update']);
-    // Route::post('/about/delete/{id}', [AboutController::class,'destroy']);
+    Route::get('/about', [AboutController::class, 'index']);
+    Route::post('/about/create', [AboutController::class, 'store']);
+    Route::post('/about/create/update/{id}', [AboutController::class, 'update']);
+    Route::post('/about/delete/{id}', [AboutController::class,'destroy']);
 
     Route::get('/team', [TeamController::class, 'index']);
     Route::post('/team/create', [TeamController::class, 'store']);

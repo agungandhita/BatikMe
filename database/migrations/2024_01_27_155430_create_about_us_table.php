@@ -15,10 +15,8 @@ return new class extends Migration
     {
         Schema::create('about_us', function (Blueprint $table) {
             $table->id('aboutus_id');
-            $table->string('nama');
-            $table->text('jabatan');
-            $table->text('profil');
             $table->text('image');
+            $table->string('isi');
             $table->integer('user_created')->nullable();
             $table->timestamps();
             $table->integer('user_updated')->nullable();

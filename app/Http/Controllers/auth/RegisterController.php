@@ -28,6 +28,7 @@ class RegisterController extends Controller
           'username' => $validasi['username'],
           'email' => $validasi['email'],
           'password' => $validasi['password'],
+          'updated_at' => null
       ]);
 
       if($proses){

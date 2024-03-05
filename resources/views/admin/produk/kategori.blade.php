@@ -13,17 +13,12 @@
 
         <div class="flex flex-wrap gap-4 mt-10">
             @foreach ($data as $no => $item) 
-                <div class="bg-white border-none dark:bg-gray-700 p-2 rounded-lg w-[20%]">
-                    <h1 class="font-semibold text-gray-900 dark:text-white text-3xl text-center capitalize">{{ $item->nama_kategori }}</h1>
-                    @if($item->kategori !== 'info penting')
-                    <div class="flex gap-x-2 mx-auto justify-center">
-                        <button class="text-lime-600" onclick="my_modal_3{{ $no }}.showModal()">Edit</button>
-                        <button class="text-red-600" onclick="delete_{{ $item->id }}.showModal()">Hapus</button>
+                <div class="bg-white border dark:bg-gray-700 p-2 rounded-lg w-[30%] lg:w-[20%]">
+                    <h1 class="font-semibold text-gray-900 dark:text-white text-sm lg:text-3xl text-center capitalize">{{ $item->nama_kategori }}</h1>
+                    <div class="gap-x-3 mx-auto justify-center text-center">
+                        <button class="text-lime-600 text-sm md:text-xl" onclick="my_modal_3{{ $no }}.showModal()">Edit</button>
+                        <button class="text-red-600 text-sm md:text-xl" onclick="delete_{{ $no }}.showModal()">Hapus</button>
                     </div>
-                    @endif
-                    @if($item->kategori == 'info penting')
-                    <h1 class="text-gray-900 dark:text-white text-center">Tidak Bisa Diubah</h1>
-                    @endif
                 </div>
             @endforeach
      
@@ -108,21 +103,27 @@
 
 @endsection
 
-<dialog id="delete_" class="modal modal-bottom sm:modal-middle ">
-    <form action="/admin/kategori-berita/hapus/" method="POST"
-        class="modal-box bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
-        @csrf
-        <p class="py-4">Apakah kamu yakin mau menghapus data ini ?</p>
-        <div class="modal-action">
-            <label for="closeDelete" class="btn bg-red-600 hover:bg-red-700 border-none">Tidak</label>
-            <button class="btn bg-lime-600 hover:bg-lime-700 border-none">Hapus</button>
-        </div>
-    </form>
-    <form method="dialog" class="modal-box bg-white dark:bg-gray-700 text-gray-900 dark:text-white hidden">
-        <p class="py-4">Apakah kamu yakin mau menghapus data ini ?</p>
-        <div class="modal-action">
-            <!-- if there is a button in form, it will close the modal -->
-            <button class="btn" id="closeDelete">Close</button>
-        </div>
-    </form>
+
+@foreach ($data as $no => $item)
+    
+
+<dialog id="delete_{{ $no }}" class="modal modal-bottom sm:modal-middle ">
+    <form action="/produk/kategori/delete/{{ $item->kategori_id }}" method="POST"
+    class="modal-box bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
+    @csrf
+    <p class="py-4">Apakah kamu yakin mau menghapus data ini ?</p>
+    <div class="modal-action">
+        <label for="closeDelete" class="btn bg-red-600 hover:bg-red-700 border-none">Tidak</label>
+        <button class="btn bg-lime-600 hover:bg-lime-700 border-none">Hapus</button>
+    </div>
+</form>
+<form method="dialog" class="modal-box bg-white dark:bg-gray-700 text-gray-900 dark:text-white hidden">
+    <p class="py-4">Apakah kamu yakin mau menghapus data ini ?</p>
+    <div class="modal-action">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn" id="closeDelete">Close</button>
+    </div>
+</form>
 </dialog>
+
+@endforeach

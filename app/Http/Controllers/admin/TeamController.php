@@ -76,7 +76,7 @@ class TeamController extends Controller
         ]);
 
 
-        return redirect('/tean')->with('success', 'successful additional to the Team');
+        return redirect('/team')->with('success', 'successful additional to the Team');
     }
 
     /**

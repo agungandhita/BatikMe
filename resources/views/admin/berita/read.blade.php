@@ -60,9 +60,9 @@ $date = Carbon\Carbon::parse($data->created_at)
         </div>
     </div>
     <div>
+        <a href="/berita">
         <h1 class="text-base md:text-xl lg:text-2xl  font-semibold text-center">Berita Lainnya</h1>
-        <div class="grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-4">
-
+        </a>
         </div>
 
     </div>

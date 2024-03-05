@@ -7,6 +7,7 @@ use App\Models\Produk;
 use App\Models\ProdukImage;
 use App\Repositories\SaveImages;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProdukImageController extends Controller
 {
@@ -84,7 +85,9 @@ class ProdukImageController extends Controller
 
         ProdukImage::create([
             'produk_id'=> $id,
-            'image' => $image
+            'image' => $image,
+            'updated_at' => null,
+
         ]);
 
         return redirect()->back();
@@ -141,7 +144,9 @@ class ProdukImageController extends Controller
         }
         
         $id->update([
-            'image' => $image
+            'image' => $image,
+            'user_updated' => Auth::id()
+
         ]);
 
         return redirect()->back();
@@ -173,6 +178,6 @@ class ProdukImageController extends Controller
 
 
 
-        return redirect('/gambar/produk')->with('success', 'Delete successful to the Guide');
+        return redirect('/gambar/produk')->with('success', 'Berhasil menghapus gambar');
     }
 }

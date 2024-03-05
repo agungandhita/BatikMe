@@ -163,7 +163,9 @@ class ProdukController extends Controller
             'deskripsi' => $cek['deskripsi'],
             'size' => $cek['size'],
             'harga' => $cek['harga'],
-            'qty' => $cek['qty']
+            'qty' => $cek['qty'],
+            'updated_at' => now(),
+            'user_updated' => Auth::id()
         ]);
 
         return redirect('/admin/produk');
@@ -183,13 +185,16 @@ class ProdukController extends Controller
         ProdukImage::where('produk_id', $id)->update([
             'user_deleted' => auth()->user()->user_id,
             'deleted' => true,
-            'deleted_at' => now()
+            'deleted_at' => now(),
+            'user_deleted' => Auth::id()
+
         ]);
 
         $update = Produk::where('produk_id',$id)->update([
             'user_deleted' => auth()->user()->user_id,
             'deleted_at' => now(),
-            'deleted' => true
+            'deleted' => true,
+            'user_deleted' => Auth::id()
         ]);
 
         if ($update) {

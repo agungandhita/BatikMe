@@ -76,7 +76,7 @@
             <div class="grid grid-cols-2 justify-around">
                 @foreach ($data as $key => $user)
                     <div
-                        class="flex mt-4 items-center bg-white border border-gray-200 rounded-lg shadow-best md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 ">
+                        class="flex mt-4 items-center bg-white border border-gray-200 rounded-lg shadow-best md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
 
                         <img class="object-cover rounded-t-lg h-48 md:w-48 md:rounded-none md:rounded-s-lg"
                             src="{{ asset('image/' . $user->image) }}" alt="">
@@ -87,15 +87,16 @@
                                 {{ $user->jabatan }}</h5>
 
                             <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 ">{{ $user->profil }}</p>
-                            <div class="space-x-2 sm:space-x-3 flex justify-between">
+                            <div class="flex space-x-2 sm:space-x-3 space-y-2 ">
                                 <!-- Modal toggle -->
                                 <button data-modal-target="crud-modal" data-modal-toggle="crud-modal-{{ $key }}"
-                                    class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                                    class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg px-5 text-xl text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                                     type="button">
-                                    Edit Team
+                                    Edit    
                                 </button>
+                                
 
-                                <button class="btn"  onclick="delete_{{ $key }}.showModal()">Hapus</button>
+                                <button class="btn md:text-sm "  onclick="delete_{{ $key }}.showModal()">Hapus</button>
 
                             </div>
                         </div>

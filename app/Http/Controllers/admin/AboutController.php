@@ -49,10 +49,9 @@ class AboutController extends Controller
     {
 
         $cek = $request->validate([
-            'nama' => 'required|max:255',
-            'jabatan' => 'required',
-            'profil' => 'required',
             'image' => 'required|max:2048',
+            'isi' => 'required',
+          
         ]);
 
 
@@ -65,12 +64,11 @@ class AboutController extends Controller
 
 
         AboutUs::create([
-            'nama' => $cek['nama'],
-            'jabatan' => $cek['jabatan'],
-            'profil' => $cek['profil'],
             'image' => $name,
+            'isi' => $request->isi,
             'user_created' => Auth::id(),
-            'created_at' => now()
+            'created_at' => now(),
+            'updated_at' => null
 
 
         ]);

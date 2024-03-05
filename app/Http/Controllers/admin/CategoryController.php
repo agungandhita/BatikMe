@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Models\Produk;
 use App\Models\Category;
+use App\Models\ProdukImage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class CategoryController extends Controller
 {
@@ -24,7 +27,6 @@ class CategoryController extends Controller
             'data' => $data->paginate(10),
             'title' => 'produk',
         ]);
-
     }
 
     /**
@@ -34,7 +36,6 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        
     }
 
     /**
@@ -98,12 +99,12 @@ class CategoryController extends Controller
 
         Category::find($id)->update([
             'nama_kategori' => $cek['nama_kategori'],
-            'user_created' => Auth::id()
+            'user_created' => Auth::id(),
+            'user_updated' => Auth::id(),
+            'updated_at' => now()
         ]);
 
         return redirect('/produk/kategori');
-
-
     }
 
     /**
@@ -114,7 +115,42 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category, $id)
     {
-        $data = Category::with('produk')->where('produk_id', $id)->first();
+        $data = Category::where('kategori_id', $id)->first();
 
+        $data->update([
+            'user_deleted' => auth()->user()->user_id,
+            'deleted' =>true,
+            'deleted_at' =>now(),
+            'user_deleted' => Auth::id()        
+        ]);
+
+        $produk = Produk::where('kategori_id', $data->kategori_id)->get();
+        foreach ($produk as $item) {
+            $item->update([
+                'user_deleted' => auth()->user()->user_id,
+                'deleted' => true,
+                'deleted_at' => now()
+            ]);
+
+            $produkImage = ProdukImage::where('produk_id', $item->produk_id)->get();
+
+            foreach($produkImage as $image){
+                $image->update([
+                    'user_deleted' => auth()->user()->user_id,
+                    'deleted' => true,
+                    'deleted_at' => now()
+                ]);
+
+                $storage = public_path('produk/' . $image->image);
+                if(File::exists($storage)){
+                    unlink($storage);
+                }
+            }
+        }
+
+
+
+
+        return redirect('/produk/kategori')->with('success', 'Delete successful to the Guide');
     }
 }
