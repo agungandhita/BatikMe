@@ -89,7 +89,7 @@
 
 
                     </div> --}}
-                    <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                    <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 h-full">
                         <a href="#">
                             <img class="rounded-t-lg w-full h-40 border border-red-600 object-cover" src="{{ asset('image/' . $user->image) }}" alt="" />
 
@@ -97,20 +97,20 @@
                         </a>
                         <div class="p-5">
                             <a href="#">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $user->nama }}</h5>
+                                <h5 class="mb-2 text-md font-bold tracking-tight text-gray-900 dark:text-white">{{ $user->nama }}</h5>
                             </a>
-                            <p class="mb-3 font-semibold text-gray-700 dark:text-gray-400">{{ $user->jabatan }}</p>
-                            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 line-clamp-2">{{ $user->profil }}</p>
-                            <div class="flex space-x-2 sm:space-x-3 space-y-2 ">
+                            <p class="mb-3 font-semibold text-gray-700 dark:text-gray-400 text-sm">{{ $user->jabatan }}</p>
+                            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-sm line-clamp-2">{{ $user->profil }}</p>
+                            <div class="justify-start flex md:flex space-x-2 sm:space-x-3 space-y-2">
                                 <!-- Modal toggle -->
                                 <button data-modal-target="crud-modal" data-modal-toggle="crud-modal-{{ $key }}"
-                                    class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg px-5 text-xl text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                                    type="button">
+                                    class="px-4 w-full text-white rounded-lg"
+                                    type="button`2s">
                                     Edit    
                                 </button>
                                 
                     
-                                <button class="btn md:text-sm "  onclick="delete_{{ $key }}.showModal()">Hapus</button>
+                                <button class="btn md:text-sm mr-9 border-hidden "  onclick="delete_{{ $key }}.showModal()">Hapus</button>
                     
                             </div>
                         </div>

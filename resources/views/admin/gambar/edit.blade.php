@@ -14,13 +14,13 @@
 
             @foreach ($data->produkImage as $key => $item)
 
-                <div class="bg-white border-none dark:bg-gray-700 p-2 rounded-lg w-[20%]">
+                <div class="bg-white border-none dark:bg-gray-700 p-2 rounded-lg w-40">
 
 
 
 
 
-                    <img src="{{ asset('produk/' . $item->image) }}" class="object-cover h-80" alt="">
+                    <img src="{{ asset('produk/' . $item->image) }}" class="object-cover h-40 " alt="">
 
                     <div class="flex gap-x-2 justify-center">
 

@@ -6,29 +6,28 @@
 
 
 
-            <div class="flex flex-wrap gap-4 mt-10">
-        @foreach ($data as $item)
-        {{-- @foreach ($item->produkImage as $cok)
+        <div class="flex flex-wrap gap-4 mt-10">
+            @foreach ($data as $item)
+                {{-- @foreach ($item->produkImage as $cok)
         <img src="{{ asset('produk/'.$cok->image) }}" alt="">
         @endforeach --}}
 
-                <div class="bg-white border-none dark:bg-gray-700 p-2 rounded-lg w-[20%]">
+                <div class="bg-white border-none dark:bg-gray-700 p-2 rounded-lg w-40">
 
-
-                        <img src="{{ asset('produk/' . $item->produkImage[0]->image) }}" class="w-full h-60 object-cover" alt="">
-                    <h1 class="font-semibold text-gray-900 dark:text-white text-3xl text-center capitalize">
-                        {{ $item->nama_produk }}</h1>
-
+                        <img src="{{ asset('produk/' . $item->produkImage[0]->image) }}" class="w-full border h-20 object-cover"
+                            alt="">
+                        <h1 class="font-semibold text-gray-900 dark:text-white text-md md:text-xl text-center capitalize">
+                            {{ $item->nama_produk }}</h1>
                     <div class="flex gap-x-2 mx-auto justify-center">
-                        <a href="/admin/produk-image/update/{{ $item->produk_id }}" class="text-lime-600">Edit</a>
-                        <button class="text-red-600" onclick="delete_.showModal()">Hapus</button>
+                        <a href="/admin/produk-image/update/{{ $item->produk_id }}" class="text-lime-600 text-sm md:text-xl">Edit</a>
+                        <button class="text-red-600 text-sm md:text-xl" onclick="delete_.showModal()">Hapus</button>
                     </div>
                 </div>
-                @endforeach
+            @endforeach
 
-            </div>
+        </div>
 
-  
+
 
         {{-- edit kategori --}}
 
