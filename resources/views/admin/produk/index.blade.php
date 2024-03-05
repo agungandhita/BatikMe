@@ -367,7 +367,7 @@
 
 
         <div id="drawer-create-product-default"
-            class="fixed top-0 right-0 z-40 w-full h-screen max-w-xs p-4 overflow-y-auto transition-transform translate-x-full bg-white dark:bg-gray-800"
+            class="fixed top-0 right-0 z-40 w-full h-screen max-w-xs p-4 overflow-y-auto transition-transform translate-x-full bg-white dark:bg-gray-800 mb-8"
             tabindex="-1" aria-labelledby="drawer-label" aria-hidden="true">
 
             <h5 id="drawer-label"
