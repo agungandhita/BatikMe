@@ -9,6 +9,11 @@ module.exports = {
     "./node_modules/flowbite/**/*.js",
     "transform: (content) => content.replace(/taos:/g, '')"
   ],
+
+  daisyui: {
+    themes: []
+},
+
   safelist: [
     'w-64',
     'w-1/2',
