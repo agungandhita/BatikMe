@@ -57,51 +57,7 @@
                             ->locale('id')
                             ->isoFormat('D MMMM YYYY');
 
-                        // Aktifkan penanganan kesalahan libxml
-                        libxml_use_internal_errors(true);
-
-                        // Buat objek DOMDocument
-                        $dom = new DOMDocument();
-
-                        // Muat HTML ke dalam objek DOMDocument
-                        $dom->loadHTML($item->isi, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
-
-                        // Dapatkan daftar kesalahan libxml
-                        $errors = libxml_get_errors();
-                $deskripsi = 'cok';
-                        // Periksa apakah ada kesalahan
-                        if (!empty($errors)) {
-                            // Lakukan penanganan kesalahan di sini
-                            foreach ($errors as $error) {
-                                echo "Kesalahan: {$error->message} at line {$error->line}" . PHP_EOL;
-                            }
-                        } else {
-                            // Jika tidak ada kesalahan, lanjutkan dengan pemrosesan DOM
-
-                            // Hapus elemen <img>
-                            $images = $dom->getElementsByTagName('img');
-                            foreach ($images as $image) {
-                                $image->parentNode->removeChild($image);
-                            }
-
-                            // Hapus elemen <br>
-                            $lineBreaks = $dom->getElementsByTagName('br');
-                            foreach ($lineBreaks as $lineBreak) {
-                                $lineBreak->parentNode->removeChild($lineBreak);
-                            }
-
-                            // Simpan HTML setelah diubah
-                            $deskripsi = $dom->saveHTML();
-
-                            // Hapus semua tag kecuali <br>
-                            $deskripsi = strip_tags($deskripsi, '<br>');
-
-                            // Tampilkan deskripsi
-                            echo $deskripsi;
-                        }
-
-                        // Bersihkan daftar kesalahan
-                        libxml_clear_errors();
+                //       
 
                     @endphp
                     <div
@@ -140,9 +96,7 @@
                             <h1
                                 class="font-semibold text-base lg:text-lg xl:text-xl line-clamp-2 text-gray-900 dark:text-white">
                                 {{ $item->judul }}</h1>
-                            <div class="line-clamp-4 mt-2 text-sm lg:text-base text-justify text-gray-900 dark:text-white">
-                                {!! $deskripsi !!}
-                            </div>
+                           
                             <h1 class="mt-4 text-gray-900 dark:text-white font-semibold capitalize">Kategori :
                                 {{ $item->kategori }}</h1>
                             <a href="/admin/berita/read/{{ $item->berita_id }}"
