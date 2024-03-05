@@ -49,10 +49,10 @@
 
 
         <div class="mt-10 grid grid-cols-1 gap-y-4">
-
+            @use('Carbon\Carbon')
             @foreach ($data as $key => $item)
                 @php
-                    $date = Carbon\Carbon::parse($item->created_at)
+                    $date = Carbon::parse($item->created_at)
                         ->locale('id')
                         ->isoFormat('D MMMM YYYY');
                     
