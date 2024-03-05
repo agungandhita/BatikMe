@@ -31,8 +31,7 @@
                                             clip-rule="evenodd"></path>
                                     </svg>
                                     <a href="#"
-                                        class="ml-1 text-gray-700 hover:text-primary-600 md:ml-2 dark:text-gray-300 dark:hover:text-white">Tentang
-                                        kami</a>
+                                        class="ml-1 text-gray-700 hover:text-primary-600 md:ml-2 dark:text-gray-300 dark:hover:text-white">Team</a>
                                 </div>
                             </li>
                             <li>
@@ -73,20 +72,35 @@
             </p>
 
 
-            <div class="grid grid-cols-2 justify-around">
+            <div class="grid grid-cols-3 space-x-3 justify-around">
                 @foreach ($data as $key => $user)
-                    <div
+                    {{-- <div
                         class="flex mt-4 items-center bg-white border border-gray-200 rounded-lg shadow-best md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
 
                         <img class="object-cover rounded-t-lg h-48 md:w-48 md:rounded-none md:rounded-s-lg"
                             src="{{ asset('image/' . $user->image) }}" alt="">
                         <div class="flex flex-col justify-between p-4 leading-normal">
-                            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                                {{ $user->nama }}</h5>
-                            <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900 dark:text-white">
-                                {{ $user->jabatan }}</h5>
+                           
+                            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 line-clamp-2">{{ $user->isi }}</p>
+                           
+                        </div>
 
-                            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 ">{{ $user->profil }}</p>
+
+
+
+                    </div> --}}
+                    <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                        <a href="#">
+                            <img class="rounded-t-lg w-full h-40 border border-red-600 object-cover" src="{{ asset('image/' . $user->image) }}" alt="" />
+
+
+                        </a>
+                        <div class="p-5">
+                            <a href="#">
+                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $user->nama }}</h5>
+                            </a>
+                            <p class="mb-3 font-semibold text-gray-700 dark:text-gray-400">{{ $user->jabatan }}</p>
+                            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 line-clamp-2">{{ $user->profil }}</p>
                             <div class="flex space-x-2 sm:space-x-3 space-y-2 ">
                                 <!-- Modal toggle -->
                                 <button data-modal-target="crud-modal" data-modal-toggle="crud-modal-{{ $key }}"
@@ -95,19 +109,21 @@
                                     Edit    
                                 </button>
                                 
-
+                    
                                 <button class="btn md:text-sm "  onclick="delete_{{ $key }}.showModal()">Hapus</button>
-
+                    
                             </div>
                         </div>
-
-
-
-
                     </div>
+                    
                 @endforeach
 
             </div>
+
+
+
+
+
 
 
 

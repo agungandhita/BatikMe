@@ -4,8 +4,8 @@
     <div
         class="relative flex flex-col flex-1 min-h-0 pt-0 bg-white border-r border-gray-200 dark:bg-gray-800 dark:border-gray-700">
         <div class="flex flex-col flex-1 pb-4 overflow-y-auto">
-            <div class="flex-1 px-3 space-y-1 bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
-                <ul class="pb-1 space-y-1">
+            <div class="flex-1 px-3 space-y-1 pt-8 lg:pt-2 bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
+                <ul class="pb-1 space-y-2">
                     <li>
                         <form action="#" method="GET" class="lg:hidden">
                             <label for="mobile-search" class="sr-only">Search</label>

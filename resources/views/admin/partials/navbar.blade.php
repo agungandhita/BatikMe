@@ -8,7 +8,7 @@
         </button>
         <a href="" class="flex ml-2 md:mr-24 gap-x-2">
           <img class="h-14 w-14 object-cover" src="{{ asset('img/o.png') }}" alt="">
-          <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white uppercase">Admin</span>
+          <span class="self-center hidden md:block text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white uppercase">Admin</span>
         </a>
         <form action="#" method="GET" class="hidden lg:block lg:pl-3.5">
           <label for="topbar-search" class="sr-only">Search</label>
