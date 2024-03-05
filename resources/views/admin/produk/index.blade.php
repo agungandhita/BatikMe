@@ -473,7 +473,7 @@
                             <option value="XXL">XXL</option>
                         </select>
                     </div>
-                    <div class="bottom-0 left-0 flex justify-center w-full pb-4 space-x-4 md:px-4 md:relative">
+                    <div class="bottom-0 left-0 flex justify-center w-full pb-12 space-x-4 md:px-4 md:relative">
                         <button type="submit"
                             class="text-white w-full justify-center bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                             Add product
