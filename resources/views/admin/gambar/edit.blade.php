@@ -20,7 +20,7 @@
 
 
 
-                    <img src="{{ asset('produk/' . $item->image) }}" class="object-cover h-40 " alt="">
+                    <img src="{{ asset('produk/' . $item->image) }}" class="object-cover h-40" alt="">
 
                     <div class="flex gap-x-2 justify-center">
 
