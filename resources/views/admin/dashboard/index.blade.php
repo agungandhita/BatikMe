@@ -114,7 +114,7 @@
             {{-- card-3 end --}}
         </div>
 
-        <div class="w-full max-w-full mb-4 ">
+        {{-- <div class="w-full max-w-full mb-4 ">
             <div
                 class="border-black/12.5 shadow-soft-xl relative z-20 shadow-best4 flex w-full flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border dark:bg-gray-800">
                 <div class="border-black/12.5 mb-0 rounded-t-2xl border-b-0 border-solid bg-[#FF8400] p-2 pb-0">
@@ -130,6 +130,6 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
     @endsection
