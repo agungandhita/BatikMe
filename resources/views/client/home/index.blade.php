@@ -112,7 +112,7 @@
             </button>
         </div>
 
-        <div class="px-8 grid grid-cols-2 md:grid-cols-4 gap-x-3  mb-20">
+        <div class="px-8 grid grid-cols-2 md:grid-cols-4 gap-x-3 mb-20 gap-y-3">
             
             <div class="flex flex-col items-center justify-center w-full max-w-sm mx-auto">
                 <div class="h-44 rounded-lg" >
