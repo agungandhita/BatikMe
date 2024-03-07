@@ -60,41 +60,53 @@
             </a>
         </div>
 
-        <div class="mt-2 md:mt-44">
+        <div id="animated-segment" class="mt-2 md:mt-44">
             <P class="text-black font-semibold text-xl md:text-3xl">
                 Rekomendasi untuk anda
             </P>
         </div>
 
-        <div class="grid grid-cols-3 md:flex justify-between gap-x-5 px-8 mb-4 mt-3">
-            <button class="w-35 md:w-60 hover:bg-blue-400 hover:border rounded-lg my-4">
-                <p class="text-md md:text-xl px-2 py-2 font-semibold shadow-best text-black rounded-lg bg-blend-overlay hover hover:text-white">
+        <div id="animated-segment" class="hidden animate__animated grid grid-cols-3 md:flex justify-between gap-x-5 px-8 mb-4 mt-3">
+            <button
+                class="w-35 md:w-60 hover:bg-blue-400 hover:border rounded-lg my-4 animate-fade-up animate-duration-[900ms] animate-delay-200">
+                <p
+                    class="text-md md:text-xl px-2 py-2 font-semibold shadow-best text-black rounded-lg bg-blend-overlay hover hover:text-white">
                     Laki-Laki
                 </p>
             </button>
-            <button class="w-35 md:w-60 hover:bg-blue-400 hover:border rounded-lg my-4">
-                <p class="text-md md:text-xl px-2 py-2 font-semibold shadow-best text-black rounded-lg bg-blend-overlay hover hover:text-white">
+            <button
+                class="w-35 md:w-60 hover:bg-blue-400 hover:border rounded-lg my-4 animate-fade-up animate-duration-[900ms] animate-delay-200">
+                <p
+                    class="text-md md:text-xl px-2 py-2 font-semibold shadow-best text-black rounded-lg bg-blend-overlay hover hover:text-white">
                     Laki-Laki
                 </p>
             </button>
-            <button class="w-35 md:w-60 hover:bg-blue-400 hover:border rounded-lg my-4">
-                <p class="text-md md:text-xl px-2 py-2 font-semibold shadow-best text-black rounded-lg bg-blend-overlay hover hover:text-white">
+            <button
+                class="w-35 md:w-60 hover:bg-blue-400 hover:border rounded-lg my-4 animate-fade-up animate-duration-[900ms] animate-delay-200">
+                <p
+                    class="text-md md:text-xl px-2 py-2 font-semibold shadow-best text-black rounded-lg bg-blend-overlay hover hover:text-white">
                     Laki-Laki
                 </p>
             </button>
-            <button class="w-35 md:w-60 hover:bg-blue-400 hover:border rounded-lg my-4 animate-fade-up animate-duration-[900ms] animate-delay-200">
-                <p class="text-md md:text-xl px-2 py-2 font-semibold shadow-best text-black rounded-lg bg-blend-overlay hover hover:text-white">
+            <button
+                class="w-35 md:w-60 hover:bg-blue-400 hover:border rounded-lg my-4 animate-fade-up animate-duration-[900ms] animate-delay-200">
+                <p
+                    class="text-md md:text-xl px-2 py-2 font-semibold shadow-best text-black rounded-lg bg-blend-overlay hover hover:text-white">
                     Laki-Laki
                 </p>
             </button>
-            <button class="w-35 md:w-60 hover:bg-blue-400 hover:border rounded-lg my-4">
-                <p class="text-md md:text-xl px-2 py-2 font-semibold shadow-best text-black rounded-lg bg-blend-overlay hover hover:text-white">
+            <button
+                class="w-35 md:w-60 hover:bg-blue-400 hover:border rounded-lg my-4 animate-fade-up animate-duration-[900ms] animate-delay-200">
+                <p
+                    class="text-md md:text-xl px-2 py-2 font-semibold shadow-best text-black rounded-lg bg-blend-overlay hover hover:text-white">
                     Laki-Laki
                 </p>
             </button>
 
-            <button class="w-35 md:w-60 hover:bg-blue-400 hover:border rounded-lg my-4">
-                <p class="text-md md:text-xl px-2 py-2 font-semibold shadow-best text-black rounded-lg bg-blend-overlay hover hover:text-white">
+            <button
+                class="w-35 md:w-60 hover:bg-blue-400 hover:border rounded-lg my-4 animate-fade-up animate-duration-[900ms] animate-delay-200">
+                <p
+                    class="text-md md:text-xl px-2 py-2 font-semibold shadow-best text-black rounded-lg bg-blend-overlay hover hover:text-white">
                     Laki-Laki
                 </p>
             </button>
@@ -103,15 +115,33 @@
         <div class="px-8 grid grid-cols-2">
 
             <div class="w-40 h-40">
-                <img src="{{ asset ('img/dd.jpeg') }}" alt="">
+                <img src="{{ asset('img/dd.jpeg') }}" alt="">
             </div>
 
             <div class="w-40 h-40">
-                <img src="{{ asset ('img/dd.jpeg') }}" class="object-contain" alt="">
+                <img src="{{ asset('img/dd.jpeg') }}" class="object-contain" alt="">
             </div>
-           
+
         </div>
 
 
     </div>
 @endsection
+
+
+@push('script')
+    <script>
+        const animatedSegment = document.getElementById('animated-segment');
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animatedSegment.classList.add('animate__fadeInUp');
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+
+        observer.observe(animatedSegment);
+    </script>
+@endpush
