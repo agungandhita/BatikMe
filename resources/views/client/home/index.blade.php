@@ -4,7 +4,7 @@
 
 @section('container')
     <div class="text-center mt-2">
-        <h1 class="font-bold text-md md:text-3xl">Cari Sesuai Keinginan Anda</h1>
+        <h1 class="font-bold text-md md:text-3xl text-black">Cari Sesuai Keinginan Anda</h1>
         <h5 class="text-xs md:text-xl font-serif">disini kami menyediakan berbagai macam kategori seperti di bawah ini</h5>
     </div>
 
