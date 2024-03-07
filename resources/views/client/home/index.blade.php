@@ -66,9 +66,9 @@
             </P>
         </div>
 
-        <div class="grid grid-cols-3 md:flex justify-between  gap-x-6 container mb-4 mt-3">
+        <div class="grid grid-cols-3 md:flex justify-between px-8 gap-x-6 mb-4 mt-3">
             <button class="w-35 md:w-60 hover:bg-blue-400 hover:border rounded-lg my-4">
-                <p class="text-xs md:text-xl px-2 py-2 font-semibold shadow-best rounded-lg bg-blend-overlay hover hover:text-white">
+                <p class="text-md md:text-xl px-2 py-2 font-semibold shadow-best rounded-lg bg-blend-overlay hover hover:text-white">
                     Laki-Laki
                 </p>
             </button>
