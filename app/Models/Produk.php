@@ -30,4 +30,8 @@ class Produk extends Model
     {
         return $this->belongsTo(Category::class,'kategori_id','kategori_id');
     }
+
+    public function size(){
+        return $this->hasMany( Size::class, 'produk_id', 'produk_id' );
+    }
 }

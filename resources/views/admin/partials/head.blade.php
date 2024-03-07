@@ -9,10 +9,11 @@
     <link rel="stylesheet" href="{{ asset('src/style.css') }}">
     <link rel="stylesheet" href="{{ asset('froala/css/froala_editor.pkgd.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/listFroala.css') }}">
-    <link href='https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css' rel='stylesheet'
-        type='text/css' />
+    <link href='https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css'
+        rel='stylesheet'type='text/css' />
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
-{{-- 
+    {{-- 
     <script src="https://cdn.tiny.cloud/1/ielnd7tc2i28gvh8rlvl4bqar9l3mh2hdj9vzf9vfvpvp7xm/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
         tinymce.init({
@@ -21,6 +22,12 @@
             toolbar: 'undo redo | blocks | bold italic | alignleft aligncenter alignright | indent outdent | bullist numlist | code | table'
         });
     </script> --}}
+
+    <script>
+        $(document).ready(function() {
+            $('.js-example-basic-multiple').select2();
+        });
+    </script>
 
     <script>
         // On page load or when changing themes, best to add inline in `head` to avoid FOUC

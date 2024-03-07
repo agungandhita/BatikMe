@@ -138,8 +138,7 @@
                                         <td
                                             class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-white">
                                             {{ $user->size }}</td>
-                                        <td
-                                            class="p-4 text-base font-medium text-gray-900 line-clamp-2 dark:text-white">
+                                        <td class="p-4 text-base font-medium text-gray-900 line-clamp-2 dark:text-white">
                                             {{ $user->deskripsi }}</td>
                                         <td
                                             class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">
@@ -178,8 +177,9 @@
 
 
 
-                                            <button class="p-2 rounded-lg bg-red-600 hover:bg-red-700 font-semibold inline-block text-white"
-                                            onclick="delete_{{ $no }}.showModal()">Hapus</button>
+                                            <button
+                                                class="p-2 rounded-lg bg-red-600 hover:bg-red-700 font-semibold inline-block text-white"
+                                                onclick="delete_{{ $no }}.showModal()">Hapus</button>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -267,7 +267,7 @@
                     enctype="multipart/form-data">
                     @csrf
                     <div class="space-y-4">
-                     
+
                         <div>
                             <label for="name"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama
@@ -338,30 +338,28 @@
         @endforeach
 
 
-    @foreach ($data as $no => $delete)
-    
-    <dialog id="delete_{{ $no }}" class="modal modal-bottom sm:modal-middle ">
-        <form action="/admin/produk/delete/{{ $delete->produk_id }}" method="POST"
-                class="modal-box bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
-            @csrf
-    
-                <p class="py-4">Apakah kamu yakin mau menghapus data ini ?</p>
-                <div class="modal-action">
-                    <label for="closeDelete"
-                        class="btn bg-red-600 hover:bg-red-700 border-none">Tidak</label>
-                    <button class="btn bg-lime-600 hover:bg-lime-700 border-none">Hapus</button>
-                </div>
-            </form>
-            <form method="dialog" class="modal-box bg-white dark:bg-gray-700 text-gray-900 dark:text-white hidden">
-                <p class="py-4">Apakah kamu yakin mau menghapus data ini ?</p>
-                <div class="modal-action">
-                    <!-- if there is a button in form, it will close the modal -->
-                    <button class="btn" id="closeDelete">Close</button>
-                </div>
-            </form>
-        </dialog>
-    @endforeach
-    
+        @foreach ($data as $no => $delete)
+            <dialog id="delete_{{ $no }}" class="modal modal-bottom sm:modal-middle ">
+                <form action="/admin/produk/delete/{{ $delete->produk_id }}" method="POST"
+                    class="modal-box bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
+                    @csrf
+
+                    <p class="py-4">Apakah kamu yakin mau menghapus data ini ?</p>
+                    <div class="modal-action">
+                        <label for="closeDelete" class="btn bg-red-600 hover:bg-red-700 border-none">Tidak</label>
+                        <button class="btn bg-lime-600 hover:bg-lime-700 border-none">Hapus</button>
+                    </div>
+                </form>
+                <form method="dialog" class="modal-box bg-white dark:bg-gray-700 text-gray-900 dark:text-white hidden">
+                    <p class="py-4">Apakah kamu yakin mau menghapus data ini ?</p>
+                    <div class="modal-action">
+                        <!-- if there is a button in form, it will close the modal -->
+                        <button class="btn" id="closeDelete">Close</button>
+                    </div>
+                </form>
+            </dialog>
+        @endforeach
+
 
         <!-- Add Product Drawer -->
 
@@ -389,7 +387,8 @@
                 <div class="space-y-4">
                     <div class="">
 
-                        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white @error('image')
+                        <label
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white @error('image')
                         peer
                     @enderror"
                             for="file_input">Upload
@@ -397,7 +396,7 @@
                         <input
                             class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                             id="file_input" type="file" name="image[]" multiple>
-                            @error('image')
+                        @error('image')
                             <p class="peer-invalid:visible text-red-700 font-light">
                                 {{ $message }}
                             </p>
@@ -438,7 +437,8 @@
                             @
 
                             @foreach ($kategori as $cek)
-                                <option class="uppercase" value="{{ $cek->kategori_id }}">{{ $cek->nama_kategori }}</option>
+                                <option class="uppercase" value="{{ $cek->kategori_id }}">{{ $cek->nama_kategori }}
+                                </option>
                             @endforeach
 
 
@@ -461,17 +461,19 @@
                             placeholder="Enter event description here"></textarea>
                     </div>
 
-                    <div>
-                        <label for="discount-create"
+                    <div >
+                        <label for="select2"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Size</label>
-                        <select id="discount-create" name="size"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                            <option selected="">No</option>
+                        <select name="size[]" multiple="multiple" id="select2"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500
+                            select2">
                             <option value="S">S</option>
                             <option value="M">M</option>
                             <option value="XL">XL</option>
                             <option value="XXL">XXL</option>
                         </select>
+
+
                     </div>
                     <div class="bottom-0 left-0 flex justify-center w-full pb-12 space-x-4 md:px-4 md:relative">
                         <button type="submit"
@@ -495,3 +497,11 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+        $(document).ready(function() {
+            $('.select2').select2();
+        });
+    </script>
+@endpush

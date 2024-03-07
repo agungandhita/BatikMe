@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Models\Size;
 use App\Models\Produk;
 use App\Models\Category;
 use App\Models\ProdukImage;
@@ -27,7 +28,7 @@ class ProdukController extends Controller
      */
     public function index()
     {
-        $data = Produk::with(['kategori','produkImage'])->latest();
+        $data = Produk::with(['kategori', 'produkImage'])->latest();
         $item = ProdukImage::with('produk')->latest();
 
         $kategori = Category::where('kategori_id', request('jenis'))->first();
@@ -69,7 +70,7 @@ class ProdukController extends Controller
             'nama_produk' => 'required|max:255',
             'deskripsi' => 'required',
             'model' => 'required',
-            'size' => 'required',
+            'size.*' => 'required',
             'kategori' => 'required',
             'image.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'harga' => 'required',
@@ -77,6 +78,7 @@ class ProdukController extends Controller
         ]);
 
         $image = array();
+        $size = array();
         $no = 1;
 
 
@@ -95,7 +97,6 @@ class ProdukController extends Controller
             'model' => $cek['model'],
             'size' => $cek['size'],
             'harga' => $cek['harga'],
-            'qty' => $cek['qty'],
             'user_created' => Auth::id(),
             'created_at' => now(),
             'updated_at' => null
@@ -111,6 +112,18 @@ class ProdukController extends Controller
                 'updated_at' => null
 
             ]);
+
+            foreach ($size as $ukuran) {
+                Size::create([
+                    'produk_id' => $produk->produk_id,
+                    'size' => $cek,
+                    'user_created' => Auth::id(),
+                    'created_at' => now(),
+                    'updated_at' => null
+
+
+                ]);
+            }
         }
 
 
@@ -157,7 +170,7 @@ class ProdukController extends Controller
             'qty' => 'required'
         ]);
 
-    
+
         Produk::find($id)->update([
             'nama_produk' => $cek['nama_produk'],
             'deskripsi' => $cek['deskripsi'],
@@ -190,7 +203,7 @@ class ProdukController extends Controller
 
         ]);
 
-        $update = Produk::where('produk_id',$id)->update([
+        $update = Produk::where('produk_id', $id)->update([
             'user_deleted' => auth()->user()->user_id,
             'deleted_at' => now(),
             'deleted' => true,
@@ -200,11 +213,11 @@ class ProdukController extends Controller
         if ($update) {
             $delete = ProdukImage::where('produk_id', $id)->delete();
             if ($delete) {
-            foreach($image as $cek){
+                foreach ($image as $cek) {
 
-                $storage = public_path('produk/' . $cek->image);
-                unlink($storage);
-            }
+                    $storage = public_path('produk/' . $cek->image);
+                    unlink($storage);
+                }
             }
         }
 
