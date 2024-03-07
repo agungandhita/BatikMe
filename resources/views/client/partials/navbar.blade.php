@@ -1,4 +1,4 @@
-<div class="w-full mx-auto bg-white border-b 2xl:max-w-7xl">
+<div class="w-full mx-auto bg-white border-b 2xl:max-w-7xl shadow-best mb-1">
     <div x-data="{ open: false }"
         class="relative flex flex-col w-full p-5 mx-auto bg-white md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
         <div class="flex flex-row items-center justify-between lg:justify-start">
@@ -21,10 +21,10 @@
         <nav :class="{ 'flex': open, 'hidden': !open }"
             class="flex-col items-center flex-grow hidden md:pb-0 md:flex md:justify-end md:flex-row">
             <a class="px-2 py-2 text-sm text-gray-500 lg:px-6 md:px-3 hover:text-blue-600 lg:ml-auto" href="#">
-                Home
+                Beranda
             </a>
             <a class="px-2 py-2 text-sm text-gray-500 lg:px-6 md:px-3 hover:text-blue-600" href="#">
-                Belanja
+                Produk
             </a>
             <a class="px-2 py-2 text-sm text-gray-500 lg:px-6 md:px-3 hover:text-blue-600" href="#">
                 Tentang

@@ -61,7 +61,7 @@
         </div>
 
         <div class="mt-2 md:mt-44">
-            <P>
+            <P class="text-black font-semibold text-3xl">
                 Rekomendasi untuk anda
             </P>
         </div>
