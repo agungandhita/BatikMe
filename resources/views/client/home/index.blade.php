@@ -9,7 +9,7 @@
     </div>
 
 
-    <div class="md:grid md:grid-cols-4 w-full gap-x-5 pt-4 border ">
+    <div class="grid grid-cols-2 md:grid md:grid-cols-4 w-full gap-x-5 pt-4 md:pl-8 justify-center items-center">
 
 
         <a href="#" class="h-60">
@@ -23,10 +23,21 @@
                 </div>
             </div>
         </a>
-
         <a href="#" class="h-60">
-            <div class="bg-white border border-gray-200 rounded-lg shadow-best3 ">
-                <img class  ="rounded-t-lg" src="{{ asset('img/aa.jpeg') }}" alt="" />
+            <div class="">
+                <img class  ="h-[60%]" src="{{ asset('img/aa.jpeg') }}" alt="" />
+                <div class="p-2">
+
+                    <p class="text-md mb-3 font-bold md:text-xl text-gray-700 text-center">women</p>
+
+
+                </div>
+            </div>
+        </a>
+
+         <a href="#" class="h-60">
+            <div class="">
+                <img class  ="h-[60%]" src="{{ asset('img/aa.jpeg') }}" alt="" />
                 <div class="p-2">
 
                     <p class="text-md mb-3 font-bold md:text-xl text-gray-700 text-center">women</p>
@@ -37,20 +48,8 @@
         </a>
 
         <a href="#" class="h-60">
-            <div class="bg-white border border-gray-200 rounded-lg shadow-best3 ">
-                <img class  ="rounded-t-lg" src="{{ asset('img/aa.jpeg') }}" alt="" />
-                <div class="p-2">
-
-                    <p class="text-md mb-3 font-bold md:text-xl text-gray-700 text-center">women</p>
-
-
-                </div>
-            </div>
-        </a>
-
-        <a href="#" class="h-60">
-            <div class="bg-white border border-gray-200 rounded-lg shadow-best3 ">
-                <img class  ="rounded-t-lg" src="{{ asset('img/aa.jpeg') }}" alt="" />
+            <div class="">
+                <img class  ="h-[60%]" src="{{ asset('img/aa.jpeg') }}" alt="" />
                 <div class="p-2">
 
                     <p class="text-md mb-3 font-bold md:text-xl text-gray-700 text-center">women</p>
