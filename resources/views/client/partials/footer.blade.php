@@ -1,4 +1,4 @@
-<footer class="footer p-10 bg-base-200 text-black border-t-2">
+<footer class="footer p-10 bg-white text-black border-t-2">
     <aside>
      <img src="{{ asset ('img/w.png') }}" class="w-40 h-20" alt="">
       <p class="text-sm md:text-xl text-black">BatikMe.ID.<br>'preserving the art of ikat weaving since 1989'</p>
