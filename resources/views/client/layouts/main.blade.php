@@ -4,6 +4,8 @@
 
 @include('client.partials.navbar')
 
+@include('client.partials.carousel')
+
 @yield('container')
 
 

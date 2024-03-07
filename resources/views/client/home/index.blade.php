@@ -3,51 +3,61 @@
 
 
 @section('container')
-    <div class="relative w-full lg:h-screen">
+    <div class="text-center mt-2">
+        <h1 class="font-bold text-md md:text-3xl">Cari Sesuai Keinginan Anda</h1>
+        <h5 class="text-xs md:text-xl font-serif">disini kami menyediakan berbagai macam kategori seperti di bawah ini</h5>
+    </div>
 
 
-        <div class="relative float-left w-full">
-            <div class="bg-black/40 absolute inset-0"></div>
-            <img src="{{ asset('img/cek.jpg') }}" class="block w-full h-screen object-cover" alt="Wild Landscape" />
+    <div class="flex overflow-scroll md:grid md:grid-cols-4 w-full gap-x-5 pt-4 border ">
 
-            <div
-                class="absolute rounded-xl right-12 inset-x-[60%] top-[50%] translate-y-[-70%] p-8 bg-[#FFF3E3] md:block border border-white">
-                <h1 class='text-sm lg:text-xl font-sbold'>SIEBAT PARADILA</h1>
-                <h1 class='text-sm lg:text-2xl font-bold  text-[#B88E2F] mt-1'>Be quick we only have a limited supply; once
-                    they’re gone, they’re gone! </h1>
 
-                <p class="pt-4">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde,
-                </p>
-                <div class="mt-4">
-                    <a href="" class="text-lg font-semibold  p-2 bg-[#B88E2F] text-white rounded-md">
-                        Beli Sekarang
-                    </a>
+        <a href="#" class="h-60">
+            <div class="">
+                <img class  ="h-[60%]" src="{{ asset('img/aa.jpeg') }}" alt="" />
+                <div class="p-2">
+
+                    <p class="text-md mb-3 font-bold md:text-xl text-gray-700 text-center">women</p>
+
+
                 </div>
             </div>
-        </div>
-    </div>
+        </a>
 
-    <div class="text-center">
-        <h1 class="pt-8 font-bold text-3xl">Browse The Range</h1>
-        <h5 class="text-xl font-serif">Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores</h5>
-    </div>
+        <a href="#" class="h-60">
+            <div class="bg-white border border-gray-200 rounded-lg shadow-best3 ">
+                <img class  ="rounded-t-lg" src="{{ asset('img/aa.jpeg') }}" alt="" />
+                <div class="p-2">
 
-
-    <div class="grid grid-cols-3 w-full  container gap-x-5 object-cover pt-4">
-        <div class="">
-            <img src="{{ asset('img/aa.jpeg') }}" alt="" class="mx-auto mb-4">
-            <h1 class="text-center">
-                Baju
-            </h1>
-        </div>
-        <div class="">
-            <img src="{{ asset('img/cek.jpg') }}" alt="">
-        </div>
-        <div class="">
-            <img src="{{ asset('img/cek.jpg') }}" alt="">
-        </div>
+                    <p class="text-md mb-3 font-bold md:text-xl text-gray-700 text-center">women</p>
 
 
+                </div>
+            </div>
+        </a>
+
+        <a href="#" class="h-60">
+            <div class="bg-white border border-gray-200 rounded-lg shadow-best3 ">
+                <img class  ="rounded-t-lg" src="{{ asset('img/aa.jpeg') }}" alt="" />
+                <div class="p-2">
+
+                    <p class="text-md mb-3 font-bold md:text-xl text-gray-700 text-center">women</p>
+
+
+                </div>
+            </div>
+        </a>
+
+        <a href="#" class="h-60">
+            <div class="bg-white border border-gray-200 rounded-lg shadow-best3 ">
+                <img class  ="rounded-t-lg" src="{{ asset('img/aa.jpeg') }}" alt="" />
+                <div class="p-2">
+
+                    <p class="text-md mb-3 font-bold md:text-xl text-gray-700 text-center">women</p>
+
+
+                </div>
+            </div>
+        </a>
     </div>
 @endsection

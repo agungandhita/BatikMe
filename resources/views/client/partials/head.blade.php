@@ -17,4 +17,4 @@
     </script>
     <title>Document</title>
 </head>
-<body class="bg-white dark:bg-gray-900">
+<body class="bg-white">
