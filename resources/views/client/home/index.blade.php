@@ -115,11 +115,11 @@
         <div class="px-8 grid grid-cols-2 md:grid-cols-4 gap-x-3 border mb-40">
             
             <div class="flex flex-col items-center justify-center w-full max-w-sm mx-auto">
-                <div class="h-24 bg-gray-300 bg-center bg-cover rounded-lg " >
-                    <img src="{{ asset ('img/dd.jpeg') }}" alt="">
+                <div class="h-44 rounded-lg border border-red-600" >
+                    <img src="{{ asset ('img/dd.jpeg') }}" class="">
                 </div>
             
-                <div class="w-30 mt-10 md:mt-20 overflow-hidden bg-white rounded-lg shadow-lg md:w-64 dark:bg-gray-800">
+                <div class="w-30 -mt-10 md:mt-24 overflow-hidden bg-white rounded-lg shadow-lg md:w-64 dark:bg-gray-800">
                     <h3 class="py-2 font-bold text-sm tracking-wide text-center text-gray-800 uppercase dark:text-white">Nike Revolt</h3>
             
                     <div class="flex items-center justify-between gap-x-5 px-3 py-2 bg-gray-200">
@@ -143,6 +143,8 @@
                     </div>
                 </div>
             </div>
+
+            
 
         </div>
 
