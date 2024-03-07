@@ -5,11 +5,11 @@
 @section('container')
     <div class="text-center mt-2">
         <h1 class="font-bold text-md md:text-3xl text-black">Cari Sesuai Keinginan Anda</h1>
-        <h5 class="text-xs md:text-xl font-serif">disini kami menyediakan berbagai macam kategori seperti di bawah ini</h5>
+        <h5 class="text-xs md:text-xl font-serif text-black">disini kami menyediakan berbagai macam kategori seperti di bawah ini</h5>
     </div>
 
 
-    <div class="flex overflow-scroll md:grid md:grid-cols-4 w-full gap-x-5 pt-4 border ">
+    <div class="md:grid md:grid-cols-4 w-full gap-x-5 pt-4 border ">
 
 
         <a href="#" class="h-60">
