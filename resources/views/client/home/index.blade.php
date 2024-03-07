@@ -82,7 +82,7 @@
                     Laki-Laki
                 </p>
             </button>
-            <button class="w-35 md:w-60 hover:bg-blue-400 hover:border rounded-lg my-4">
+            <button class="w-35 md:w-60 hover:bg-blue-400 hover:border rounded-lg my-4 animate-fade-up animate-duration-[900ms] animate-delay-200">
                 <p class="text-md md:text-xl px-2 py-2 font-semibold shadow-best text-black rounded-lg bg-blend-overlay hover hover:text-white">
                     Laki-Laki
                 </p>
@@ -100,19 +100,16 @@
             </button>
         </div>
 
-        <div class="container">
+        <div class="px-8 grid grid-cols-2">
 
-            <div class="card card-compact w-96 bg-base-100 shadow-xl">
-                <figure><img src="https://daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" />
-                </figure>
-                <div class="card-body">
-                    <h2 class="card-title">Shoes!</h2>
-                    <p>If a dog chews shoes whose shoes does he choose?</p>
-                    <div class="card-actions justify-end">
-                        <button class="btn btn-primary">Buy Now</button>
-                    </div>
-                </div>
+            <div class="w-40 h-40">
+                <img src="{{ asset ('img/dd.jpeg') }}" alt="">
             </div>
+
+            <div class="w-40 h-40">
+                <img src="{{ asset ('img/dd.jpeg') }}" class="object-contain" alt="">
+            </div>
+           
         </div>
 
 

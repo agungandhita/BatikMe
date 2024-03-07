@@ -142,6 +142,7 @@ module.exports = {
     require('taos/plugin'),
     require("daisyui"),
     require('@tailwindcss/line-clamp'),
+    require('tailwindcss-animated'),
 
     
 

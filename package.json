@@ -21,6 +21,7 @@
         "flowbite": "^1.8.1",
         "froala-editor": "^4.1.4",
         "preline": "^1.9.0",
+        "tailwindcss-animated": "^1.0.1",
         "taos": "^1.0.5",
         "tinymce": "^6.8.3",
         "tw-elements": "^1.0.0"
