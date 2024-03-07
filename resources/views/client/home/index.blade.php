@@ -66,7 +66,7 @@
             </P>
         </div>
 
-        <div id="animated-segment" class="hidden animate__animated grid grid-cols-3 md:flex justify-between gap-x-5 px-8 mb-4 mt-3">
+        <div class="grid grid-cols-3 md:flex justify-between gap-x-5 px-8 mb-4 mt-3">
             <button
                 class="w-35 md:w-60 hover:bg-blue-400 hover:border rounded-lg my-4 animate-fade-up animate-duration-[900ms] animate-delay-200">
                 <p
@@ -128,20 +128,3 @@
     </div>
 @endsection
 
-
-@push('script')
-    <script>
-        const animatedSegment = document.getElementById('animated-segment');
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animatedSegment.classList.add('animate__fadeInUp');
-                    observer.unobserve(entry.target);
-                }
-            });
-        });
-
-        observer.observe(animatedSegment);
-    </script>
-@endpush
