@@ -115,7 +115,7 @@
         <div class="px-8 grid grid-cols-2 md:grid-cols-4 gap-x-3 border mb-40">
             
             <div class="flex flex-col items-center justify-center w-full max-w-sm mx-auto">
-                <div class="h-44 bg-gray-300 bg-center bg-cover rounded-lg " >
+                <div class="h-56 bg-gray-300 bg-center bg-cover rounded-lg " >
                     <img src="{{ asset ('img/dd.jpeg') }}" alt="">
                 </div>
             
