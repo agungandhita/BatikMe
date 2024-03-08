@@ -4,7 +4,6 @@ module.exports = {
     "./resources/**/*.blade.php",
     "./resources/**/*.js",
     "./resources/**/*.vue",
-    './node_modules/tw-elements/dist/js/**/*.js',
     './public/icons/*.css',
     "./node_modules/flowbite/**/*.js",
     "transform: (content) => content.replace(/taos:/g, '')"
