@@ -10,11 +10,11 @@ class Size extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $table = "produk_images";
-    protected $primaryKey = "gambarproduk_id";
+    protected $table = "sizes";
+    protected $primaryKey = "size_id";
 
     protected $guarded =[
-        'gambarproduk_id'
+        'size_id'
     ];
 
     public function produk(){

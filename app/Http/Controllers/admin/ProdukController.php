@@ -74,13 +74,10 @@ class ProdukController extends Controller
             'kategori' => 'required',
             'image.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'harga' => 'required',
-            'qty' => 'required'
         ]);
 
         $image = array();
-        $size = array();
         $no = 1;
-
 
         if ($files = $request->file('image')) {
             foreach ($files as $file) {
@@ -90,42 +87,41 @@ class ProdukController extends Controller
                 $image[] = $name;
             }
         }
-        $produk = Produk::create([
-            'nama_produk' => $cek['nama_produk'],
-            'kategori_id' => $cek['kategori'],
-            'deskripsi' => $cek['deskripsi'],
-            'model' => $cek['model'],
-            'size' => $cek['size'],
-            'harga' => $cek['harga'],
-            'user_created' => Auth::id(),
-            'created_at' => now(),
-            'updated_at' => null
-        ]);
-
-
-        foreach ($image as $gambar) {
-            ProdukImage::create([
-                'produk_id' => $produk->produk_id,
-                'image' => $gambar,
+        if ($image !== null) {
+            $produk = Produk::create([
+                'nama_produk' => $request->nama_produk,
+                'kategori_id' => $cek['kategori'],
+                'deskripsi' => $request->deskripsi,
+                'model' => $request->model,
+                'harga' => $request->harga,
                 'user_created' => Auth::id(),
                 'created_at' => now(),
                 'updated_at' => null
-
             ]);
+        }
 
-            foreach ($size as $ukuran) {
+        if ($produk) {
+            foreach ($request->size as $ukuran) {
                 Size::create([
                     'produk_id' => $produk->produk_id,
-                    'size' => $cek,
+                    'size' => $ukuran,
                     'user_created' => Auth::id(),
                     'created_at' => now(),
                     'updated_at' => null
-
-
                 ]);
             }
-        }
 
+            foreach ($image as $gambar) {
+                ProdukImage::create([
+                    'produk_id' => $produk->produk_id,
+                    'image' => $gambar,
+                    'user_created' => Auth::id(),
+                    'created_at' => now(),
+                    'updated_at' => null
+                ]);
+            }
+
+        }
 
 
         return redirect('/admin/produk')->with('success', 'successful additional to the Produk');

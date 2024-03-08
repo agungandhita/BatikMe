@@ -99,10 +99,7 @@
                                         class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
                                         deskripsi
                                     </th>
-                                    <th scope="col"
-                                        class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
-                                        qty
-                                    </th>
+                                   
                                     <th scope="col"
                                         class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
                                         harga
@@ -117,7 +114,7 @@
                                 @foreach ($data as $no => $user)
                                     <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
 
-                                        <td class="flex items-center p-4 mr-12 space-x-6 whitespace-nowrap">
+                                        <td class="flex items-center p-4 mr-12 space-x-6 whitespace-nowrap justify-center mt-12">
                                             <img class="w-10 h-10"
                                                 src="{{ asset('produk/' . $user->produkImage[0]->image) }}">
 
@@ -137,12 +134,16 @@
 
                                         <td
                                             class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-white">
-                                            {{ $user->size }}</td>
+                                            @foreach($user->size as $kontol)
+                                            <div class="p-1 rounded-md bg-gray-400 m-1 flex justify-between">
+                                                <h3 class="">{{ $kontol->size }}
+                                                </h3>
+                                            </div>
+                                            @endforeach
+                                        </td>
                                         <td class="p-4 text-base font-medium text-gray-900 line-clamp-2 dark:text-white">
                                             {{ $user->deskripsi }}</td>
-                                        <td
-                                            class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                            {{ $user->qty }}</td>
+                                        
                                         <td
                                             class="p-4 text-base font-normal text-gray-900 whitespace-nowrap dark:text-white">
                                             <div class="flex items-center">
@@ -285,14 +286,7 @@
                                 placeholder="Type product name" required value="{{ $produk->harga }}">
                         </div>
 
-                        <div>
-                            <label for="price"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">QTY</label>
-                            <input type="number" name="qty" id="qty"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                placeholder="Rp2999" required value="{{ $produk->qty }}">
-                        </div>
-
+                        
                         <div>
                             <label for="description"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
@@ -420,13 +414,6 @@
                     </div>
 
 
-                    <div>
-                        <label for="price"
-                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">QTY</label>
-                        <input type="number" name="qty" id="qty"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                            placeholder="Rp2999" required="">
-                    </div>
 
                     <div>
                         <label for="kategori"

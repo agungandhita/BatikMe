@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('nama_produk');
             $table->text('deskripsi');
             $table->text('model');
-            $table->text('size');
             $table->integer('harga');
             $table->integer('user_created')->nullable();
             $table->timestamps();
