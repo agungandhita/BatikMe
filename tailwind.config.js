@@ -138,7 +138,6 @@ module.exports = {
   },
   plugins: [
     require('flowbite/plugin'),
-    require("tw-elements/dist/plugin.cjs"),
     require('taos/plugin'),
     require("daisyui"),
     require('@tailwindcss/line-clamp'),
