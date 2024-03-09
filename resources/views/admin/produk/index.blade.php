@@ -133,10 +133,10 @@
                                             {{ $user->kategori->nama_kategori }}</td>
 
                                         <td
-                                            class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-white">
-                                            @foreach($user->size as $kontol)
-                                            <div class="p-1 rounded-md bg-gray-400 m-1 flex justify-between">
-                                                <h3 class="">{{ $kontol->size }}
+                                            class="p-4 border overflow-hidden text-base font-normal text-gray-500 truncate dark:text-white">
+                                            @foreach($user->size as $ukuran)
+                                            <div class="border p-1 rounded-md bg-gray-400 m-1 flex justify-between">
+                                                <h3 class="">{{ $ukuran->size }}
                                                 </h3>
                                             </div>
                                             @endforeach
