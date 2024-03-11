@@ -178,11 +178,9 @@
 
         </div>
 
-        <div class="border grid grid-cols-2 px-4">
+        <div class="gap-y-2 md:flex px-8 gap-x-4">
 
-            <p class="text-left ">
-                Mari lestarikan budaya batik Indonesia dengan berbelanja di BatikMe.Id. Dapatkan batik berkualitas tinggi dengan harga terbaik dan dukunglah para pengrajin batik lokal.
-            </p>
+            @include('client.home._berita')
             
         </div>
 

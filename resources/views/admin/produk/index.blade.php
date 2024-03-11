@@ -91,8 +91,8 @@
                                     </th>
 
                                     <th scope="col"
-                                        class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
-                                        Size
+                                        class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400 w-60">
+                                        Size dan stock
                                     </th>
 
                                     <th scope="col"
@@ -110,12 +110,12 @@
                                     </th>
                                 </tr>
                             </thead>
-                            <tbody class="bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
+                            <tbody class=" bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
                                 @foreach ($data as $no => $user)
                                     <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
 
-                                        <td class="flex items-center p-4 mr-12 space-x-6 whitespace-nowrap justify-center mt-12">
-                                            <img class="w-10 h-10"
+                                        <td class="flex items-center p-4 space-x-6 whitespace-nowrap justify-center">
+                                            <img class="w-20 h-20 p-3"
                                                 src="{{ asset('produk/' . $user->produkImage[0]->image) }}">
 
                                             <div class="text-sm font-normal text-gray-500 dark:text-gray-400">
@@ -132,16 +132,13 @@
 
                                             {{ $user->kategori->nama_kategori }}</td>
 
-                                        <td
-                                            class="p-4 border overflow-hidden text-base font-normal text-gray-500 truncate dark:text-white">
-                                            @foreach($user->size as $ukuran)
-                                            <div class="border p-1 rounded-md bg-gray-400 m-1 flex justify-between">
-                                                <h3 class="">{{ $ukuran->size }}
-                                                </h3>
-                                            </div>
-                                            @endforeach
-                                        </td>
-                                        <td class="p-4 text-base font-medium text-gray-900 line-clamp-2 dark:text-white">
+                                            <td class="p-1  overflow-hidden text-base font-normal text-gray-500  dark:text-white">
+                                                <a href="/admin/size/{{ $user->produk_id }}">
+                                                    lihat stock
+                                                </a>
+                                            </td>
+                                            
+                                        <td class="mt-8  text-base font-medium text-gray-900 dark:text-white">
                                             {{ $user->deskripsi }}</td>
                                         
                                         <td

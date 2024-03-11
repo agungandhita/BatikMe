@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
-use App\Http\Requests\StoreSizeRequest;
-use App\Http\Requests\UpdateSizeRequest;
 use App\Models\Size;
+use App\Models\Produk;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class SizeController extends Controller
 {
@@ -15,7 +17,15 @@ class SizeController extends Controller
      */
     public function index()
     {
+
+        $sizes = Produk::with('size')->get();
+
+        return view('admin.produk.size', [
+        'data' => $sizes,
+        'title' => 'size dan stock'
+        ]);
         
+
     }
 
     /**
@@ -31,12 +41,12 @@ class SizeController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreSizeRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreSizeRequest $request)
+    public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -58,19 +68,32 @@ class SizeController extends Controller
      */
     public function edit(Size $size)
     {
-        //
+       
+
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateSizeRequest  $request
+     * @param  \Illuminate\Http\Request  $request
      * @param  \App\Models\Size  $size
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateSizeRequest $request, Size $size)
+    public function update(Request $request, Size $id, )
     {
-        //
+        $validate = $request->validate( [
+            'qty' => 'required'
+        ]);
+
+        $id->update([
+            'qty' => $request->qty,
+            'user_updated' => Auth::id()
+
+        ]);
+
+        return redirect()->back();
+
+
     }
 
     /**

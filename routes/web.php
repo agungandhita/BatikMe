@@ -14,6 +14,7 @@ use App\Http\Controllers\admin\ProdukController;
 use App\Http\Controllers\auth\RegisterController;
 use App\Http\Controllers\admin\DashboarController;
 use App\Http\Controllers\admin\ProdukImageController;
+use App\Http\Controllers\admin\SizeController;
 use App\Http\Controllers\admin\TeamController;
 use App\Http\Controllers\admin\TentangController;
 use App\Http\Controllers\client\DashboardController;
@@ -77,6 +78,12 @@ Route::middleware('admin')->group(function () {
     Route::post('/admin/produk/update/{id}', [ProdukController::class, 'update']);
     Route::post('/admin/produk/delete/{id}', [ProdukController::class, 'destroy']);
 
+
+    //size and stock
+    Route::get('/admin/size', [SizeController::class, 'index']);
+    Route::post('/admin/size/update/{id}', [SizeController::class, 'update']);
+
+    
 
     //produk image update
     Route::post('/admin/produk-image/create/{id}', [ProdukImageController::class,'store']);
