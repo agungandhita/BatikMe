@@ -33,9 +33,15 @@ class SizeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        dd($id);
+        $edit = Produk::with('size')->where('produk_id', $id)->first();
+
+        return view('admin.produk.size', [
+            'data' => $edit,
+            'produk_id'=> $id
+        ]);
     }
 
     /**

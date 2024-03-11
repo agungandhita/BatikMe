@@ -1,8 +1,8 @@
 
 
-<div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow mb-2">
+<div class="w-30 bg-white border border-gray-200 rounded-lg shadow mb-2">
     <a href="#">
-        <img class="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt="" />
+        <img class="rounded-t-lg w-30" src="{{ asset ('img/aa.jpeg') }}" alt="" />
     </a>
     <div class="p-5 text-left">
         <a href="#">
