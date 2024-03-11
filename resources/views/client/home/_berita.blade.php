@@ -1,6 +1,6 @@
 
 
-<div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow ">
+<div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow mb-2">
     <a href="#">
         <img class="rounded-t-lg" src="/docs/images/blog/image-1.jpg" alt="" />
     </a>
