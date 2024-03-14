@@ -117,13 +117,13 @@
         </div>
 
       
-        <div id="animated-segment" class="md:mt-44 mb-2">
+        <div id="animated-segment" class="mt-4 md:mt-20 mb-2">
             <P class="text-black font-semibold text-xl md:text-3xl ">
                 Artikel
             </P>
         </div>
 
-        <div class="md:flex px-8 gap-x-4">
+        <div class="md:flex gap-x-4">
 
             @include('client.home._berita')
             

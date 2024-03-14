@@ -2,7 +2,7 @@
 
 @section('container')
     <div class="pt-24 pb-20">
-        <h1 class="text-gray-900 dark:text-white font-semibold text-xl ml-8">Tambah Berita</h1>
+        <h1 class="text-gray-900 dark:text-white font-semibold text-xl ml-3">Tambah Berita</h1>
 
         <div class="my-32">
             <img src="#" alt="" id="previewImage" class="mx-auto w-[300px] h-[200px] object-cover hidden">

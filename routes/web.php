@@ -80,8 +80,12 @@ Route::middleware('admin')->group(function () {
 
 
     //size and stock
-    Route::get('/admin/size', [SizeController::class, 'index']);
+    Route::get('/admin/size/{id}', [SizeController::class, 'create']);
+    Route::post('/admin/size/add/{id}', [SizeController::class, 'store']);
     Route::post('/admin/size/update/{id}', [SizeController::class, 'update']);
+    Route::post('/admin/size/delete/{id}', [SizeController::class, 'destroy']);
+
+
 
     
 

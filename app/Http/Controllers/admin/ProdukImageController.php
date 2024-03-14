@@ -14,7 +14,8 @@ class ProdukImageController extends Controller
 
     private $saveImage;
 
-    public function __construct(){
+    public function __construct()
+    {
         $this->saveImage = new SaveImages;
     }
     /**
@@ -54,7 +55,7 @@ class ProdukImageController extends Controller
 
         return view('admin.gambar.edit', [
             'data' => $edit,
-            'produk_id'=> $id
+            'produk_id' => $id
 
         ]);
     }
@@ -68,7 +69,7 @@ class ProdukImageController extends Controller
     public function store(Request $request, $id)
     {
 
-        
+
 
 
         $cek = $request->validate([
@@ -84,21 +85,13 @@ class ProdukImageController extends Controller
         $image = $name;
 
         ProdukImage::create([
-            'produk_id'=> $id,
+            'produk_id' => $id,
             'image' => $image,
             'updated_at' => null,
 
         ]);
 
         return redirect()->back();
-
-      
-
-
-
-
-
-
     }
 
     /**
@@ -137,12 +130,12 @@ class ProdukImageController extends Controller
             'image' => 'required'
         ]);
 
-        if($request->has('image')){
-            $image = $this->saveImage->updateImageSingle($request->image,'produk',$id->image);
-        }else{
+        if ($request->has('image')) {
+            $image = $this->saveImage->updateImageSingle($request->image, 'produk', $id->image);
+        } else {
             $image = $id->image;
         }
-        
+
         $id->update([
             'image' => $image,
             'user_updated' => Auth::id()
@@ -150,7 +143,6 @@ class ProdukImageController extends Controller
         ]);
 
         return redirect()->back();
-        
     }
 
     /**
@@ -163,7 +155,7 @@ class ProdukImageController extends Controller
     {
         $data = ProdukImage::where('gambarproduk_id', $id)->pluck('image')->first();
 
-        $update = ProdukImage::where('gambarproduk_id',$id)->update([
+        $update = ProdukImage::where('gambarproduk_id', $id)->update([
             'user_deleted' => auth()->user()->user_id,
             'deleted' => true
         ]);

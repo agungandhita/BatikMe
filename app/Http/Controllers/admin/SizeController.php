@@ -15,18 +15,18 @@ class SizeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    // public function index()
+    // {
 
-        $sizes = Produk::with('size')->get();
+    //     $sizes = Produk::with('size')->get();
 
-        return view('admin.produk.size', [
-        'data' => $sizes,
-        'title' => 'size dan stock'
-        ]);
+    //     return view('admin.produk.size', [
+    //     'data' => $sizes,
+    //     'title' => 'size dan stock'
+    //     ]);
         
 
-    }
+    // }
 
     /**
      * Show the form for creating a new resource.
@@ -35,11 +35,12 @@ class SizeController extends Controller
      */
     public function create($id)
     {
-        dd($id);
-        $edit = Produk::with('size')->where('produk_id', $id)->first();
+        // $edit = Produk::with('size')->where('produk_id', $id)->first();
+        
+        $data = Size::where('produk_id', $id)->get();
 
         return view('admin.produk.size', [
-            'data' => $edit,
+            'data' => $data,
             'produk_id'=> $id
         ]);
     }
@@ -50,9 +51,23 @@ class SizeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
+
+
+        $cek = $request->validate([
+            'size' => 'required',
+            'qty' => 'required'
+        ]);
+
+        Size::create([
+            'produk_id' => $id,
+            'size' => $request->size,
+            'qty' => $request->qty,
+            'updated_at' => null,
+        ]);
         
+        return redirect()->back();
     }
 
     /**
@@ -108,8 +123,17 @@ class SizeController extends Controller
      * @param  \App\Models\Size  $size
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Size $size)
+    public function destroy(Size $size, $id)
     {
-        //
+        $update = Size::where('size_id', $id)->update([
+            'user_deleted' => auth()->user()->user_id,
+            'deleted' => true
+        ]);
+
+        if ($update) {
+            Size::find($id)->delete();
+        }
+        return redirect()->back();
+
     }
 }

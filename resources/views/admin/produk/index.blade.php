@@ -138,7 +138,7 @@
                                                 </a>
                                             </td>
                                             
-                                        <td class="mt-8  text-base font-medium text-gray-900 dark:text-white">
+                                        <td class="mt-8 text-base font-medium text-gray-900 dark:text-white">
                                             {{ $user->deskripsi }}</td>
                                         
                                         <td

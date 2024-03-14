@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\ProdukImage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Size;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
@@ -119,9 +120,9 @@ class CategoryController extends Controller
 
         $data->update([
             'user_deleted' => auth()->user()->user_id,
-            'deleted' =>true,
-            'deleted_at' =>now(),
-            'user_deleted' => Auth::id()        
+            'deleted' => true,
+            'deleted_at' => now(),
+            'user_deleted' => Auth::id()
         ]);
 
         $produk = Produk::where('kategori_id', $data->kategori_id)->get();
@@ -134,7 +135,7 @@ class CategoryController extends Controller
 
             $produkImage = ProdukImage::where('produk_id', $item->produk_id)->get();
 
-            foreach($produkImage as $image){
+            foreach ($produkImage as $image) {
                 $image->update([
                     'user_deleted' => auth()->user()->user_id,
                     'deleted' => true,
@@ -142,9 +143,18 @@ class CategoryController extends Controller
                 ]);
 
                 $storage = public_path('produk/' . $image->image);
-                if(File::exists($storage)){
+                if (File::exists($storage)) {
                     unlink($storage);
                 }
+            }
+
+            $size = Size::where('produk_id', $item->produk_id)->get();
+            foreach ($size as $cek) {
+                $cek->update([
+                    'user_deleted' => auth()->user()->user_id,
+                    'deleted' => true,
+                    'deleted_at' => now()
+                ]);
             }
         }
 
