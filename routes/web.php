@@ -6,6 +6,8 @@ use App\Http\Controllers\admin\BeritaController;
 use App\Http\Controllers\admin\BeritaKategoriController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\FroalaController;
+use App\Http\Controllers\client\DetailController;
+use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\auth\AuthController;
 use App\Http\Controllers\admin\UserController;
@@ -16,7 +18,6 @@ use App\Http\Controllers\admin\DashboarController;
 use App\Http\Controllers\admin\ProdukImageController;
 use App\Http\Controllers\admin\SizeController;
 use App\Http\Controllers\admin\TeamController;
-use App\Http\Controllers\admin\TentangController;
 use App\Http\Controllers\client\DashboardController;
 
 /*
@@ -78,24 +79,17 @@ Route::middleware('admin')->group(function () {
     Route::post('/admin/produk/update/{id}', [ProdukController::class, 'update']);
     Route::post('/admin/produk/delete/{id}', [ProdukController::class, 'destroy']);
 
-
     //size and stock
     Route::get('/admin/size/{id}', [SizeController::class, 'create']);
     Route::post('/admin/size/add/{id}', [SizeController::class, 'store']);
     Route::post('/admin/size/update/{id}', [SizeController::class, 'update']);
     Route::post('/admin/size/delete/{id}', [SizeController::class, 'destroy']);
-
-
-
-    
-
+ 
     //produk image update
     Route::post('/admin/produk-image/create/{id}', [ProdukImageController::class,'store']);
     Route::get('/admin/produk-image/update/{id}', [ProdukImageController::class,'create']);
     Route::post('/admin/produk-image/update/{id}', [ProdukImageController::class,'update']);
     Route::post('/admin/produk-image/delete/{id}', [ProdukImageController::class,'destroy']);
-
-
 
     //kategori
     Route::get('/produk/kategori', [CategoryController::class,'index']);
@@ -103,15 +97,11 @@ Route::middleware('admin')->group(function () {
     Route::post('/produk/kategori/update/{id}', [CategoryController::class,'update']);
     Route::post('/produk/kategori/delete/{id}', [CategoryController::class,'destroy']);
 
-
-
-
     //user
     Route::get('/profile', [UserController::class, 'index']);
     Route::post('/profile/create', [UserController::class, 'store']);
     Route::post('/profile/update/{id}', [UserController::class, 'update']);
     Route::post('/profile/delete/{id}', [UserController::class, 'destroy']);
-
 
     //about
     Route::get('/about', [AboutController::class, 'index']);
@@ -123,9 +113,6 @@ Route::middleware('admin')->group(function () {
     Route::post('/team/create', [TeamController::class, 'store']);
     Route::post('/team/create/update/{id}', [TeamController::class, 'update']);
     Route::post('/team/delete/{id}', [TeamController::class,'destroy']);
-
-
-
 
     //berita
     Route::get('/berita', [BeritaController::class,'index']);
@@ -144,5 +131,9 @@ Route::middleware('admin')->group(function () {
 
 });
 
+Route::middleware('client')->group( function() {
+    Route::get('/home', [DashboardController::class, 'index']);
+});
 
-Route::get('/testing', [AuthController::class, 'register']);
+
+Route::get('/coba', [DetailController::class, 'index']);
