@@ -1,10 +1,10 @@
-<div class="md:grid md:grid-cols-2 gap-x-2 border">
-    <div class="relative w-[85%] border-red-900 glide-02">
+<div class=" md:grid grid-cols-2 gap-x-2 border">
+    <div class="relative w-full border-red-900 glide-02">
         <!-- Slides -->
         <div class="overflow-hidden" data-glide-el="track">
             <ul
                 class="relative w-full overflow-hidden whitespace-no-wrap flex flex-no-wrap [backface-visibility: hidden] [transform-style: preserve-3d] [touch-action: pan-Y] [will-change: transform]">
-                <li><img src="https://Tailwindmix.b-cdn.net/image-03.jpg" class="w-80 max-w-full max-h-full m-auto" />
+                <li><img src="https://Tailwindmix.b-cdn.net/image-03.jpg" class="w-full max-w-full max-h-full m-auto" />
                 </li>
                 <li><img src="https://Tailwindmix.b-cdn.net/image-04.jpg" class="w-full max-w-full max-h-full m-auto" />
                 </li>
@@ -51,13 +51,13 @@
     {{-- detail produk --}}
 
     <div class="pt-2">
-        <h1 class="text-3xl font-semibold text-black capitalize">
+        <h1 class="text-lg md:text-3xl font-semibold text-black capitalize">
             batik pria lengan panjang motif bandeng lele
         </h1>
 
         <div class="flex pt-2 gap-x-2">
             <div class="">
-                <h1 class="text-lg font-semibold">
+                <h1 class="text-sm md:text-lg font-semibold">
                     Stock
                     <span class="">
                         90
@@ -65,11 +65,11 @@
                 </h1>
 
             </div>
-            <p>
+            <p class="text-sm md:text-lg">
                 |
             </p>
             <div class="">
-                <h1 class="text-lg font-semibold">
+                <h1 class="text-sm md:text-lg font-semibold">
                     Terjual
                     <span>
                         80
@@ -78,10 +78,10 @@
             </div>
         </div>
 
-        <div class="w-full border mt-3">
-            <p class="p-6">
-                Rp 2000
-            </p>
-        </div>
+        <div class="bg-gray-700 rounded-lg px-8 py-4 flex justify-between items-center">
+            <span class="text-white text-xl font-bold">Rp 58.000</span>
+            
+          </div>
+          
     </div>
 </div>
