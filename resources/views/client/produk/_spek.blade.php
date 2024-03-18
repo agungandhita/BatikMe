@@ -37,7 +37,7 @@
 
 </div>
 
-<div class="mb-28 border mt-2 shadow-best">
+<div class="mb-36 border mt-2 shadow-best">
 
     <h1 class="text-sm font-semibold pt-2 md:text-lg">
         deskripsi produk
