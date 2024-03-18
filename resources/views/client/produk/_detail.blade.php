@@ -57,7 +57,7 @@
 
         <div class="flex pt-2 gap-x-2">
             <div class="">
-                <h1 class="text-xs md:text-lg font-semibold">
+                <h1 class="text-xs md:text-lg font-semibold text-black">
                     Stock
                     <span class="">
                         90
@@ -69,7 +69,7 @@
                 |
             </p>
             <div class="">
-                <h1 class="text-xs md:text-lg font-semibold">
+                <h1 class="text-xs md:text-lg font-semibold text-black">
                     Terjual
                     <span>
                         80
@@ -85,7 +85,7 @@
         </div>
 
 
-        <h1 class="text-lg capitalize font-semibold pt-2">
+        <h1 class="text-lg capitalize font-semibold pt-2 text-black">
             detail produk
 
             <div class="flex gap-x-8">
