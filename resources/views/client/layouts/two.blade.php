@@ -9,7 +9,7 @@
 
 
     @yield('container')
-    <div class="container">
+    <div class="">
 
 
     </div>
