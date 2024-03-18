@@ -1,4 +1,4 @@
-<div class=" md:grid grid-cols-2 gap-x-2 border">
+<div class=" md:grid grid-cols-2 gap-x-2 shadow-best">
     <div class="relative w-full border-red-900 glide-02">
         <!-- Slides -->
         <div class="overflow-hidden" data-glide-el="track">
@@ -50,14 +50,14 @@
 
     {{-- detail produk --}}
 
-    <div class="pt-2">
-        <h1 class="text-lg md:text-3xl font-semibold text-black capitalize">
+    <div class="px-2">
+        <h1 class="text-base md:text-3xl font-semibold text-black capitalize">
             batik pria lengan panjang motif bandeng lele
         </h1>
 
         <div class="flex pt-2 gap-x-2">
             <div class="">
-                <h1 class="text-sm md:text-lg font-semibold">
+                <h1 class="text-xs md:text-lg font-semibold">
                     Stock
                     <span class="">
                         90
@@ -65,11 +65,11 @@
                 </h1>
 
             </div>
-            <p class="text-sm md:text-lg">
+            <p class="text-xs md:text-lg">
                 |
             </p>
             <div class="">
-                <h1 class="text-sm md:text-lg font-semibold">
+                <h1 class="text-xs md:text-lg font-semibold">
                     Terjual
                     <span>
                         80
@@ -78,10 +78,50 @@
             </div>
         </div>
 
-        <div class="bg-gray-700 rounded-lg px-8 py-4 flex justify-between items-center">
-            <span class="text-white text-xl font-bold">Rp 58.000</span>
-            
-          </div>
-          
+        <div
+            class="mt-2 md:bg-gray-100 py-2 md:px-2 md:py-4 flex justify-between items-center 
+        md:border-green-800 md:border-l-4">
+            <span class="text-green-800 md:px-4 text-xl md:text-2xl font-bold">Rp 58.000</span>
+        </div>
+
+
+        <h1 class="text-lg capitalize font-semibold pt-2">
+            detail produk
+
+            <div class="flex gap-x-8">
+                <div class="capitalize text-sm font-semibold text-gray-500">
+                    <h1 class="py-1">
+                        Kategori
+                    </h1>
+                    <h1 class="py-1">
+                        Size
+                    </h1>
+                    <h1 class="py-1">
+                        Berat
+                    </h1>
+                    <h1 class="py-1">
+                        Kategori
+                    </h1>
+                </div>
+                <div class="capitalize text-sm ">
+                    <h1 class="text-green-600 py-1 font-semibold">
+                        Kemeja
+                    </h1>
+                    <h1 class="py-1 font-semibold">
+                        XXL
+                    </h1>
+                    <h1 class="py-1 font-semibold text-red-600">
+                        300 gram
+                    </h1>
+                    <h1 class="py-1 font-semibold">
+                        Kategori
+                    </h1>
+                </div>
+            </div>
+    </div>
+    <div class="">
+        <h1>
+            deskripsi produk
+        </h1>
     </div>
 </div>
