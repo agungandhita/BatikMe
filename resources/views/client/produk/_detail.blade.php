@@ -84,8 +84,18 @@
             <span class="text-green-800 md:px-4 text-xl md:text-2xl font-bold">Rp 58.000</span>
         </div>
 
-        @include('client.produk._spek')
+
         
+
+        <div class="hidden md:block">
+            @include('client.produk._tes')
+        </div>
+        
+
     </div>
-    
+
+</div>
+
+<div class="md:hidden">
+    @include('client.produk._spek')
 </div>
