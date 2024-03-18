@@ -1,4 +1,4 @@
-<div class="border">
+<div class="border block">
     <h1 class="text-lg capitalize font-semibold pt-2 text-black pb-3 md:hidden">
         detail produk </h1>
 
@@ -46,7 +46,7 @@
 
 </div>
 
-<div class="fixed bottom-0 bg-white border justify-end">
+<div class="fixed bottom-0 bg-white border justify-end p-2">
 
     <div class="grid grid-cols-2 gap-x-2">
         <button
