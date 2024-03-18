@@ -17,7 +17,7 @@
             </ul>
         </div>
         <!-- Indicators -->
-        <div class="absolute bottom-0 flex items-center justify-center w-full gap-2" data-glide-el="controls[nav]">
+        {{-- <div class="absolute bottom-0 flex items-center justify-center w-full gap-2" data-glide-el="controls[nav]">
             <button class="p-4 group" data-glide-dir="=0" aria-label="goto slide 1"><span
                     class="block w-2 h-2 transition-colors duration-300 rounded-full ring-1 ring-slate-700 bg-white/20 focus:outline-none"></span></button>
             <button class="p-4 group" data-glide-dir="=1" aria-label="goto slide 2"><span
@@ -26,7 +26,7 @@
                     class="block w-2 h-2 transition-colors duration-300 rounded-full ring-1 ring-slate-700 bg-white/20 focus:outline-none"></span></button>
             <button class="p-4 group" data-glide-dir="=3" aria-label="goto slide 4"><span
                     class="block w-2 h-2 transition-colors duration-300 rounded-full ring-1 ring-slate-700 bg-white/20 focus:outline-none"></span></button>
-        </div>
+        </div> --}}
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.0.2/glide.js"></script>
@@ -84,44 +84,8 @@
             <span class="text-green-800 md:px-4 text-xl md:text-2xl font-bold">Rp 58.000</span>
         </div>
 
-
-        <h1 class="text-lg capitalize font-semibold pt-2 text-black">
-            detail produk
-
-            <div class="flex gap-x-8">
-                <div class="capitalize text-sm font-semibold text-gray-500">
-                    <h1 class="py-1">
-                        Kategori
-                    </h1>
-                    <h1 class="py-1">
-                        Size
-                    </h1>
-                    <h1 class="py-1">
-                        Berat
-                    </h1>
-                    <h1 class="py-1">
-                        Kategori
-                    </h1>
-                </div>
-                <div class="capitalize text-sm ">
-                    <h1 class="text-green-600 py-1 font-semibold">
-                        Kemeja
-                    </h1>
-                    <h1 class="py-1 font-semibold">
-                        XXL
-                    </h1>
-                    <h1 class="py-1 font-semibold text-red-600">
-                        300 gram
-                    </h1>
-                    <h1 class="py-1 font-semibold">
-                        Kategori
-                    </h1>
-                </div>
-            </div>
+        @include('client.produk._spek')
+        
     </div>
-    <div class="">
-        <h1>
-            deskripsi produk
-        </h1>
-    </div>
+    
 </div>

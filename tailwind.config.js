@@ -10,7 +10,8 @@ module.exports = {
   ],
 
   daisyui: {
-    themes: []
+    themes: [],
+    
 },
 
   safelist: [
@@ -45,7 +46,8 @@ module.exports = {
         main3 : "#F9F9F9",
         main4 : "#303234",
         main5 : "#5e6061",
-        main6 : "#0d0e0f"
+        main6 : "#0d0e0f",
+        ungu  : "#A133F7"
       },
       fontFamily: {
         'sans': ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'system-ui', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'],
