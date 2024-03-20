@@ -1,18 +1,18 @@
 <div class=" md:grid grid-cols-2 gap-x-2 shadow-best">
-    <div class="relative w-full border-red-900 glide-02">
+    <div class="relative w-full md:w-[80%] border mx-auto glide-02">
         <!-- Slides -->
         <div class="overflow-hidden" data-glide-el="track">
             <ul
                 class="relative w-full overflow-hidden whitespace-no-wrap flex flex-no-wrap [backface-visibility: hidden] [transform-style: preserve-3d] [touch-action: pan-Y] [will-change: transform]">
-                <li><img src="https://Tailwindmix.b-cdn.net/image-03.jpg" class="w-full max-w-full max-h-full m-auto" />
+                <li><img src="{{ asset ('img/aa.jpeg') }}" class="w-full h-70 object-contain" />
                 </li>
-                <li><img src="https://Tailwindmix.b-cdn.net/image-04.jpg" class="w-full max-w-full max-h-full m-auto" />
+                <li><img src="{{ asset ('img/aa.jpeg') }}" class="w-full h-70 object-contain" />
                 </li>
-                <li><img src="https://Tailwindmix.b-cdn.net/image-05.jpg" class="w-full max-w-full max-h-full m-auto" />
+                <li><img src="{{ asset ('img/aa.jpeg') }}" class="w-full h-70 object-contain" />
                 </li>
-                <li><img src="https://Tailwindmix.b-cdn.net/image-01.jpg" class="w-full max-w-full max-h-full m-auto" />
+                <li><img src="{{ asset ('img/aa.jpeg') }}" class="w-full h-70 object-contain" />
                 </li>
-                <li><img src="https://Tailwindmix.b-cdn.net/image-02.jpg" class="w-full max-w-full max-h-full m-auto" />
+                <li><img src="{{ asset ('img/aa.jpeg') }}" class="w-full h-70 object-contain" />
                 </li>
             </ul>
         </div>
