@@ -17,7 +17,7 @@
                 Kategori
             </h1>
         </div>
-        <div class="capitalize text-sm ">
+        <div class="capitalize text-sm font-semibold ">
             <h1 class="text-green-600 py-1 font-semibold">
                 Kemeja
             </h1>
