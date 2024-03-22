@@ -1,4 +1,4 @@
-<div class="border block">
+<div class="block">
     <h1 class="text-lg capitalize font-semibold pt-2 text-black pb-3 md:hidden">
         detail produk </h1>
 
@@ -24,7 +24,7 @@
             <h1 class="py-1 font-semibold">
                 XXL
             </h1>
-            <h1 class="py-1 font-semibold text-red-600">
+            <h1 class="py-1 font-semibold">
                 300 gram
             </h1>
             <h1 class="py-1 font-semibold">
