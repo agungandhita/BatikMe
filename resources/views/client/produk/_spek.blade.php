@@ -17,17 +17,17 @@
                 Kategori
             </h1>
         </div>
-        <div class="capitalize text-sm font-semibold ">
-            <h1 class="text-green-600 py-1 font-semibold">
+        <div class="capitalize text-sm ">
+            <h1 class="text-green-600 py-1 font-bold">
                 Kemeja
             </h1>
-            <h1 class="py-1 font-semibold">
+            <h1 class="py-1 font-bold">
                 XXL
             </h1>
-            <h1 class="py-1 font-semibold">
+            <h1 class="py-1 font-bold">
                 300 gram
             </h1>
-            <h1 class="py-1 font-semibold">
+            <h1 class="py-1 font-bold">
                 Kategori
             </h1>
         </div>
