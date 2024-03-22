@@ -62,9 +62,24 @@
             tambahkan keranjang
         </button>
         <button
-            class="border border-blue-500 bg-white rounded-xl text-blue-600 font-semibold capitalize text-sm hover:rounded-xl w-20 text-center">
+            class="btn border border-blue-500 bg-white rounded-xl text-blue-600 font-semibold capitalize text-sm hover:rounded-xl w-20 text-center" onclick="my_modal_4.showModal()" >
             Beli
         </button>
     </div>
 
 </div>
+
+{{-- modal --}}
+
+<dialog id="my_modal_4" class="modal">
+    <div class="modal-box w-11/12 max-w-5xl bg-slate-700">
+      <h3 class="font-bold text-lg">Hello!</h3>
+      <p class="py-4">Click the button below to close</p>
+      <div class="modal-action">
+        <form method="dialog">
+          <!-- if there is a button, it will close the modal -->
+          <button class="btn">Close</button>
+        </form>
+      </div>
+    </div>
+  </dialog>
