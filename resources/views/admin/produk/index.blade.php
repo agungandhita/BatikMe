@@ -20,30 +20,26 @@
                                     Home
                                 </a>
                             </li>
-                            <li>
-                                <div class="flex items-center">
-                                    <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd"
-                                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                    <a href="#"
-                                        class="ml-1 text-gray-700 hover:text-primary-600 md:ml-2 dark:text-gray-300 dark:hover:text-white">E-commerce</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="flex items-center">
-                                    <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd"
-                                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                    <span class="ml-1 text-gray-400 md:ml-2 dark:text-gray-500"
-                                        aria-current="page">Products</span>
-                                </div>
-                            </li>
+                            <div class="flex items-center">
+                                <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <a href="#"
+                                    class="ml-1 text-gray-700 hover:text-primary-600 md:ml-2 dark:text-gray-300 dark:hover:text-white">E-commerce</a>
+                            </div>
+                            <div class="flex items-center">
+                                <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="ml-1 text-gray-400 md:ml-2 dark:text-gray-500"
+                                    aria-current="page">Products</span>
+                            </div>
                         </ol>
                     </nav>
                     <h1 class="text-xl font-semibold text-gray-900 sm:text-2xl dark:text-white">All products</h1>
@@ -99,7 +95,7 @@
                                         class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
                                         deskripsi
                                     </th>
-                                   
+
                                     <th scope="col"
                                         class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
                                         harga
@@ -114,7 +110,7 @@
                                 @foreach ($data as $no => $user)
                                     <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
 
-                                        <td class="flex items-center p-4 space-x-6 whitespace-nowrap justify-center">
+                                        <td class="flex items-center p-4 space-x-6 whitespace-nowrap ">
                                             <img class="w-20 h-20 p-3"
                                                 src="{{ asset('produk/' . $user->produkImage[0]->image) }}">
 
@@ -132,15 +128,16 @@
 
                                             {{ $user->kategori->nama_kategori }}</td>
 
-                                            <td class="p-1  overflow-hidden text-base font-normal text-gray-500  dark:text-white">
-                                                <a href="/admin/size/{{ $user->produk_id }}">
-                                                    lihat stock
-                                                </a>
-                                            </td>
-                                            
+                                        <td
+                                            class="p-1  overflow-hidden text-base font-normal text-gray-500  dark:text-white">
+                                            <a href="/admin/size/{{ $user->produk_id }}">
+                                                lihat stock
+                                            </a>
+                                        </td>
+
                                         <td class="mt-8 text-base font-medium text-gray-900 dark:text-white">
                                             {{ $user->deskripsi }}</td>
-                                        
+
                                         <td
                                             class="p-4 text-base font-normal text-gray-900 whitespace-nowrap dark:text-white">
                                             <div class="flex items-center">
@@ -283,7 +280,7 @@
                                 placeholder="Type product name" required value="{{ $produk->harga }}">
                         </div>
 
-                        
+
                         <div>
                             <label for="description"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
@@ -410,6 +407,14 @@
                             placeholder="Type product name" required="">
                     </div>
 
+                    <div>
+                        <label for="name"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Berat</label>
+                        <input type="numbe" name="berat" id="berat"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                            placeholder="Type product name" required="">
+                    </div>
+
 
 
                     <div>
@@ -445,7 +450,7 @@
                             placeholder="Enter event description here"></textarea>
                     </div>
 
-                    <div >
+                    <div>
                         <label for="select2"
                             class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Size</label>
                         <select name="size[]" multiple="multiple" id="select2"

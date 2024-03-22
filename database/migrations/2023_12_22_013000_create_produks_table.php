@@ -20,6 +20,7 @@ return new class extends Migration
             $table->text('deskripsi');
             $table->text('model');
             $table->integer('harga');
+            $table->integer('berat');
             $table->integer('terjual')->nullable();
             $table->integer('user_created')->nullable();
             $table->timestamps();

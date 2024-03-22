@@ -3,32 +3,38 @@
         detail produk </h1>
 
     <div class="flex gap-x-8">
-        <div class="capitalize text-sm font-semibold text-gray-500">
-            <h1 class="py-1">
+        <div class="capitalize font-semibold text-gray-500">
+            <h1 class="py-1 text-lg">
                 Kategori
             </h1>
-            <h1 class="py-1">
+            <h1 class="py-1 text-lg">
                 Size
             </h1>
-            <h1 class="py-1">
+            <h1 class="py-1 text-lg">
                 Berat
             </h1>
-            <h1 class="py-1">
+            <h1 class="py-1 text-lg">
                 Kategori
+            </h1>
+            <h1 class="py-1 text-lg">
+                Review
             </h1>
         </div>
         <div class="capitalize text-sm ">
-            <h1 class="text-green-600 py-1 font-semibold">
+            <h1 class="text-green-600 py-1 font-semibold text-lg">
                 Kemeja
             </h1>
-            <h1 class="py-1 font-semibold">
+            <h1 class="py-1 font-semibold text-lg">
                 XXL
             </h1>
-            <h1 class="py-1 font-semibold text-red-600">
+            <h1 class="py-1 font-semibold text-lg">
                 300 gram
             </h1>
-            <h1 class="py-1 font-semibold">
-                Kategori
+            <h1 class="py-1 font-semibold text-lg">
+                Baju Cowok lengan panjang
+            </h1>
+            <h1 class="py-1 font-semibold text-lg">
+                0 Review
             </h1>
         </div>
     </div>

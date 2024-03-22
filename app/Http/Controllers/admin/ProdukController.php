@@ -71,6 +71,7 @@ class ProdukController extends Controller
             'deskripsi' => 'required',
             'model' => 'required',
             'size.*' => 'required',
+            'berat' => 'required',
             'kategori' => 'required',
             'image.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'harga' => 'required',
@@ -94,6 +95,7 @@ class ProdukController extends Controller
                 'deskripsi' => $request->deskripsi,
                 'model' => $request->model,
                 'harga' => $request->harga,
+                'berat' => $request->berat,
                 'user_created' => Auth::id(),
                 'created_at' => now(),
                 'updated_at' => null
