@@ -28,7 +28,7 @@
                 300 gram
             </h1>
             <h1 class="py-1 font-bold">
-                Kategori
+                Batik Lengan panjang
             </h1>
         </div>
     </div>
@@ -39,7 +39,7 @@
 
 <div class="mb-16 border mt-2 shadow-best">
 
-    <h1 class="text-sm font-semibold pt-2 md:text-lg">
+    <h1 class="text-sm font-bold pt-2 capitalize">
         deskripsi produk
     </h1>
 
