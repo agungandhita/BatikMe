@@ -1,4 +1,4 @@
-<div class="block shadow-best">
+<div class="block shadow-best mt-3 border-t-2">
     <h1 class="text-lg capitalize font-semibold pt-2 text-black pb-3 md:hidden">
         detail produk </h1>
 
