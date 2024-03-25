@@ -68,7 +68,7 @@
 
         <div x-data="{ isOpen: false }">
             <button @click="isOpen = true"
-                class=" border border-blue-500 bg-white rounded-xl text-blue-600 font-semibold capitalize text-sm hover:rounded-xl w-20 text-center">
+                class="p-1 border border-blue-500 bg-white rounded-xl text-blue-600 font-semibold capitalize text-sm hover:rounded-xl w-20 text-center">
                 Beli
             </button>
 
