@@ -78,7 +78,7 @@
                     </button>
                 </div>
                     <div class="flex flex-wrap gap-x-5">
-                        <button class="border p-1 bg-slate-200 rounded-md">
+                        <button class="border p-1 bg-slate-400 rounded-md">
                             <h1 class="text-black text-sm font-semibold">
                                 XXL :
                                 <span>
@@ -87,7 +87,7 @@
                             </h1>
                         </button>
 
-                        <button class="border p-1 bg-slate-200 rounded-md">
+                        <button class="border p-1 bg-slate-400 rounded-md">
                             <h1 class="text-black text-sm font-semibold">
                                 XXL :
                                 <span>
@@ -96,7 +96,7 @@
                             </h1>
                         </button>
 
-                        <button class="border p-1 bg-slate-200 rounded-md">
+                        <button class="border p-1 bg-slate-400 rounded-md">
                             <h1 class="text-black text-sm font-semibold">
                                 XXL :
                                 <span>
@@ -105,7 +105,7 @@
                             </h1>
                         </button>
 
-                        <button class="border p-1 bg-slate-200 rounded-md">
+                        <button class="border p-1 bg-slate-400 rounded-md">
                             <h1 class="text-black text-sm font-semibold">
                                 XXL :
                                 <span>
