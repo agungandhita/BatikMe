@@ -76,8 +76,8 @@
                 class="fixed bottom-0 left-0 right-0 bg-gray-800 bg-opacity-75 flex justify-center items-end ">
                 <!-- Konten modal -->
                 <div class="bg-white rounded-t-lg shadow-lg p-4 w-full max-w-md">
-                    <h2 class="text-lg font-bold mb-4">Judul Modal</h2>
-                    <p>Isi modal di sini...</p>
+                    <h2 class="text-lg font-bold mb-4 text-black">Judul Modal</h2>
+                    <p class="text-black">Isi modal di sini...</p>
                     <!-- Tombol untuk menutup modal -->
                     <button @click="isOpen = false" class="mt-4 bg-red-500 text-white font-bold py-2 px-4 rounded">
                         Tutup Modal
