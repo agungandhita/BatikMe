@@ -70,13 +70,52 @@
             <div x-show="isOpen" @click.away="isOpen = false"
                 class="fixed bottom-0 left-0 right-0 bg-gray-800 bg-opacity-75 flex justify-center items-end ">
                 <!-- Konten modal -->
-                <div class="bg-white rounded-t-lg shadow-lg p-4 w-full max-w-md">
-                    <h2 class="text-lg font-bold mb-4 text-black">Judul Modal</h2>
-                    <p class="text-black">Isi modal di sini...</p>
-                    <!-- Tombol untuk menutup modal -->
-                    <button @click="isOpen = false" class="mt-4 bg-red-500 text-white font-bold py-2 px-4 rounded">
-                        Tutup Modal
+                <div class="bg-white rounded-t-lg shadow-lg p-4 pb-10 w-full max-w-md">
+                    <div class="flex justify-between">
+                    <h2 class="text-lg font-bold mb-4 text-black">Pilih ukuran</h2>
+                    <button @click="isOpen = false" class="text-black font-bold mb-4  rounded">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-6 h-6" fill="text-black"><path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM12 10.5858L14.8284 7.75736L16.2426 9.17157L13.4142 12L16.2426 14.8284L14.8284 16.2426L12 13.4142L9.17157 16.2426L7.75736 14.8284L10.5858 12L7.75736 9.17157L9.17157 7.75736L12 10.5858Z"></path></svg>
                     </button>
+                </div>
+                    <div class="flex flex-wrap gap-x-5">
+                        <button class="border p-1 bg-slate-200 rounded-md">
+                            <h1 class="text-black text-sm font-semibold">
+                                XXL :
+                                <span>
+                                    20
+                                </span>
+                            </h1>
+                        </button>
+
+                        <button class="border p-1 bg-slate-200 rounded-md">
+                            <h1 class="text-black text-sm font-semibold">
+                                XXL :
+                                <span>
+                                    20
+                                </span>
+                            </h1>
+                        </button>
+
+                        <button class="border p-1 bg-slate-200 rounded-md">
+                            <h1 class="text-black text-sm font-semibold">
+                                XXL :
+                                <span>
+                                    20
+                                </span>
+                            </h1>
+                        </button>
+
+                        <button class="border p-1 bg-slate-200 rounded-md">
+                            <h1 class="text-black text-sm font-semibold">
+                                XXL :
+                                <span>
+                                    20
+                                </span>
+                            </h1>
+                        </button>
+                    </div>
+                    <!-- Tombol untuk menutup modal -->
+                   
                 </div>
             </div>
         </div>
