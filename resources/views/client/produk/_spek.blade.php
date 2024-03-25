@@ -39,7 +39,7 @@
 
 <div class="mb-16 border mt-2 shadow-best">
 
-    <h1 class="text-sm font-bold pt-2 capitalize text-black">
+    <h1 class="text-sm font-bold pt-2 capitalize text-black text-xl">
         deskripsi produk
     </h1>
 
