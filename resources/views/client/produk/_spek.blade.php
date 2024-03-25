@@ -1,4 +1,4 @@
-<div class="block shadow-best mt-3 border-t-0">
+<div class="block shadow-best mt-3 ">
     <h1 class="text-lg capitalize font-semibold pt-2 text-black pb-3 md:hidden">
         detail produk </h1>
 
@@ -21,13 +21,13 @@
             <h1 class="text-green-600 py-1 font-bold">
                 Kemeja
             </h1>
-            <h1 class="py-1 font-bold">
+            <h1 class="py-1 font-bold text-black">
                 XXL
             </h1>
-            <h1 class="py-1 font-bold">
+            <h1 class="py-1 font-bold text-black">
                 300 gram
             </h1>
-            <h1 class="py-1 font-bold">
+            <h1 class="py-1 font-bold text-black">
                 Batik Lengan panjang
             </h1>
         </div>
@@ -39,7 +39,7 @@
 
 <div class="mb-16 border mt-2 shadow-best">
 
-    <h1 class="text-sm font-bold pt-2 capitalize">
+    <h1 class="text-sm font-bold pt-2 capitalize text-black">
         deskripsi produk
     </h1>
 
