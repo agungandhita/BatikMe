@@ -113,7 +113,7 @@
 
                     <div class="mt-2 flex justify-between border-b-2 pb-3">
                         <div class="mt-2">
-                            <h1 class="text-lg font-semibold">
+                            <h1 class="text-lg font-semibold text-black">
                                 Jumlah
                             </h1>
                         </div>
@@ -124,7 +124,7 @@
                                     <path d="M5 11V13H19V11H5Z"></path>
                                 </svg>
                             </button>
-                            <h1 class="bg-slate-200 text-center p-1 px-3">
+                            <h1 class="bg-slate-200 text-center p-1 px-3 text-black">
                                 8
                             </h1>
                             <button class="text-white bg-blue-700">
@@ -138,7 +138,7 @@
                     </div>
                     {{-- akhir modal keranjang --}}
                     <div class="flex justify-between mt-3">
-                        <h1 class="text-lg font-semibold capitalize">
+                        <h1 class="text-lg font-semibold capitalize text-black">
                             harga
                         </h1>
                         <h1 class="text-blue-500 font-semibold text-xl">
@@ -167,7 +167,7 @@
 </div>
 
 <div class="mb-12 border shadow-best rounded-md">
-    <h1 class="mb-2 font-semibold text-lg">
+    <h1 class="mb-2 font-semibold text-lg text-black">
         penilain produk
     </h1>
 
