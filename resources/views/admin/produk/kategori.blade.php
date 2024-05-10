@@ -1,7 +1,7 @@
 @extends('admin.layouts.main')
 
 @section('container')
-    <div class="px-4 pt-20 mb-8">
+    <div class="px-4 pt-20 bg-slate-200 dark:bg-gray-800">
         <h1 class="text-gray-900 dark:text-white font-semibold text-xl mb-8">Kategori Produk</h1>
 
         <button data-modal-target="authentication-modal" data-modal-toggle="authentication-modal"

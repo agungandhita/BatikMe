@@ -1,51 +1,44 @@
 @extends('admin.layouts.main')
 
 @section('container')
-    <div class="px-4 pt-6">
+    <div class="px-4 pt-6 bg-slate-200 dark:bg-gray-800">
         <div
-            class="p-4 bg-white block sm:flex items-center justify-between border-b border-gray-200 lg:mt-1.5 dark:bg-gray-800 dark:border-gray-700 shadow-best rounded-lg">
+            class="p-4 bg-white block sm:flex items-center justify-between lg:mt-1.5 dark:bg-gray-800 shadow-best rounded-lg">
 
             {{-- breadcum --}}
             <div class="w-full mb-1 grid grid-cols-2">
                 <div class="mb-4">
                     <nav class="flex mb-5" aria-label="Breadcrumb">
                         <ol class="inline-flex items-center space-x-1 text-sm font-medium md:space-x-2">
-                            <li class="inline-flex items-center">
+                            <a href="#"
+                                class="inline-flex items-center text-gray-700 hover:text-primary-600 dark:text-gray-300 dark:hover:text-white">
+                                <svg class="w-5 h-5 mr-2.5" fill="currentColor" viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
+                                    </path>
+                                </svg>
+                                Home
+                            </a>
+                            <div class="flex items-center">
+                                <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
                                 <a href="#"
-                                    class="inline-flex items-center text-gray-700 hover:text-primary-600 dark:text-gray-300 dark:hover:text-white">
-                                    <svg class="w-5 h-5 mr-2.5" fill="currentColor" viewBox="0 0 20 20"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
-                                        </path>
-                                    </svg>
-                                    Home
-                                </a>
-                            </li>
-                            <li>
-                                <div class="flex items-center">
-                                    <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd"
-                                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                    <a href="#"
-                                        class="ml-1 text-gray-700 hover:text-primary-600 md:ml-2 dark:text-gray-300 dark:hover:text-white">Team</a>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="flex items-center">
-                                    <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd"
-                                            d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                    <span class="ml-1 text-gray-400 md:ml-2 dark:text-gray-500"
-                                        aria-current="page">List</span>
-                                </div>
-                            </li>
+                                    class="ml-1 text-gray-700 hover:text-primary-600 md:ml-2 dark:text-gray-300 dark:hover:text-white">Team</a>
+                            </div>
+                            <div class="flex items-center">
+                                <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="ml-1 text-gray-400 md:ml-2 dark:text-gray-500" aria-current="page">List</span>
+                            </div>
                         </ol>
                     </nav>
                     <h1 class="text-xl font-semibold text-gray-900 sm:text-2xl dark:text-white">Profile Perusahaan</h1>
@@ -64,8 +57,7 @@
         </div>
 
 
-        <div
-            class="p-4 bg-white border-b border-gray-200 lg:mt-1.5 dark:bg-gray-800 dark:border-gray-700 shadow-best rounded-lg mb-2">
+        <div class="p-4 bg-white lg:mt-1.5 dark:bg-gray-800 dark:border-gray-700 shadow-best rounded-lg `">
 
             <p class="text-xl font-semibold text-gray-900 sm:text-2xl dark:text-white mb-4">
                 jajaran Team Perusahaan UD Paradila
@@ -74,48 +66,36 @@
 
             <div class="grid grid-cols-3 space-x-3 justify-around">
                 @foreach ($data as $key => $user)
-                    {{-- <div
-                        class="flex mt-4 items-center bg-white border border-gray-200 rounded-lg shadow-best md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-
-                        <img class="object-cover rounded-t-lg h-48 md:w-48 md:rounded-none md:rounded-s-lg"
-                            src="{{ asset('image/' . $user->image) }}" alt="">
-                        <div class="flex flex-col justify-between p-4 leading-normal">
-                           
-                            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 line-clamp-2">{{ $user->isi }}</p>
-                           
-                        </div>
-
-
-
-
-                    </div> --}}
-                    <div class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 h-full">
+                    <div
+                        class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 h-full">
                         <a href="#">
-                            <img class="rounded-t-lg w-full h-40 border border-red-600 object-cover" src="{{ asset('image/' . $user->image) }}" alt="" />
+                            <img class="rounded-t-lg w-full h-40 object-cover" src="{{ asset('image/' . $user->image) }}"
+                                alt="" />
 
 
                         </a>
                         <div class="p-5">
                             <a href="#">
-                                <h5 class="mb-2 text-md font-bold tracking-tight text-gray-900 dark:text-white">{{ $user->nama }}</h5>
+                                <h5 class="mb-2 text-md font-bold tracking-tight text-gray-900 dark:text-white">
+                                    {{ $user->nama }}</h5>
                             </a>
                             <p class="mb-3 font-semibold text-gray-700 dark:text-gray-400 text-sm">{{ $user->jabatan }}</p>
-                            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-sm line-clamp-2">{{ $user->profil }}</p>
-                            <div class="justify-start flex md:flex space-x-2 sm:space-x-3 space-y-2">
+                            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-sm line-clamp-2">
+                                {{ $user->profil }}</p>
+                            <div class="mx flex md:flex space-x-2 sm:space-x-3 space-y-2">
                                 <!-- Modal toggle -->
                                 <button data-modal-target="crud-modal" data-modal-toggle="crud-modal-{{ $key }}"
-                                    class="px-4 w-full text-white rounded-lg"
-                                    type="button`2s">
-                                    Edit    
+                                    class="px-4 text-white rounded-lg" type="button`2s">
+                                    Edit
                                 </button>
-                                
-                    
-                                <button class="btn md:text-sm mr-9 border-hidden "  onclick="delete_{{ $key }}.showModal()">Hapus</button>
-                    
+
+
+                                <button class="btn md:text-sm mr-9 border-hidden "
+                                    onclick="delete_{{ $key }}.showModal()">Hapus</button>
+
                             </div>
                         </div>
                     </div>
-                    
                 @endforeach
 
             </div>
@@ -269,31 +249,27 @@
 
 
         {{-- delete --}}
-
     @endsection
 
     @foreach ($data as $key => $hapus)
-            
+        {{-- modal cancel end --}}
 
-    {{-- modal cancel end --}}
-    
-    <dialog id="delete_{{ $key }}" class="modal modal-bottom sm:modal-middle ">
-        <form action="/team/delete/{{ $hapus->team_id }}" method="POST"
-        class="modal-box bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
-        @csrf
-        <p class="py-4">Apakah kamu yakin mau menghapus data ini ?</p>
-        <div class="modal-action">
-            <label for="closeDelete" class="btn bg-red-600 hover:bg-red-700 border-none">Tidak</label>
-                <button class="btn bg-lime-600 hover:bg-lime-700 border-none">Hapus</button>
-            </div>
-        </form>
-        <form method="dialog" class="modal-box bg-white dark:bg-gray-700 text-gray-900 dark:text-white hidden">
-            <p class="py-4">Apakah kamu yakin mau menghapus data ini ?</p>
-            <div class="modal-action">
-                <!-- if there is a button in form, it will close the modal -->
-                <button class="btn" id="closeDelete">Close</button>
-            </div>
-        </form>
-    </dialog>
-    
-@endforeach
+        <dialog id="delete_{{ $key }}" class="modal modal-bottom sm:modal-middle ">
+            <form action="/team/delete/{{ $hapus->team_id }}" method="POST"
+                class="modal-box bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
+                @csrf
+                <p class="py-4">Apakah kamu yakin mau menghapus data ini ?</p>
+                <div class="modal-action">
+                    <label for="closeDelete" class="btn bg-red-600 hover:bg-red-700 border-none">Tidak</label>
+                    <button class="btn bg-lime-600 hover:bg-lime-700 border-none">Hapus</button>
+                </div>
+            </form>
+            <form method="dialog" class="modal-box bg-white dark:bg-gray-700 text-gray-900 dark:text-white hidden">
+                <p class="py-4">Apakah kamu yakin mau menghapus data ini ?</p>
+                <div class="modal-action">
+                    <!-- if there is a button in form, it will close the modal -->
+                    <button class="btn" id="closeDelete">Close</button>
+                </div>
+            </form>
+        </dialog>
+    @endforeach

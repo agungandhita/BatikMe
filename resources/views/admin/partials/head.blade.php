@@ -41,4 +41,4 @@
     <title>Document</title>
 </head>
 
-<body class="bg-gray-100 dark:bg-gray-900">
+<body class="bg-slate-200 dark:bg-gray-900">

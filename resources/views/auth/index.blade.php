@@ -1,56 +1,44 @@
 @extends('auth.layouts.main')
 
 @section('container')
+  
 
-    <div class="flex flex-col items-center justify-center mx-auto md:h-screen lg:py-0 border py-20">
-        <div
-            class="w-full lg:w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700">
-            <div class="p-6 space-y-4 md:space-y-6 sm:p-8">
-                <h1 class="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-                    Login
-                </h1>
+    <div class="py-16">
+        <div class="flex bg-white rounded-lg shadow-lg overflow-hidden mx-auto max-w-sm lg:max-w-4xl">
+            <div class="hidden lg:block lg:w-1/2 bg-cover"
+                style="background-image:url('https://images.unsplash.com/photo-1546514714-df0ccc50d7bf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=667&q=80')">
+            </div>
+            <div class="w-full p-8 lg:w-1/2">
                 <form class="mt-8 space-y-6" action="/login" method="POST">
                     @csrf
-                    <div>
-                        <label for="email" class="mb-2 text-xs md:text-lg font-semibold text-gray-900 dark:text-white">Your
-                            email</label>
-                        <input type="email" name="email" id="email" required
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 @error('email') peer @enderror' value="{{ old('email') }} />
-                        @error('email')
-                            <p class="peer-invalid:visible text-red-700 font-light">
-                                {{ $message }}
-                            </p>
-                        @enderror
+                    <h2 class="text-2xl font-semibold text-gray-700 text-center">Brand</h2>
+                    <p class="text-xl text-gray-600 text-center">Selamat datang kembali</p>
+                    <div class="mt-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2">Email Address</label>
+                        <input name="email" id="email" required placeholder="example@gmail.com"
+                            class="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
+                            type="email" />
                     </div>
-                    <div>
-                        <label for="password" class="block mb-2 text-xs font-medium text-gray-900 dark:text-white">Your
-                            password</label>
-                        <input type="password" name="password" id="password" placeholder="••••••••" required
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500
-                        @error('password')
-            peer
-          @enderror'
-                    value="{{ old('password') }}" />
-                        @error('password')
-                            <p class="peer-invalid:visible text-red-700 font-light">
-                                {{ $message }}
-                            </p>
-                        @enderror
-
+                    <div class="mt-4">
+                        <div class="flex justify-between">
+                            <label class="block text-gray-700 text-sm font-bold mb-2">Password</label>
+                            <a href="#" class="text-xs text-gray-500">Forget Password?</a>
+                        </div>
+                        <input name="password" id="password" placeholder="••••••••" required
+                            class="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
+                            type="password" />
                     </div>
-                    <div class="flex items-center">
-
-                        <a href="#"
-                            class="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Lupa Password
-                            ?</a>
+                    <div class="mt-8">
+                        <button type="submit"
+                            class="bg-gray-700 text-white font-bold py-2 px-4 w-full rounded hover:bg-gray-600">Login</button>
                     </div>
-                    <button type="submit"
-                        class="  md:w-full  text-white md:text-xl bg-primary-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Login</button>
-                    <p class="text-xs md:text-sm font-light text-gray-500 dark:text-gray-400">
-                        Belum Punya Akun ? <a href="/register"
-                            class="font-medium text-primary-600 hover:underline dark:text-primary-500">Register</a>
-                    </p>
+                    <div class="mt-4 flex items-center justify-between">
+                        <span class="border-b w-1/5 md:w-1/4"></span>
+                        <a href="/register" class="text-xs text-gray-500 uppercase">or sign up</a>
+                        <span class="border-b w-1/5 md:w-1/4"></span>
+                    </div>
                 </form>
+
             </div>
         </div>
     </div>

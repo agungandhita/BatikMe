@@ -15,7 +15,7 @@
     </div>
     </div>
     {{-- @include('client.partials.footer') --}}
-    @include('client.partials.end')
+    @include('client.partials.end') 
 
 
 

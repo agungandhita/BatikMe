@@ -163,18 +163,16 @@ class ProdukController extends Controller
         $cek = $request->validate([
             'nama_produk' => 'required|max:255',
             'deskripsi' => 'required',
-            'size' => 'required',
             'harga' => 'required',
-            'qty' => 'required'
+            'kategori' => 'required',
         ]);
 
 
         Produk::find($id)->update([
             'nama_produk' => $cek['nama_produk'],
             'deskripsi' => $cek['deskripsi'],
-            'size' => $cek['size'],
             'harga' => $cek['harga'],
-            'qty' => $cek['qty'],
+            'kategori_id' => $cek['kategori'],
             'updated_at' => now(),
             'user_updated' => Auth::id()
         ]);

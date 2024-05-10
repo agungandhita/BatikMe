@@ -85,13 +85,13 @@
                             <div class="flex space-x-2 sm:space-x-3 space-y-2 ">
                                 <!-- Modal toggle -->
                                 <button data-modal-target="crud-modal" data-modal-toggle="crud-modal-{{ $key }}"
-                                    class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg px-5 text-xl text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                                    class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-blue-300 font-medium rounded-lg p-4 text-lg text-center"
                                     type="button">
                                     Edit    
                                 </button>
                                 
 
-                                <button class="btn md:text-sm "  onclick="delete_{{ $key }}.showModal()">Hapus</button>
+                                <button class="btn md:text-sm dark:bg-red-700 dark:text-white py-4 border-none"  onclick="delete_{{ $key }}.showModal()">Hapus</button>
 
                             </div>
                         </div>
@@ -179,11 +179,11 @@
                         <!-- Modal header -->
                         <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
                             <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-                                Edit Team
+                                Edit Tentang
                             </h3>
                         </div>
                         <!-- Modal body -->
-                        <form class="p-4 md:p-5" action="/team/create/update/{{ $edit->team_id }}" method="POST"
+                        <form class="p-4 md:p-5" action="/about/create/update/{{ $edit->aboutus_id }}" method="POST"
                             enctype="multipart/form-data">
                             <div class="grid gap-4 mb-4 grid-cols-2">
                                 @csrf
@@ -198,25 +198,11 @@
                                         id="file_input" type="file" name="image">
                                 </div>
                                 <div class="col-span-2">
-                                    <label for="name"
-                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama</label>
-                                    <input type="text" name="nama" id="nama"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                        placeholder="Miftahul khoiri" required="" value="{{ $edit->nama }}">
-                                </div>
-                                <div class="col-span-2">
-                                    <label for="price"
-                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">jabatan</label>
-                                    <input type="text" name="jabatan" id="jabatan"
-                                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                                        placeholder="$2999" required="" value="{{ $edit->jabatan }}">
-                                </div>
-                                <div class="col-span-2">
                                     <label for="description"
-                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Profil</label>
-                                    <textarea id="profil" rows="4" name="profil"
+                                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Isi</label>
+                                    <textarea id="isi" rows="4" name="isi"
                                         class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                        placeholder="Write product description here">{{ $edit->profil }}</textarea>
+                                        placeholder="Write product description here">{{ $edit->isi }}</textarea>
                                 </div>
                             </div>
                             <button type="submit"
@@ -227,7 +213,7 @@
                                         d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z"
                                         clip-rule="evenodd"></path>
                                 </svg>
-                                Edit Team
+                                Edit Tentang
                             </button>
                         </form>
                     </div>
@@ -246,7 +232,7 @@
     {{-- modal cancel end --}}
     
     <dialog id="delete_{{ $key }}" class="modal modal-bottom sm:modal-middle ">
-        <form action="/team/delete/{{ $hapus->team_id }}" method="POST"
+        <form action="/about/delete/{{ $hapus->aboutus_id }}" method="POST"
         class="modal-box bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
         @csrf
         <p class="py-4">Apakah kamu yakin mau menghapus data ini ?</p>

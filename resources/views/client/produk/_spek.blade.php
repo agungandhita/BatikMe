@@ -13,22 +13,20 @@
             <h1 class="py-1">
                 Berat
             </h1>
-            <h1 class="py-1">
-                Kategori
-            </h1>
         </div>
         <div class="capitalize text-sm ">
             <h1 class="text-green-600 py-1 font-bold">
-                Kemeja
+                {{ $data->kategori->nama_kategori }}
             </h1>
+            <div class="flex gap-4"> 
+                @foreach($data->size as $item)
             <h1 class="py-1 font-bold text-black">
-                XXL
+                {{ $item->size }}
             </h1>
+            @endforeach
+        </div>
             <h1 class="py-1 font-bold text-black">
-                300 gram
-            </h1>
-            <h1 class="py-1 font-bold text-black">
-                Batik Lengan panjang
+                {{ $data->berat }} gram
             </h1>
         </div>
     </div>
@@ -37,18 +35,14 @@
 
 </div>
 
-<div class="mb-8 border mt-2 shadow-best">
+<div class="mb-5 border mt-2 shadow-best">
 
     <h1 class="text-sm font-bold pt-2 capitalize text-black text-xl">
         deskripsi produk
     </h1>
 
-    <p class="text-sm font-serif text-black pt-2 md:text-lg">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus repudiandae at sint eligendi consequuntur non
-        nisi vitae, doloribus aliquid voluptatibus, nulla dolore quia repellat quas velit maxime beatae quidem
-        molestiae.Illo tempora hic, quos veniam dolorem culpa molestias deleniti autem facilis. Voluptatem vel maiores
-        quas? Excepturi fuga corrupti impedit earum iste recusandae accusamus dolor beatae labore, asperiores cumque
-        ipsum exercitationem.
+    <p class="text-md font-serif text-black pt-2 md:text-lg">
+       {{ $data->deskripsi }}
     </p>
 </div>
 
@@ -82,76 +76,68 @@
                             </svg>
                         </button>
                     </div>
-                    <div class="flex flex-wrap gap-x-6 border-b-2 pb-2">
-                        <button class="border p-1 hover:bg-blue-700 bg-slate-100 rounded-md">
-                            <h1 class="text-black hover:text-white text-lg font-semibold">
-                                XXL
-                            </h1>
-                        </button>
+                    <form action="">
+                        <div class="flex flex-wrap gap-x-6 border-b-2 pb-2">
 
-                        <button class="border p-1 hover:bg-blue-700 bg-slate-100 rounded-md">
-                            <h1 class="text-black hover:text-white text-lg font-semibold">
-                                XXL
-                            </h1>
-                        </button>
+                            <input type="button" value="XXL"
+                                class="border p-1 hover:bg-blue-700 bg-slate-100 rounded-md text-black hover:text-white text-lg font-semibold">
 
-                        <button class="border p-1 hover:bg-blue-700 bg-slate-100 rounded-md">
-                            <h1 class="text-black hover:text-white text-lg font-semibold">
-                                XXL
-                            </h1>
-                        </button>
 
-                        <button class="border p-1 hover:bg-blue-700 bg-slate-100 rounded-md">
-                            <h1 class="text-black hover:text-white text-lg font-semibold">
-                                XXL
-                            </h1>
-                        </button>
-                    </div>
-                    <!-- Tombol untuk menutup modal -->
+                            <input type="button" value="XL"
+                                class="border p-1 hover:bg-blue-700 bg-slate-100 rounded-md text-black hover:text-white text-lg font-semibold">
 
-                    {{-- modal keranjang --}}
+                            <input type="button" value="S"
+                                class="border p-1 hover:bg-blue-700 bg-slate-100 rounded-md text-black hover:text-white text-lg font-semibold">
 
-                    <div class="mt-2 flex justify-between border-b-2 pb-3">
-                        <div class="mt-2">
-                            <h1 class="text-lg font-semibold text-black">
-                                Jumlah
-                            </h1>
+                            <input type="button" value="M"
+                                class="border p-1 hover:bg-blue-700 bg-slate-100 rounded-md text-black hover:text-white text-lg font-semibold">
                         </div>
-                        <div class="flex gap-x-4">
-                            <button class="text-white bg-blue-700">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-6 h-6"
-                                    fill="currentColor">
-                                    <path d="M5 11V13H19V11H5Z"></path>
-                                </svg>
-                            </button>
-                            <h1 class="bg-slate-200 text-center p-1 px-3 text-black">
-                                8
+                        <!-- Tombol untuk menutup modal -->
+
+                        {{-- modal keranjang --}}
+
+                        <div class="mt-2 flex justify-between border-b-2 pb-3">
+                            <div class="mt-2">
+                                <h1 class="text-lg font-semibold text-black">
+                                    Jumlah
+                                </h1>
+                            </div>
+                            <div class="flex gap-x-4">
+                                <button id="decreaseButton" type="button" class="text-white bg-blue-700">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-6 h-6"
+                                        fill="currentColor">
+                                        <path d="M5 11V13H19V11H5Z"></path>
+                                    </svg>
+                                </button>
+                                <input class="w-10 bg-slate-200 text-center p-1 px-2 text-black" id="jumlah"
+                                    type="number" value="0">
+
+                                <button class="text-white bg-blue-700" type="button" id="increaseButton"
+                                    onclick="increaseValue()">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-6 h-6"
+                                        fill="currentColor">
+                                        <path d="M11 11V5H13V11H19V13H13V19H11V13H5V11H11Z"></path>
+                                    </svg>
+                                </button>
+                            </div>
+
+                        </div>
+                        {{-- akhir modal keranjang --}}
+                        <div class="flex justify-between mt-3">
+                            <h1 class="text-lg font-semibold capitalize text-black">
+                                harga
                             </h1>
-                            <button class="text-white bg-blue-700">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-6 h-6"
-                                    fill="currentColor">
-                                    <path d="M11 11V5H13V11H19V13H13V19H11V13H5V11H11Z"></path>
-                                </svg>
+                         
+
+                            <p id="semua" class="text-blue-500 font-semibold text-xl">Rp {{ $data->harga }}</p>
+
+                        </div>
+                        <div class="mt-3">
+                            <button class="text-center bg-blue-700 text-white font-semibold p-2 w-full">
+                                Masukan keranjang
                             </button>
                         </div>
-
-                    </div>
-                    {{-- akhir modal keranjang --}}
-                    <div class="flex justify-between mt-3">
-                        <h1 class="text-lg font-semibold capitalize text-black">
-                            harga
-                        </h1>
-                        <h1 class="text-blue-500 font-semibold text-xl">
-                            Rp 2000
-                        </h1>
-
-                    </div>
-                    <div class="mt-3">
-                        <button class="text-center bg-blue-700 text-white font-semibold p-2 w-full">
-                            Masukan keranjang
-                        </button>
-                    </div>
-
+                    </form>
                 </div>
             </div>
         </div>
@@ -174,3 +160,42 @@
 
     @include('client.produk._review')
 </div>
+
+
+@push('scripts')
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const totalPriceElement = document.getElementById("semua");
+            const quantityInput = document.getElementById("jumlah");
+            const increaseButton = document.getElementById("btnIncrease");
+            const decreaseButton = document.getElementById("btnDecrease");
+            
+            function calculateTotalPrice() {
+                let price = @json($data->harga);
+                const quantity = parseInt(quantityInput.value);
+                const totalPrice = price * quantity;
+                return totalPrice.toLocaleString(); // Format angka ke format mata uang
+            }
+
+            // Update total harga saat halaman dimuat
+            const totalPrice = calculateTotalPrice();
+            totalPriceElement.innerText = `Rp ${totalPrice}`;
+
+            // Event listener untuk tombol +
+            increaseButton.addEventListener("click", function() {
+                quantityInput.value++;
+                const totalPrice = calculateTotalPrice();
+                totalPriceElement.innerText = `Rp ${totalPrice}`;
+            });
+
+            // Event listener untuk tombol -
+            decreaseButton.addEventListener("click", function() {
+                if (quantityInput.value > 1) {
+                    quantityInput.value--;
+                    const totalPrice = calculateTotalPrice();
+                    totalPriceElement.innerText = `Rp ${totalPrice}`;
+                }
+            });
+        });
+    </script>
+@endpush

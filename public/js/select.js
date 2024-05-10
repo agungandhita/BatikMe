@@ -1,0 +1,1 @@
+$('.select1').select2();

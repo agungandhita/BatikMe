@@ -34,4 +34,9 @@ class Produk extends Model
     public function size(){
         return $this->hasMany( Size::class, 'produk_id', 'produk_id' );
     }
+
+    public function keranjang()
+    {
+        return $this->belongsTo(Keranjang::class, 'keranjang_id', 'keranjang_id');
+    }
 }

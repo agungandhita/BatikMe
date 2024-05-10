@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\client;
 
-use App\Http\Controllers\Controller;
 use App\Models\Produk;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class DetailController extends Controller
 {
@@ -15,7 +16,19 @@ class DetailController extends Controller
      */
     public function index()
     {
-        return view('client.produk.index');
+        $data = Category::latest()->get();
+
+        $produk = Category::with('produk.produkimage')->get();
+
+        $tes = Produk::with(['produkImage', 'size'])->withSum('size', 'qty')->get();
+
+
+        return view('client.produk.index', [
+            'data' => $data,
+            'produk' => $produk,
+            'tes' => $tes
+            
+        ]);
     }
 
     /**

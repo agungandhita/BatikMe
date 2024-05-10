@@ -1,6 +1,6 @@
 
 
-<div id="controls-carousel" class="relative w-full" data-carousel="static">
+<div id="controls-carousel" class="relative w-full -z-50" data-carousel="static">
     <!-- Carousel wrapper -->
     <div class="relative h-56 overflow-hidden md:h-screen">
          <!-- Item 1 -->

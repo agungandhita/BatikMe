@@ -2,11 +2,10 @@
 
 namespace Database\Factories;
 
+use App\Models\Produk;
+use App\Models\ProdukImage;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\ProdukImage>
- */
 class ProdukImageFactory extends Factory
 {
     /**
@@ -17,7 +16,8 @@ class ProdukImageFactory extends Factory
     public function definition()
     {
         return [
-            //
+            // 'image' => $this->faker->imageUrl(),
+            // 'produk_id' => Produk::factory()->create()->produk_id,
         ];
     }
 }

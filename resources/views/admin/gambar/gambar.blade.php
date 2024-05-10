@@ -12,7 +12,7 @@
         <img src="{{ asset('produk/'.$cok->image) }}" alt="">
         @endforeach --}}
 
-                <div class="bg-white border-none dark:bg-gray-700 p-2 rounded-lg w-40">
+                <div class="bg-slate-100 border-none dark:bg-gray-700 p-2 rounded-lg w-60 h-40">
 
                         <img src="{{ asset('produk/' . $item->produkImage[0]->image) }}" class="w-full border h-20 object-cover"
                             alt="">

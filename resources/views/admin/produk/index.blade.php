@@ -1,7 +1,7 @@
 @extends('admin.layouts.main')
 
 @section('container')
-    <div class="px-4 pt-6">
+    <div class="px-4 pt-6 bg-slate-200 dark:bg-gray-800">
         <div
             class=" p-4 bg-white block sm:flex items-center justify-between border-b border-gray-200 lg:mt-1.5 dark:bg-gray-800 dark:border-gray-700">
             <div class="w-full mb-1">
@@ -186,7 +186,7 @@
             </div>
         </div>
 
-        <div
+        {{-- <div
             class="sticky bottom-0 right-0 items-center w-full p-4 bg-white border-t border-gray-200 sm:flex sm:justify-between dark:bg-gray-800 dark:border-gray-700">
             <div class="flex items-center mb-4 sm:mb-0">
                 <a href="#"
@@ -231,7 +231,7 @@
                     </svg>
                 </a>
             </div>
-        </div>
+        </div> --}}
 
         {{-- tambah produk kategori --}}
 
@@ -263,6 +263,35 @@
                     @csrf
                     <div class="space-y-4">
 
+
+
+                        <a href="/admin/produk-image/update/{{ $produk->produk_id }}"
+                            class="btn btn-block bg-blue-700 text-white">
+                            Edit Gambar
+                        </a>
+
+                        <div>
+                            {{-- @dd($kategori) --}}
+                            <label for="kategori"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">kategori</label>
+                            <select id="" name="kategori"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                onclick="updateModel()">
+
+
+                                @foreach ($kategori as $cek)
+                                    <option class="uppercase" value="{{ $cek->kategori_id }}"
+                                        {{ $cek->kategori_id === $produk->kategori_id ? 'selected' : '' }}>
+                                        {{ $cek->nama_kategori }}
+                                    </option>
+                                @endforeach
+
+
+                            </select>
+                        </div>
+
+
+
                         <div>
                             <label for="name"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nama
@@ -289,18 +318,26 @@
                                 placeholder="Enter event description here" value>{{ $produk->deskripsi }}</textarea>
                         </div>
 
+                        {{-- @php
+                            $sizeArray = [];
+                            foreach ($produk->size as $value) {
+                                $sizeArray[] = $value->size;
+                            }
+                        @endphp
                         <div>
-                            <label for="discount-create"
+                            <label for="select{{ $produk->produk_id }}"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Size</label>
-                            <select id="discount-create" name="size"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
-                                <option selected="">No</option>
-                                <option value="S" {{ $produk->size === 'S' ? 'selected' : '' }}>S</option>
-                                <option value="M" {{ $produk->size === 'M' ? 'selected' : '' }}>M</option>
-                                <option value="XL" {{ $produk->size === 'XL' ? 'selected' : '' }}>XL</option>
-                                <option value="XXL" {{ $produk->size === 'XXL' ? 'selected' : '' }}>XXL</option>
+                            <select name="size[]" multiple="multiple" id="select{{ $produk->produk_id }}"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500
+                                select{{ $produk->produk_id }}">
+                                <option value="S" {{ in_array('S', $sizeArray) ? 'selected' : '' }}>S</option>
+                                <option value="M" {{ in_array('M', $sizeArray) ? 'selected' : '' }}>M</option>
+                                <option value="XL" {{ in_array('XL', $sizeArray) ? 'selected' : '' }}>XL</option>
+                                <option value="XXL" {{ in_array('XXL', $sizeArray) ? 'selected' : '' }}>XXL</option>
                             </select>
-                        </div>
+    
+    
+                        </div> --}}
 
                         <div class="bottom-0 left-0 flex justify-center w-full pb-4 space-x-4 md:px-4 md:relative">
                             <button type="submit"
@@ -489,8 +526,6 @@
 
 @push('scripts')
     <script>
-        $(document).ready(function() {
-            $('.select2').select2();
-        });
+        $('.select2').select2();
     </script>
 @endpush

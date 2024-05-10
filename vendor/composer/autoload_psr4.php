@@ -44,6 +44,7 @@ return array(
     'Spatie\\Ignition\\' => array($vendorDir . '/spatie/ignition/src'),
     'Spatie\\FlareClient\\' => array($vendorDir . '/spatie/flare-client-php/src'),
     'Spatie\\Backtrace\\' => array($vendorDir . '/spatie/backtrace/src'),
+    'Smknstd\\FakerPicsumImages\\' => array($vendorDir . '/smknstd/fakerphp-picsum-images/src'),
     'RealRashid\\SweetAlert\\' => array($vendorDir . '/realrashid/sweet-alert/src'),
     'Ramsey\\Uuid\\' => array($vendorDir . '/ramsey/uuid/src'),
     'Ramsey\\Collection\\' => array($vendorDir . '/ramsey/collection/src'),
@@ -94,4 +95,5 @@ return array(
     'Carbon\\' => array($vendorDir . '/nesbot/carbon/src/Carbon'),
     'Brick\\Math\\' => array($vendorDir . '/brick/math/src'),
     'App\\' => array($baseDir . '/app', $vendorDir . '/laravel/pint/app'),
+    'Alirezasedghi\\LaravelImageFaker\\' => array($vendorDir . '/alirezasedghi/laravel-image-faker/src'),
 );

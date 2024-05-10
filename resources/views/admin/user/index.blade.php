@@ -1,14 +1,13 @@
 @extends('admin.layouts.main')
 
 @section('container')
-    <div class="px-4 pt-6">
+    <div class="px-4 pt-6 bg-slate-200 dark:bg-gray-800">
         <div
             class="p-4 bg-white block sm:flex items-center justify-between border-b border-gray-200 lg:mt-1.5 dark:bg-gray-800 dark:border-gray-700">
             <div class="w-full mb-1">
                 <div class="mb-4">
                     <nav class="flex mb-5" aria-label="Breadcrumb">
                         <ol class="inline-flex items-center space-x-1 text-sm font-medium md:space-x-2">
-                            <li class="inline-flex items-center">
                                 <a href="#"
                                     class="inline-flex items-center text-gray-700 hover:text-primary-600 dark:text-gray-300 dark:hover:text-white">
                                     <svg class="w-5 h-5 mr-2.5" fill="currentColor" viewBox="0 0 20 20"
@@ -19,8 +18,6 @@
                                     </svg>
                                     Home
                                 </a>
-                            </li>
-                            <li>
                                 <div class="flex items-center">
                                     <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -31,8 +28,6 @@
                                     <a href="#"
                                         class="ml-1 text-gray-700 hover:text-primary-600 md:ml-2 dark:text-gray-300 dark:hover:text-white">Users</a>
                                 </div>
-                            </li>
-                            <li>
                                 <div class="flex items-center">
                                     <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -43,7 +38,6 @@
                                     <span class="ml-1 text-gray-400 md:ml-2 dark:text-gray-500"
                                         aria-current="page">List</span>
                                 </div>
-                            </li>
                         </ol>
                     </nav>
                     <h1 class="text-xl font-semibold text-gray-900 sm:text-2xl dark:text-white">All users</h1>
@@ -161,7 +155,7 @@
                                     <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
                                         <td
                                             class="p-4 text-base font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                            {{ $user->no + 1 }}</td>
+                                            {{ $no + 1 }}</td>
                                         <td class="flex items-center p-4 mr-12 space-x-6 whitespace-nowrap">
                                             <img class="w-10 h-10 rounded-full"
                                                 src="{{ asset('ft_user/' . $user->image) }}">

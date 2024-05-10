@@ -1,7 +1,7 @@
 @extends('admin.layouts.main')
 
 @section('container')
-    <div class="px-4 pt-10 ">
+    <div class="px-4 pt-10 bg-slate-200 dark:bg-gray-800">
         <div class="pb-20">
             <h1 class="text-gray-900 dark:text-white font-semibold text-xl">Berita</h1>
 
@@ -35,17 +35,17 @@
 
             <div class="flex flex-row overflow-x-auto gap-x-4 mt-8 text-gray-900 dark:text-white w-full py-6">
                 <a href="/admin/berita"
-                    class="border p-2 rounded-xl border-gray-500 hover:bg-main {{ request()->is('admin/berita') && request('admin-berita-kategori') == null ? 'bg-main text-white' : '' }} w-full cursor-pointer min-w-fit sm:w-auto text-center ">Semua
+                    class="border p-2 rounded-xl border-gray-500 hover:bg-black hover:text-white {{ request()->is('admin/berita') && request('admin-berita-kategori') == null ? 'bg-main text-white' : '' }} w-full cursor-pointer min-w-fit sm:w-auto text-center ">Semua
                     Berita</a>
                 <a href="/admin/berita?admin-berita-kategori=info penting"
-                    class="border p-2 rounded-xl border-gray-500 hover:bg-main {{ request('admin-berita-kategori') == 'info penting' ? 'bg-main text-white' : '' }} w-full cursor-pointer min-w-fit sm:w-auto text-center ">Info
+                    class="border p-2 rounded-xl border-gray-500 hover:bg-black hover:text-white {{ request('admin-berita-kategori') == 'info penting' ? 'bg-main text-white' : '' }} w-full cursor-pointer min-w-fit sm:w-auto text-center ">Info
                     Penting</a>
                 <a href="/admin/berita?admin-berita-kategori=terlama"
-                    class="border p-2 rounded-xl border-gray-500 hover:bg-main {{ request('admin-berita-kategori') == 'terlama' ? 'bg-main text-white' : '' }} w-full cursor-pointer min-w-fit sm:w-auto text-center ">Terlama</a>
+                    class="border p-2 rounded-xl border-gray-500 hover:bg-black hover:text-white {{ request('admin-berita-kategori') == 'terlama' ? 'bg-main text-white' : '' }} w-full cursor-pointer min-w-fit sm:w-auto text-center ">Terlama</a>
                 <a href="/admin/berita?admin-berita-kategori=terbaru"
-                    class="border p-2 rounded-xl border-gray-500 hover:bg-main {{ request('admin-berita-kategori') == 'terbaru' ? 'bg-main text-white' : '' }} w-full cursor-pointer min-w-fit sm:w-auto text-center ">Terbaru</a>
+                    class="border p-2 rounded-xl border-gray-500 hover:bg-black hover:text-white {{ request('admin-berita-kategori') == 'terbaru' ? 'bg-main text-white' : '' }} w-full cursor-pointer min-w-fit sm:w-auto text-center ">Terbaru</a>
                 <a href="/admin/berita?admin-berita-kategori=favorit"
-                    class="border p-2 rounded-xl border-gray-500 hover:bg-main {{ request('admin-berita-kategori') == 'favorit' ? 'bg-main text-white' : '' }} w-full cursor-pointer min-w-fit sm:w-auto text-center ">Favorit</a>
+                    class="border p-2 rounded-xl border-gray-500 hover:bg-black hover:text-white {{ request('admin-berita-kategori') == 'favorit' ? 'bg-main text-white' : '' }} w-full cursor-pointer min-w-fit sm:w-auto text-center ">Favorit</a>
             </div>
 
 

@@ -1,7 +1,7 @@
 @extends('admin.layouts.main')
 
 @section('container')
-    <div class="px-4 pt-6">
+    <div class="px-4 pt-6 bg-slate-200 dark:bg-gray-800">
 
     <div class="dark:bg-slate-800 shadow-best shadow-white bg-white rounded-md justify-between">
         <div class="flex">

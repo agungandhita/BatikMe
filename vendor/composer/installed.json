@@ -1,6 +1,69 @@
 {
     "packages": [
         {
+            "name": "alirezasedghi/laravel-image-faker",
+            "version": "v1.0",
+            "version_normalized": "1.0.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/AlirezaSedghi/laravel-image-faker.git",
+                "reference": "1b7d84f30f41d0881d6ff20d191c2833bcf1fcbf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/AlirezaSedghi/laravel-image-faker/zipball/1b7d84f30f41d0881d6ff20d191c2833bcf1fcbf",
+                "reference": "1b7d84f30f41d0881d6ff20d191c2833bcf1fcbf",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.0.0"
+            },
+            "time": "2023-05-04T18:30:41+00:00",
+            "type": "laravel",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Alirezasedghi\\LaravelImageFaker\\ImageFakerServiceProvider"
+                    ],
+                    "aliases": {
+                        "ImageFaker": "Alirezasedghi\\LaravelImageFaker\\Facades\\ImageFaker"
+                    }
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Alirezasedghi\\LaravelImageFaker\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alireza Sedghi",
+                    "email": "alirezasedghi911@gmail.com"
+                }
+            ],
+            "description": "A library to generate fake images for Laravel",
+            "homepage": "https://github.com/AlirezaSedghi/laravel-image-faker",
+            "keywords": [
+                "faker",
+                "image",
+                "image-faker",
+                "laravel",
+                "laravel-faker",
+                "php",
+                "random-image"
+            ],
+            "support": {
+                "issues": "https://github.com/AlirezaSedghi/laravel-image-faker/issues",
+                "source": "https://github.com/AlirezaSedghi/laravel-image-faker/tree/v1.0"
+            },
+            "install-path": "../alirezasedghi/laravel-image-faker"
+        },
+        {
             "name": "brick/math",
             "version": "0.11.0",
             "version_normalized": "0.11.0.0",
@@ -5697,6 +5760,73 @@
             "install-path": "../sebastian/version"
         },
         {
+            "name": "smknstd/fakerphp-picsum-images",
+            "version": "v1.0.2",
+            "version_normalized": "1.0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/smknstd/fakerphp-picsum-images.git",
+                "reference": "30d05a8081b0c2953f21fe3184d242a85d987c1d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/smknstd/fakerphp-picsum-images/zipball/30d05a8081b0c2953f21fe3184d242a85d987c1d",
+                "reference": "30d05a8081b0c2953f21fe3184d242a85d987c1d",
+                "shasum": ""
+            },
+            "require": {
+                "fakerphp/faker": "^1.10",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^3.0",
+                "phpunit/phpunit": "^9.5",
+                "spatie/ray": "^1.28",
+                "vimeo/psalm": "^4.8"
+            },
+            "suggest": {
+                "ext-curl": "*"
+            },
+            "time": "2022-10-11T08:45:27+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Smknstd\\FakerPicsumImages\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Arnaud Becher",
+                    "email": "arnaud.becher@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Alternative image provider for fakerphp using picsum.photos ",
+            "homepage": "https://github.com/smknstd/fakerphp-picsum-images",
+            "keywords": [
+                "faker",
+                "images",
+                "php",
+                "picsum"
+            ],
+            "support": {
+                "issues": "https://github.com/smknstd/fakerphp-picsum-images/issues",
+                "source": "https://github.com/smknstd/fakerphp-picsum-images/tree/v1.0.2"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/smknstd",
+                    "type": "github"
+                }
+            ],
+            "install-path": "../smknstd/fakerphp-picsum-images"
+        },
+        {
             "name": "spatie/backtrace",
             "version": "1.5.3",
             "version_normalized": "1.5.3.0",
@@ -8861,6 +8991,7 @@
         "sebastian/resource-operations",
         "sebastian/type",
         "sebastian/version",
+        "smknstd/fakerphp-picsum-images",
         "spatie/backtrace",
         "spatie/flare-client-php",
         "spatie/ignition",

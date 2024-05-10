@@ -110,10 +110,9 @@ class AboutController extends Controller
     {
         $validasi = $request->validate([
 
-            'nama' => 'required|max:255',
-            'jabatan' => 'required',
-            'profil' => 'required',
             'image' => 'required|max:2048',
+            'isi' => 'required',
+          
         ]);
 
         $img = AboutUs::where('aboutus_id', $id)->pluck('image')->first();
@@ -135,16 +134,14 @@ class AboutController extends Controller
 
 
         AboutUs::find($id)->update([
-            'nama' => $validasi['nama'],
-            'jabatan' => $validasi['jabatan'],
-            'profil' => $validasi['profil'],
+            'isi' => $validasi['isi'],
             'image' => $name,
             'user_updated' => Auth::id()
 
         ]);
 
 
-        return redirect('/about')->with('success', 'update successful to the Driver');
+        return redirect('/about')->with('success', 'update berhasil');
     }
 
     /**
@@ -174,6 +171,6 @@ class AboutController extends Controller
 
 
 
-        return redirect('/about')->with('success', 'Delete successful to the Guide');
+        return redirect('/about')->with('success', 'Delete successful');
     }
 }
