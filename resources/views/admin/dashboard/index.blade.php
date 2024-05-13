@@ -3,15 +3,15 @@
 @section('container')
     <div class="px-4 pt-6 bg-slate-200 dark:bg-gray-800">
 
-    <div class="dark:bg-slate-800 shadow-best shadow-white bg-white rounded-md justify-between">
+    <div class="dark:bg-slate-800 shadow-best bg-white rounded-md justify-between">
         <div class="flex">
-        <p class="text-4xl font-semibold py-4 mx-4 text-[#CCA9DD]">
+        <p class="text-4xl font-semibold py-4 mx-4 text-blue-500">
             Hallo, {{ auth()->user()->username   }}
         </p>
         <img src="{{ asset ('img/hello.png') }}" class="object-contain w-16 justify-end" alt="">
     </div>
 
-        <p class="text-3xl font-serif pb-4 mx-4 uppercase text-gray-500">
+        <p class="text-3xl font-serif pb-4 mx-4 uppercase text-black">
             selamat datang di dashboard admin BatikMe.id 
         </p>
     </div>

@@ -2,7 +2,6 @@
 
 @section('container')
     <div class="">
-        <h1 class="">Semua Produk</h1>
         <div class="px-2 grid grid-cols-2 md:grid-cols-4 gap-x-3">
 
             <!-- component -->

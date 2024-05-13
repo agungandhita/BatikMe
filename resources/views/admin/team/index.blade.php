@@ -41,7 +41,7 @@
                             </div>
                         </ol>
                     </nav>
-                    <h1 class="text-xl font-semibold text-gray-900 sm:text-2xl dark:text-white">Profile Perusahaan</h1>
+                    <h1 class="text-xl font-semibold text-gray-900 sm:text-2xl dark:text-white">Struktur organisasi</h1>
                 </div>
 
                 <div class="flex items-center ml-auto space-x-2 sm:space-x-3 mt-6">
@@ -85,12 +85,12 @@
                             <div class="mx flex md:flex space-x-2 sm:space-x-3 space-y-2">
                                 <!-- Modal toggle -->
                                 <button data-modal-target="crud-modal" data-modal-toggle="crud-modal-{{ $key }}"
-                                    class="px-4 text-white rounded-lg" type="button`2s">
+                                    class="px-4 bg-green-600 text-white rounded-lg" type="button`2s">
                                     Edit
                                 </button>
 
 
-                                <button class="btn md:text-sm mr-9 border-hidden "
+                                <button class="btn md:text-sm mr-9 border-hidden bg-red-600 text-white "
                                     onclick="delete_{{ $key }}.showModal()">Hapus</button>
 
                             </div>

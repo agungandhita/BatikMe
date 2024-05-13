@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\KeranjangController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\auth\AuthController;
 use App\Http\Controllers\admin\SizeController;
@@ -22,7 +24,9 @@ use App\Http\Controllers\admin\ProdukImageController;
 use App\Http\Controllers\admin\BeritaKategoriController;
 use App\Http\Controllers\ProdukController as ControllersProdukController;
 use App\Http\Controllers\admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\admin\PemesananController;
 use App\Http\Controllers\ClientProdukController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,9 +48,9 @@ Route::get('/produk/{id}', [DetailController::class, 'index']);
 
 
 
-// Route::get('/cek', function () {
-//     return view('admin.produk.kategori');
-// });
+Route::get('/cek', function () {
+    return view('client.bayar.index');
+});
 
 
 // Route::get('/tes', action: function () {
@@ -99,7 +103,7 @@ Route::middleware('admin')->group(function () {
     Route::post('/admin/produk-image/delete/{id}', [ProdukImageController::class, 'destroy']);
 
     //kategori
-    Route::get('/produk/kategori', [CategoryController::class, 'index']);
+    Route::get('/admin/kategori', [CategoryController::class, 'index']);
     Route::post('/produk/kategori/add', [CategoryController::class, 'store']);
     Route::post('/produk/kategori/update/{id}', [CategoryController::class, 'update']);
     Route::post('/produk/kategori/delete/{id}', [CategoryController::class, 'destroy']);
@@ -131,15 +135,21 @@ Route::middleware('admin')->group(function () {
     Route::get('/admin/berita/read/{id}', [BeritaController::class, 'read']);
 
     // dashboard
-
-    Route::get('/manage/dashboard', [AdminDashboardController::class, 'index']);
+    Route::get('/admin/dashboard', [AdminDashboardController::class, 'index']);
     Route::post('/admin/post', [AdminDashboardController::class, 'store']);
     Route::post('/admin/update/{id}', [AdminDashboardController::class, 'update']);
 
-
-
     //gambar produk
     Route::get('/gambar/produk', [ProdukImageController::class, 'index']);
+
+    // data penjualan
+    Route::get('/data-pesanan', [PemesananController::class, 'index']);
+
+
+    // pembayaran dan kelola pesanan
+    Route::get('/pembayaran', [PemesananController::class, 'pembayaran']);
+
+
 });
 
 Route::middleware('auth')->group(function () {
@@ -147,9 +157,21 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/produks', [ClientProdukController::class, 'index']);
     Route::get('/produks/detail/{id}', [ClientProdukController::class, 'detail']);
+   
+    // user
+    Route::get('/user', [ProfileController::class, 'index']);
+    Route::get('/user/pesanan', [ProfileController::class, 'bayar']);
+
+
+    Route::get('/keranjang', [KeranjangController::class, 'index']);
+    Route::get('/detail-pesanan/{id}', [DetailController::class,'detailPesanan']);
+
+
 });
 
 
 Route::get('/home', [DashboardController::class, 'index']);
 
 Route::get('/produks', [ClientProdukController::class, 'index']);
+Route::get('/tentang', [AboutUsController::class, 'index']);
+Route::get('/produks/detail/{id}', [ClientProdukController::class, 'detail']);

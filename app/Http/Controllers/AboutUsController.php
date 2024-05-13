@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreAboutUsRequest;
 use App\Http\Requests\UpdateAboutUsRequest;
 use App\Models\AboutUs;
+use App\Models\Team;
 
 class AboutUsController extends Controller
 {
@@ -15,7 +16,19 @@ class AboutUsController extends Controller
      */
     public function index()
     {
-        //
+
+        $data = AboutUs::latest()->get();
+
+        $cek = Team::latest()->get();
+
+        // dd($cek);
+
+        // dd($data);
+
+        return view ('client.about.index',[
+            'data' => $data,
+            'team' => $cek
+        ]);
     }
 
     /**

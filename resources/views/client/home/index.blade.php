@@ -51,10 +51,13 @@
             @foreach ($data as $item)
                 <button
                     class="w-35 md:w-60 hover:bg-blue-400 hover:border rounded-lg my-4 animate-fade-up animate-duration-[900ms] animate-delay-200">
-                    <p
-                        class="text-md md:text-xl  py-2 font-semibold shadow-best text-black rounded-lg bg-blend-overlay hover hover:text-white">
-                        {{ $item->nama_kategori }}
-                    </p>
+                    <a href="/produks?kategori={{ $item->kategori_id }}">
+                        <p
+                            class="text-md md:text-xl  py-2 font-semibold shadow-best text-black rounded-lg bg-blend-overlay hover hover:text-white">
+                            {{ $item->nama_kategori }}
+                        </p>
+                    </a>
+
                 </button>
             @endforeach
         </div>

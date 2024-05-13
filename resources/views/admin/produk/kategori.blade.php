@@ -74,9 +74,9 @@
         {{-- edit kategori --}}
         @foreach ($data as $update => $edit)
             <dialog id="my_modal_3{{ $update }}" class="modal">
-                <div class="modal-box">
+                <div class="modal-box bg-white rounded-lg shadow dark:bg-gray-700">
 
-
+                    
                     <form action="/produk/kategori/update/{{ $edit->kategori_id }}" method="POST">
                         @csrf
                         <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
@@ -89,7 +89,7 @@
                         <div class="flex gap-x-4 mt-4">
                             <button type="submit" id="btn-select-file"
                                 class="bg-green-600 py-2 px-4 rounded-md text-white">SEND</button>
-                            <a href="/produk/kategori" class="bg-red-600 px-4 py-2 text-white rounded-md">UNDO</a>
+                            <a href="/admin/kategori" class="bg-red-600 px-4 py-2 text-white rounded-md">UNDO</a>
                         </div>
                     </form>
 

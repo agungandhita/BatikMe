@@ -30,6 +30,10 @@ class DetailController extends Controller
             
         ]);
     }
+    public function detailPesanan(Produk $id, Request $request){
+        // dd($request->all());
+        return view('client.bayar.index');      
+    }
 
     /**
      * Show the form for creating a new resource.

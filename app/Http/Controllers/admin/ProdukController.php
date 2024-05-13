@@ -219,6 +219,6 @@ class ProdukController extends Controller
 
 
 
-        return redirect('/admin/produk')->with('success', 'Delete successful to the Guide');
+        return redirect('/admin/produk')->with('success', 'berhasil menghapus data');
     }
 }

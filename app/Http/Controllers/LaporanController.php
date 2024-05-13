@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreDashboardRequest;
-use App\Http\Requests\UpdateDashboardRequest;
-use App\Models\Category;
-use App\Models\Dashboard;
+use App\Http\Requests\StoreLaporanRequest;
+use App\Http\Requests\UpdateLaporanRequest;
+use App\Models\Laporan;
 
-class DashboardController extends Controller
+class LaporanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,12 +15,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $data = Category::latest();
-
-        return view('client.home.index', [
-            'data' => $data
-        ]);
-
+        //
     }
 
     /**
@@ -37,10 +31,10 @@ class DashboardController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreDashboardRequest  $request
+     * @param  \App\Http\Requests\StoreLaporanRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreDashboardRequest $request)
+    public function store(StoreLaporanRequest $request)
     {
         //
     }
@@ -48,10 +42,10 @@ class DashboardController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Dashboard  $dashboard
+     * @param  \App\Models\Laporan  $laporan
      * @return \Illuminate\Http\Response
      */
-    public function show(Dashboard $dashboard)
+    public function show(Laporan $laporan)
     {
         //
     }
@@ -59,10 +53,10 @@ class DashboardController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Dashboard  $dashboard
+     * @param  \App\Models\Laporan  $laporan
      * @return \Illuminate\Http\Response
      */
-    public function edit(Dashboard $dashboard)
+    public function edit(Laporan $laporan)
     {
         //
     }
@@ -70,11 +64,11 @@ class DashboardController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateDashboardRequest  $request
-     * @param  \App\Models\Dashboard  $dashboard
+     * @param  \App\Http\Requests\UpdateLaporanRequest  $request
+     * @param  \App\Models\Laporan  $laporan
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateDashboardRequest $request, Dashboard $dashboard)
+    public function update(UpdateLaporanRequest $request, Laporan $laporan)
     {
         //
     }
@@ -82,10 +76,10 @@ class DashboardController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Dashboard  $dashboard
+     * @param  \App\Models\Laporan  $laporan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Dashboard $dashboard)
+    public function destroy(Laporan $laporan)
     {
         //
     }

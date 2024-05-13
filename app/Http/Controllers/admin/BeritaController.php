@@ -178,7 +178,7 @@ class BeritaController extends Controller
 
 
 
-        return redirect('/berita')->with('success', 'Delete successful to the Guide');
+        return redirect('/berita')->with('success', 'berhasil di hapus');
     }
 
     public function read(Berita $id)

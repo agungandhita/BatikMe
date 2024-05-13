@@ -22,7 +22,6 @@
                                     Home
                                 </a>
                             </li>
-                            <li>
                                 <div class="flex items-center">
                                     <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -34,8 +33,6 @@
                                         class="ml-1 text-gray-700 hover:text-primary-600 md:ml-2 dark:text-gray-300 dark:hover:text-white">Tentang
                                         kami</a>
                                 </div>
-                            </li>
-                            <li>
                                 <div class="flex items-center">
                                     <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -46,7 +43,6 @@
                                     <span class="ml-1 text-gray-400 md:ml-2 dark:text-gray-500"
                                         aria-current="page">List</span>
                                 </div>
-                            </li>
                         </ol>
                     </nav>
                     <h1 class="text-xl font-semibold text-gray-900 sm:text-2xl dark:text-white">Profile Perusahaan</h1>
@@ -85,13 +81,13 @@
                             <div class="flex space-x-2 sm:space-x-3 space-y-2 ">
                                 <!-- Modal toggle -->
                                 <button data-modal-target="crud-modal" data-modal-toggle="crud-modal-{{ $key }}"
-                                    class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-blue-300 font-medium rounded-lg p-4 text-lg text-center"
+                                    class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-blue-300 font-medium rounded-lg px-4 text-lg text-center"
                                     type="button">
                                     Edit    
                                 </button>
                                 
 
-                                <button class="btn md:text-sm dark:bg-red-700 dark:text-white py-4 border-none"  onclick="delete_{{ $key }}.showModal()">Hapus</button>
+                                <button class="btn bg-red-700 text-white py-4 border-none"  onclick="delete_{{ $key }}.showModal()">Hapus</button>
 
                             </div>
                         </div>

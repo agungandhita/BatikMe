@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreProdukRequest;
 use App\Http\Requests\UpdateProdukRequest;
 use App\Models\Produk;
+use Illuminate\Http\Request;
 
 class ClientProdukController extends Controller
 {
@@ -13,9 +14,15 @@ class ClientProdukController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $data = Produk::with('produkImage', 'kategori', 'size')->get();
+        if($request->kategori !== null){
+            
+            $data = Produk::with('produkImage', 'kategori', 'size')->where('kategori_id', $request->kategori)->get();
+        }else{
+            $data = Produk::with('produkImage', 'kategori', 'size')->get();
+            
+        }
         return view('client.produk.index', compact('data'));
     }
     public function detail(Produk $id){

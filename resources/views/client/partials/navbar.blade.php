@@ -25,11 +25,11 @@
             <a class="px-2 py-2 text-sm text-gray-500 lg:px-6 md:px-3 hover:text-blue-600" href="/produks">
                 Produk
             </a>
-            <a class="px-2 py-2 text-sm text-gray-500 lg:px-6 md:px-3 hover:text-blue-600" href="#">
+            <a class="px-2 py-2 text-sm text-gray-500 lg:px-6 md:px-3 hover:text-blue-600" href="/tentang">
                 Tentang
             </a>
-            <a class="px-2 py-2 text-sm text-gray-500 lg:px-6 md:px-3 hover:text-blue-600" href="#">
-                Contact
+            <a class="px-2 py-2 text-sm text-gray-500 lg:px-6 md:px-3 hover:text-blue-600" href="/keranjang">
+                Keranjang
             </a>
             <a class="px-2 py-2 text-sm text-gray-500 lg:px-6 md:px-3 hover:text-blue-600" href="#">
                 Galeri
@@ -77,7 +77,7 @@
                         class="z-60 absolute hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
                         <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
                             <li>
-                                <a href="#"
+                                <a href="/user"
                                     class="block px-4 py-2 hover:bg-gray-100 text-black">Profile</a>
                             </li>
                             <form action="/logout" method="POST" class="inline">

@@ -58,7 +58,7 @@ class CategoryController extends Controller
             'updated_at' => null
         ]);
 
-        return redirect('/produk/kategori');
+        return redirect('/admin/kategori');
     }
 
     /**
@@ -105,7 +105,7 @@ class CategoryController extends Controller
             'updated_at' => now()
         ]);
 
-        return redirect('/produk/kategori');
+        return redirect('/admin/kategori')->with('success', 'berhasil update data');
     }
 
     /**
@@ -161,6 +161,6 @@ class CategoryController extends Controller
 
 
 
-        return redirect('/produk/kategori')->with('success', 'Delete successful to the Guide');
+        return redirect('/admin/kategori')->with('success', 'berhasil menghapus data');
     }
 }

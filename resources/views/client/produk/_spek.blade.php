@@ -142,10 +142,10 @@
             </div>
         </div>
 
-        <button
+        <a href="/detail-pesanan/{{ $data->produk_id }}"
             class="p-1 border border-blue-500 bg-white rounded-xl text-blue-600 font-semibold capitalize text-sm hover:rounded-xl w-20 text-center">
             Beli
-        </button>
+    </a>
 
 
     </div>

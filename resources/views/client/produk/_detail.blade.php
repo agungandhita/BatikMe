@@ -89,18 +89,12 @@
 
         <div class="mb-2 border mt-2 px-10 hidden md:block">
 
-            <h1 class="text-sm font-bold pt-2 capitalize text-black text-xl">
+            <h1 class="font-bold pt-2 capitalize text-black text-xl">
                 deskripsi produk
             </h1>
 
-            <p class="text-sm font-serif text-black pt-2 md:text-base">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus repudiandae at sint eligendi consequuntur
-                non
-                nisi vitae, doloribus aliquid voluptatibus, nulla dolore quia repellat quas velit maxime beatae quidem
-                molestiae.Illo tempora hic, quos veniam dolorem culpa molestias deleniti autem facilis. Voluptatem vel
-                maiores
-                quas? Excepturi fuga corrupti impedit earum iste recusandae accusamus dolor beatae labore, asperiores cumque
-                ipsum exercitationem.
+            <p class="text-sm font-serif text-black pt-2 md:text-xl">
+                {{ $data->deskripsi }}
             </p>
         </div>
 

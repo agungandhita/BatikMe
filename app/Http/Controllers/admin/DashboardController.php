@@ -19,7 +19,7 @@ class DashboardController extends Controller
     {
         $data = Dashboard::latest()->get();
 
-        return view('admin.front.index',[
+        return view('admin.baner.index',[
             'data' => $data
         ]);
     }
@@ -60,7 +60,7 @@ class DashboardController extends Controller
 
         ]);
 
-        return redirect('/manage/dashboard')->with('success', 'berhasil upload gambar');
+        return redirect('/admin/dashboard')->with('success', 'berhasil upload gambar');
     }
 
     /**
@@ -100,7 +100,7 @@ class DashboardController extends Controller
 
         $img = Dashboard::where('dashboard_id', $id)->pluck('image')->first();
 
-        $old = $img->image;
+        $old = $img;
         $imageData = $request->image;
 
         if($request->hashfile('image')) {

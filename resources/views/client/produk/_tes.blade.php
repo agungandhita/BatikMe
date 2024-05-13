@@ -22,11 +22,11 @@
             <h1 class="text-green-600 my-4 font-semibold text-lg">
                 {{ $data->kategori->nama_kategori }}
             </h1>
-            <div class="flex gap-4"> 
-                @foreach($data->size as $item)
-                <h1 class="font-semibold text-lg">
-                    {{ $item->size }}
-                </h1>
+            <div class="flex gap-4">
+                @foreach ($data->size as $item)
+                    <h1 class="font-semibold text-lg">
+                        {{ $item->size }}
+                    </h1>
                 @endforeach
             </div>
             <h1 class="my-4 font-semibold text-lg">
@@ -60,13 +60,14 @@
             </svg>
             tambahkan keranjang
         </button>
-        <button
+        <button href="/detail-pesanan/{{ $data->produk_id }}" onclick="my_modal_beli.showModal()"
             class="p-1 border border-blue-500 rounded-xl text-white font-semibold md:p-2 capitalize text-sm hover:rounded-xl bg-blue-600 gap-x-3 text-xl text-center">
 
             Beli
         </button>
     </div>
 
+    {{-- @dd($data) --}}
     {{-- modal --}}
     <dialog id="my_modal_3" class="modal">
         <div class="modal-box bg-white">
@@ -74,22 +75,27 @@
             <form method="dialog">
                 <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
             </form>
-            <form action="">
-                <div class="flex flex-wrap gap-x-6 border-b-2 pb-2">
-
-                    <input type="button" value="XXL"
+            <form action="/detail-pesanan/{{ $data->produk_id }}" method="GET">
+                <select name="ukuran" id="ukuran">
+                    @foreach($data->size as $size)
+                    <option value="{{ $size->size_id }}">{{ $size->size }}</option>
+                    @endforeach
+                </select>
+                {{-- <div class="flex flex-wrap gap-x-6 border-b-2 pb-2">
+                    
+                    <input type="checkbox" value="XXL"
                         class="border p-1 hover:bg-blue-700 bg-slate-100 rounded-md text-black hover:text-white text-lg font-semibold">
 
 
-                    <input type="button" value="XL"
+                    <input type="checkbox" value="XL"
                         class="border p-1 hover:bg-blue-700 bg-slate-100 rounded-md text-black hover:text-white text-lg font-semibold">
 
-                    <input type="button" value="S"
+                    <input type="checkbox" value="S"
                         class="border p-1 hover:bg-blue-700 bg-slate-100 rounded-md text-black hover:text-white text-lg font-semibold">
 
-                    <input type="button" value="M"
+                    <input type="checkbox" value="M"
                         class="border p-1 hover:bg-blue-700 bg-slate-100 rounded-md text-black hover:text-white text-lg font-semibold">
-                </div>
+                </div> --}}
                 <!-- Tombol untuk menutup modal -->
 
                 {{-- modal keranjang --}}
@@ -101,14 +107,14 @@
                         </h1>
                     </div>
                     <div class="flex gap-x-4">
-                        <button id="btnDecrease" type="button"  class="text-white bg-blue-700">
+                        <button id="btnDecrease" type="button" class="text-white bg-blue-700">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-6 h-6"
                                 fill="currentColor">
                                 <path d="M5 11V13H19V11H5Z"></path>
                             </svg>
                         </button>
-                        <input class="w-10 bg-slate-200 text-center p-1  text-black" id="qty"
-                            type="number" value="0">
+                        <input class="w-10 bg-slate-200 text-center p-1  text-black" id="qty" name="qty" type="number"
+                            value="0">
 
                         <button class="text-white bg-blue-700" type="button" id="btnIncrease">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-6 h-6"
@@ -124,7 +130,85 @@
                     <h1 class="text-lg font-semibold capitalize text-black">
                         harga
                     </h1>
-                 
+
+
+                    <p id="total" class="text-blue-500 font-semibold text-xl">Rp {{ $data->harga }}</p>
+
+                </div>
+                <div class="mt-3">
+                    <button class="text-center bg-blue-700 text-white font-semibold p-2 w-full">
+                        Masukan keranjang
+                    </button>
+                </div>
+            </form>
+        </div>
+    </dialog>
+
+
+    {{-- modal beli --}}
+
+    <dialog id="my_modal_beli" class="modal">
+        <div class="modal-box bg-white">
+            <h2 class="text-lg font-bold mb-4 text-black">Pilih </h2>
+            <form method="dialog">
+                <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+            </form>
+            <form action="/detail-pesanan/{{ $data->produk_id }}" method="GET">
+                <select name="ukuran" id="ukuran">
+                    @foreach($data->size as $size)
+                    <option value="{{ $size->size_id }}">{{ $size->size }}</option>
+                    @endforeach
+                </select>
+                {{-- <div class="flex flex-wrap gap-x-6 border-b-2 pb-2">
+                    
+                    <input type="checkbox" value="XXL"
+                        class="border p-1 hover:bg-blue-700 bg-slate-100 rounded-md text-black hover:text-white text-lg font-semibold">
+
+
+                    <input type="checkbox" value="XL"
+                        class="border p-1 hover:bg-blue-700 bg-slate-100 rounded-md text-black hover:text-white text-lg font-semibold">
+
+                    <input type="checkbox" value="S"
+                        class="border p-1 hover:bg-blue-700 bg-slate-100 rounded-md text-black hover:text-white text-lg font-semibold">
+
+                    <input type="checkbox" value="M"
+                        class="border p-1 hover:bg-blue-700 bg-slate-100 rounded-md text-black hover:text-white text-lg font-semibold">
+                </div> --}}
+                <!-- Tombol untuk menutup modal -->
+
+                {{-- modal keranjang --}}
+
+                <div class="mt-2 flex justify-between border-b-2 pb-3">
+                    <div class="mt-2">
+                        <h1 class="text-lg font-semibold text-black">
+                            Jumlah
+                        </h1>
+                    </div>
+                    <div class="flex gap-x-4">
+                        <button id="btnDecrease" type="button" class="text-white bg-blue-700">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-6 h-6"
+                                fill="currentColor">
+                                <path d="M5 11V13H19V11H5Z"></path>
+                            </svg>
+                        </button>
+                        <input class="w-10 bg-slate-200 text-center p-1  text-black" id="qty" name="qty" type="number"
+                            value="0">
+
+                        <button class="text-white bg-blue-700" type="button" id="btnIncrease">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-6 h-6"
+                                fill="currentColor">
+                                <path d="M11 11V5H13V11H19V13H13V19H11V13H5V11H11Z"></path>
+                            </svg>
+                        </button>
+                    </div>
+
+                </div>
+                {{-- akhir modal keranjang --}}
+                <div class="flex justify-between mt-3">
+                    <h1 class="text-lg font-semibold capitalize text-black">
+                        harga
+                    </h1>
+
 
                     <p id="total" class="text-blue-500 font-semibold text-xl">Rp {{ $data->harga }}</p>
 
