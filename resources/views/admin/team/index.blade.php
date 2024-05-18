@@ -57,17 +57,17 @@
         </div>
 
 
-        <div class="p-4 bg-white lg:mt-1.5 dark:bg-gray-800 dark:border-gray-700 shadow-best rounded-lg `">
+        <div class="p-2 bg-white lg:mt-1.5 dark:bg-gray-800 dark:border-gray-700 shadow-best rounded-lg `">
 
             <p class="text-xl font-semibold text-gray-900 sm:text-2xl dark:text-white mb-4">
                 jajaran Team Perusahaan UD Paradila
             </p>
 
 
-            <div class="grid grid-cols-3 space-x-3 justify-around">
+            <div class="grid grid-cols-3 justify-between">
                 @foreach ($data as $key => $user)
                     <div
-                        class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 h-full">
+                        class="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 h-full ">
                         <a href="#">
                             <img class="rounded-t-lg w-full h-40 object-cover" src="{{ asset('image/' . $user->image) }}"
                                 alt="" />

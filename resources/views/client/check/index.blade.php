@@ -3,7 +3,7 @@
 @section('container')
 <div class="bg-gray-100 h-screen py-8">
     <div class="container mx-auto px-4">
-        <h1 class="text-2xl font-semibold mb-4">Shopping Cart</h1>
+        <h1 class="text-2xl font-semibold mb-4">Keranjang belanja</h1>
         <div class="flex flex-col md:flex-row gap-4">
             <div class="md:w-3/4">
                 <div class="bg-white rounded-lg shadow-md p-6 mb-4">
@@ -25,7 +25,7 @@
                                         <span class="font-semibold">Nama Produk</span>
                                     </div>
                                 </td>
-                                <td class="py-4">$19.99</td>
+                                <td class="py-4">Rp 19.990</td>
                                 <td class="py-4">
                                     <div class="flex items-center">
                                         {{-- <button onclick="increment()" 
@@ -38,10 +38,10 @@
                                 </td>
                                 <td class="py-4" id="harga">Rp 19.99</td>
                                 <td class="py-4" id="harga">
-                                    <div class="text-center border">
-                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" class="w-8 h-8" viewBox="0 0 30 30">
-                                            <path d="M 13 3 A 1.0001 1.0001 0 0 0 11.986328 4 L 6 4 A 1.0001 1.0001 0 1 0 6 6 L 24 6 A 1.0001 1.0001 0 1 0 24 4 L 18.013672 4 A 1.0001 1.0001 0 0 0 17 3 L 13 3 z M 6 8 L 6 24 C 6 25.105 6.895 26 8 26 L 22 26 C 23.105 26 24 25.105 24 24 L 24 8 L 6 8 z"></path>
-                                            </svg>
+                                    <div class="border">
+                                        <button class="text-white bg-orange-600 font-semibold px-2 py-1 rounded-md">
+                                            bayar
+                                        </button>
                                     </div>
                                 </td>
                             </tr>

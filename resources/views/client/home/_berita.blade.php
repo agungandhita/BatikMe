@@ -5,6 +5,7 @@
     {{-- @dd($cek) --}}
     
 
+    <a href="/blog/{{ $item->berita_id }}">
     <div class="rounded overflow-hidden shadow-lg">
       <img class="w-full" src="{{ asset ('img/cek.jpg') }}" alt="Mountain">
       <div class="px-6 py-4">
@@ -19,6 +20,7 @@
         <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#winter</span>
       </div>
     </div>
+  </a>
     @endforeach
     <!--Card 2-->
     {{-- <div class="rounded overflow-hidden shadow-lg">

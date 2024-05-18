@@ -115,7 +115,7 @@ class TeamController extends Controller
             'nama' => 'required|max:255',
             'jabatan' => 'required',
             'profil' => 'required',
-            'image' => 'required|max:2048',
+            // 'image' => 'required|max:2048',  
         ]);
 
         $img = Team::where('team_id', $id)->pluck('image')->first();

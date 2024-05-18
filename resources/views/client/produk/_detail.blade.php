@@ -105,6 +105,13 @@
             @include('client.produk._review')
         </div>
 
+        {{-- <div class="px-10 border pt-1 hidden md:block">
+            <h1 class="text-sm font-bold mb-2 capitalize text-black text-xl">
+            Produk Lainya
+            </h1>
+            @include('client.produk._lainya')
+        </div> --}}
+
 
 
         <div class="md:hidden">
@@ -112,7 +119,7 @@
         </div>
     </div>
 
-    <div class="pt-2">
+    <div class="pt-2">  
     </div>
 @endsection
 

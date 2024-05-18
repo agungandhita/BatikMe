@@ -3,21 +3,21 @@
 @section('container')
     <div class="px-4 pt-6 bg-slate-200 dark:bg-gray-800">
 
-    <div class="dark:bg-slate-800 shadow-best bg-white rounded-md justify-between">
-        <div class="flex">
-        <p class="text-4xl font-semibold py-4 mx-4 text-blue-500">
-            Hallo, {{ auth()->user()->username   }}
-        </p>
-        <img src="{{ asset ('img/hello.png') }}" class="object-contain w-16 justify-end" alt="">
-    </div>
+        <div class="dark:bg-slate-800 shadow-best bg-white rounded-md justify-between">
+            <div class="flex">
+                <p class="text-4xl font-semibold py-4 mx-4 text-blue-500">
+                    Hallo, {{ auth()->user()->username }}
+                </p>
+                <img src="{{ asset('img/hello.png') }}" class="object-contain w-16 justify-end" alt="">
+            </div>
 
-        <p class="text-3xl font-serif pb-4 mx-4 uppercase text-black">
-            selamat datang di dashboard admin BatikMe.id 
-        </p>
-    </div>
+            <p class="text-3xl font-serif pb-4 mx-4 uppercase text-black">
+                selamat datang di dashboard admin BatikMe.id
+            </p>
+        </div>
 
-    
-  
+
+
         {{-- card-1 start --}}
         <div class="grid w-full grid-cols-1 gap-4 mt-4 xl:grid-cols-2 2xl:grid-cols-3 pb-4 ">
 
@@ -50,7 +50,7 @@
             </div>
             {{-- card-1 end --}}
 
-            
+
 
             <div
                 class="items-center justify-between p-4 bg-cyan-500 text-black border border-gray-200 relative rounded-lg shadow-sm dark:border-gray-700 sm:p-6 ">
@@ -62,7 +62,7 @@
                             <h1 class="text-black">Stok Total</h1>
                         </div>
 
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-28 opacity-50 text-black" >
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-28 opacity-50 text-black">
                             <path
                                 d="M5 3C4.5313 3 4.12549 3.32553 4.02381 3.78307L2.02381 12.7831C2.00799 12.8543 2 12.927 2 13V20C2 20.5523 2.44772 21 3 21H21C21.5523 21 22 20.5523 22 20V13C22 12.927 21.992 12.8543 21.9762 12.7831L19.9762 3.78307C19.8745 3.32553 19.4687 3 19 3H5ZM19.7534 12H15C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12H4.24662L5.80217 5H18.1978L19.7534 12Z"
                                 fill="currentColor"></path>
@@ -132,4 +132,4 @@
             </div>
         </div> --}}
     </div>
-    @endsection
+@endsection

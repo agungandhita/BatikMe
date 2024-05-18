@@ -27,10 +27,6 @@
                     class="flex items-center px-3 py-2.5 font-semibold hover:text-indigo-900 hover:border hover:rounded-full  ">
                     Notifications
                 </a>
-                <a href="#"
-                    class="flex items-center px-3 py-2.5 font-semibold hover:text-indigo-900 hover:border hover:rounded-full  ">
-                    PRO Account
-                </a>
             </div>
         </aside>
         <main class="w-full min-h-screen py-1 md:w-2/3 lg:w-3/4">

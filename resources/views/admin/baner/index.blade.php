@@ -28,7 +28,7 @@
             </form> --}}
         </dialog>
 
-<div class="flex justify-between">>
+<div class="flex justify-between">
         @foreach ($data as $cek => $item)
             <div class="card w-96 bg-neutral text-neutral-content">
                 <img src="{{ asset('dashboard/' . $item->image) }}" alt="" class="w-full h-full">

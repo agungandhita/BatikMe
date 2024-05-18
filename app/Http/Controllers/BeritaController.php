@@ -15,7 +15,14 @@ class BeritaController extends Controller
      */
     public function index()
     {
+
+        $data = Berita::latest()->get();
+
+        // dd($data);
         
+        return view('client.berita.index', [
+            'data' => $data
+        ]);
     }
 
     /**

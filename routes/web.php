@@ -25,6 +25,7 @@ use App\Http\Controllers\admin\BeritaKategoriController;
 use App\Http\Controllers\ProdukController as ControllersProdukController;
 use App\Http\Controllers\admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\admin\PemesananController;
+use App\Http\Controllers\BeritaController as ControllersBeritaController;
 use App\Http\Controllers\ClientProdukController;
 use App\Http\Controllers\ProfileController;
 
@@ -49,7 +50,7 @@ Route::get('/produk/{id}', [DetailController::class, 'index']);
 
 
 Route::get('/cek', function () {
-    return view('client.bayar.index');
+    return view('client.berita.index');
 });
 
 
@@ -155,6 +156,9 @@ Route::middleware('admin')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/home', [DashboardController::class, 'index']);
 
+    Route::get('/blog/{id}', [ControllersBeritaController::class, 'index']);
+
+
     Route::get('/produks', [ClientProdukController::class, 'index']);
     Route::get('/produks/detail/{id}', [ClientProdukController::class, 'detail']);
    
@@ -165,6 +169,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/keranjang', [KeranjangController::class, 'index']);
     Route::get('/detail-pesanan/{id}', [DetailController::class,'detailPesanan']);
+    Route::post('pesanan/bayar/{id}', [DetailController::class, 'payment'])->name('bayar');
 
 
 });
@@ -175,3 +180,8 @@ Route::get('/home', [DashboardController::class, 'index']);
 Route::get('/produks', [ClientProdukController::class, 'index']);
 Route::get('/tentang', [AboutUsController::class, 'index']);
 Route::get('/produks/detail/{id}', [ClientProdukController::class, 'detail']);
+
+
+Route::get('/blog/{id}', [ControllersBeritaController::class, 'index']);
+
+

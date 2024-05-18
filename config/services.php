@@ -30,5 +30,9 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
+    'xendit' => [
+        'apiKey' => 'Basic ' . base64_encode(env('XENDIT_SECRET_KEY') . ':'),
+        'callback_token' => env(key: 'XENDIT_CALLBACK_TOKEN'),
+    ]
 
 ];
