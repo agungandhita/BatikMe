@@ -113,6 +113,7 @@ class DetailController extends Controller
 
     public function callback(Request $request)
     {
+        return true;
         // try {
         //     $callbackToken = $request->header('x-callback-token');
         //     $verifyCallbackToken = $this->verifyCallbackToken($callbackToken);
