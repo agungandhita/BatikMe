@@ -112,7 +112,7 @@
 
                                         <td class="flex items-center p-4 space-x-6 whitespace-nowrap ">
                                             <img class="w-20 h-20 p-3"
-                                                src="{{ asset('produk/' . $user->produkImage->image) }}">
+                                                src="{{ asset('produk/' . $user->produkImage[0]->image) }}">
 
                                             <div class="text-sm font-normal text-gray-500 dark:text-gray-400">
                                                 <div class="text-base font-semibold text-gray-900 dark:text-white">
