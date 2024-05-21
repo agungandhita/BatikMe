@@ -14,7 +14,7 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         '/froala-upload-image',
         '/froala-delete-image',
-        'callback/xendit'
+        '/callback/xendit'
 
     ];
 }
