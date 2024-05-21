@@ -113,42 +113,41 @@ class DetailController extends Controller
 
     public function callback(Request $request)
     {
-        return true;
-        // try {
-        //     $callbackToken = $request->header('x-callback-token');
-        //     $verifyCallbackToken = $this->verifyCallbackToken($callbackToken);
-        //     if (!$verifyCallbackToken) {
-        //         $message = 'Token tidak valid';
-        //         throw new HttpResponseException(response([
-        //             'error' => [
-        //                 'code' => 400,
-        //                 'message' => $message
-        //             ],
-        //         ], 400));
-        //     }
-        //     if ($request->status == 'PAID') {
-        //         $payment_status = 'PAID';
-        //     } else if ($request->status == 'EXPIRED') {
-        //         $payment_status = 'EXPIRED';
-        //     }
+        try {
+            $callbackToken = $request->header('x-callback-token');
+            $verifyCallbackToken = $this->verifyCallbackToken($callbackToken);
+            if (!$verifyCallbackToken) {
+                $message = 'Token tidak valid';
+                throw new HttpResponseException(response([
+                    'error' => [
+                        'code' => 400,
+                        'message' => $message
+                    ],
+                ], 400));
+            }
+            if ($request->status == 'PAID') {
+                $payment_status = 'PAID';
+            } else if ($request->status == 'EXPIRED') {
+                $payment_status = 'EXPIRED';
+            }
 
-        //     DB::beginTransaction();
-        //     $update = Pemesanan::where('doc_no', $request->external_id)->update([
-        //         'payment_status' => $payment_status
-        //     ]);
+            DB::beginTransaction();
+            $update = Pemesanan::where('doc_no', $request->external_id)->update([
+                'payment_status' => $payment_status
+            ]);
 
-        //     DB::commit();
-        //     return response()->json([
-        //         'error' => false,
-        //         'message' => 'callback success'
-        //     ], 200);
-        // } catch (Exception $e) {
-        //     DB::rollBack();
-        //     return response()->json([
-        //         'error' => true,
-        //         'message' => 'callback failed'
-        //     ], 400);
-        // }
+            DB::commit();
+            return response()->json([
+                'error' => false,
+                'message' => 'callback success'
+            ], 200);
+        } catch (Exception $e) {
+            DB::rollBack();
+            return response()->json([
+                'error' => true,
+                'message' => 'callback failed'
+            ], 400);
+        }
     }
     /**
      * Show the form for creating a new resource.
