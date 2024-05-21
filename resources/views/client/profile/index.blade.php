@@ -55,43 +55,52 @@
 
                         <div class="items-center mt-8 sm:mt-14 text-[#202142]">
 
-                            <div
-                                class="flex flex-col items-center w-full mb-2 space-x-0 space-y-2 sm:flex-row sm:space-x-4 sm:space-y-0 sm:mb-6">
-                                <div class="w-full">
-                                    <label for="first_name"
-                                        class="block mb-2 text-sm font-medium text-indigo-900 dark:text-white">Your
-                                        first name</label>
-                                    <input type="text" id="first_name"
-                                        class="bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 "
-                                        placeholder="Your first name" value="{{ $data->username }}" required>
+                            <form action="/user/update/{{ $data->user_id }}" method="POST">
+                                @csrf
+                                <div
+                                    class="flex flex-col items-center w-full mb-2 space-x-0 space-y-2 sm:flex-row sm:space-x-4 sm:space-y-0 sm:mb-6">
+                                    <div class="w-full">
+                                        <label for="first_name"
+                                            class="block mb-2 text-sm font-medium text-indigo-900 dark:text-white">Nama</label>
+                                        <input type="text" id="username" name="username"
+                                            class="bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 "
+                                            placeholder="Your first name" value="{{ $data->username }}" required>
+                                    </div>
+
+
+
                                 </div>
 
+                                <div class="mb-2 sm:mb-6">
+                                    <label for="email"
+                                        class="block mb-2 text-sm font-medium text-indigo-900 dark:text-white">Your
+                                        email</label>
+                                    <input type="email" id="email" name="email"
+                                        class="bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 "
+                                        placeholder="your.email@mail.com" value="{{ $data->email }}" required>
+                                </div>
 
+                                <div class="mb-2 sm:mb-6">
+                                    <label for="email"
+                                        class="block mb-2 text-sm font-medium text-indigo-900 dark:text-white">Telepon</label>
+                                    <input type="email" id="email" name="no_tlpn"
+                                        class="bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 "
+                                        placeholder="your.email@mail.com" value="{{ $data->no_tlpn }}" required>
+                                </div>
 
-                            </div>
+                                <div class="mb-2 sm:mb-6">
+                                    <label for="profession"
+                                        class="block mb-2 text-sm font-medium text-indigo-900 dark:text-white">alamat</label>
+                                    <input type="text" id="alamat" name="alamat"
+                                        class="bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5"
+                                        placeholder="alamat" value="{{ $data->alamat }}" required>
+                                </div>
 
-                            <div class="mb-2 sm:mb-6">
-                                <label for="email"
-                                    class="block mb-2 text-sm font-medium text-indigo-900 dark:text-white">Your
-                                    email</label>
-                                <input type="email" id="email"
-                                    class="bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 "
-                                    placeholder="your.email@mail.com" value="{{ $data->email }}" required>
-                            </div>
-
-                            <div class="mb-2 sm:mb-6">
-                                <label for="profession"
-                                    class="block mb-2 text-sm font-medium text-indigo-900 dark:text-white">Profession</label>
-                                <input type="text" id="phone_number"
-                                    class="bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5"
-                                    placeholder="Your phone number" value="" required>
-                            </div>
-
-                            <div class="flex justify-end">
-                                <button type="submit"
-                                    class="text-white bg-indigo-700  hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800">Save</button>
-                            </div>
-
+                                <div class="flex justify-end">
+                                    <button type="submit"
+                                        class="text-white bg-indigo-700  hover:bg-indigo-800 focus:ring-4 focus:outline-none focus:ring-indigo-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-indigo-600 dark:hover:bg-indigo-700 dark:focus:ring-indigo-800">Save</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

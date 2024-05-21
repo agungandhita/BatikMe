@@ -28,31 +28,33 @@ class ProfileController extends Controller
         $cek = $request->validate([
             'username' => 'required|max:255',
             'alamat' => 'required',
+            'email' => 'required',
             'no_tlpn' => 'required',
+
         ]);
 
 
-        $img = User::where('user_id', $id)->pluck('image')->first();
+        // $img = User::where('user_id', $id)->pluck('image')->first();
 
-        if ($files = $request->file('image')) {
-            $extension = $files->getClientOriginalExtension();
-            $name = hash('sha256', time()) . '.'  . $extension;
-            $up = $files->move('ft_user', $name);
+        // if ($files = $request->file('image')) {
+        //     $extension = $files->getClientOriginalExtension();
+        //     $name = hash('sha256', time()) . '.'  . $extension;
+        //     $up = $files->move('ft_user', $name);
 
-            if ($up) {
-                $storage = public_path('ft_user/' . $img);
-                if (File::exists($storage)) {
-                    unlink($storage);
-                }
-            }
-        } else {
-            $name = $img;
-        }
+        //     if ($up) {
+        //         $storage = public_path('ft_user/' . $img);
+        //         if (File::exists($storage)) {
+        //             unlink($storage);
+        //         }
+        //     }
+        // } else {
+        //     $name = $img;
+        // }
 
 
         User::find($id)->update([
             'username' => $cek['username'],
-            'image' => $name,
+            // 'image' => $name,
             'email' => $cek['email'],
             'alamat' => $cek['alamat'],
             'no_tlpn' => $cek['no_tlpn'],

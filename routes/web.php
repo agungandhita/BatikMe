@@ -149,8 +149,6 @@ Route::middleware('admin')->group(function () {
 
     // pembayaran dan kelola pesanan
     Route::get('/pembayaran', [PemesananController::class, 'pembayaran']);
-
-
 });
 
 Route::middleware('auth')->group(function () {
@@ -161,17 +159,16 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/produks', [ClientProdukController::class, 'index']);
     Route::get('/produks/detail/{id}', [ClientProdukController::class, 'detail']);
-   
+
     // user
     Route::get('/user', [ProfileController::class, 'index']);
+    Route::post('/user/update/{id}', [ProfileController::class, 'update']);
     Route::get('/user/pesanan', [ProfileController::class, 'bayar']);
 
 
     Route::get('/keranjang', [KeranjangController::class, 'index']);
-    Route::get('/detail-pesanan/{id}', [DetailController::class,'detailPesanan']);
+    Route::get('/detail-pesanan/{id}', [DetailController::class, 'detailPesanan']);
     Route::post('pesanan/bayar/{id}', [DetailController::class, 'payment'])->name('bayar');
-
-
 });
 
 
@@ -184,4 +181,4 @@ Route::get('/produks/detail/{id}', [ClientProdukController::class, 'detail']);
 
 Route::get('/blog/{id}', [ControllersBeritaController::class, 'index']);
 
-
+Route::post('callback/xendit',[DetailController::class, 'callback']);
