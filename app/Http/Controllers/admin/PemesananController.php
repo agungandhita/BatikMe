@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Pemesanan;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PemesananController extends Controller
@@ -12,6 +14,20 @@ class PemesananController extends Controller
     }
 
     public function pembayaran() {
-        return view('admin.pembayaran.index');
+        $produk = Pemesanan::with(['produk' => function ($query) {
+            $query->with('produkimage');
+        }, 'user'])->get();
+
+
+
+     
+
+        return view('admin.pembayaran.index', [
+            'data' => $produk
+        ]);
+
+
     }
+
+
 }

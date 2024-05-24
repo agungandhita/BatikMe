@@ -38,6 +38,7 @@ class DetailController extends Controller
 
         $tes = Produk::with(['produkImage', 'size'])->withSum('size', 'qty')->get();
 
+        
 
 
         return view('client.produk.index', [

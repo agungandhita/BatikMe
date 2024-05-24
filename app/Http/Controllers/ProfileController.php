@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Pemesanan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
@@ -18,7 +19,17 @@ class ProfileController extends Controller
     }
 
     public function bayar(){
-        return view ('client.profile.cek');
+
+        $produk = Pemesanan::with(['produk' => function ($query) {
+            $query->with('produkimage');
+        }, 'user'])->get();
+
+
+        // dd($produk);
+
+        return view ('client.profile.cek', [
+            'data' => $produk
+        ]);
     }
 
     public function update(Request $request, $id)

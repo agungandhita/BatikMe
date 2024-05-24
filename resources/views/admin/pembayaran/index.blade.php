@@ -74,71 +74,52 @@
                             <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
                         </div>
                     </td>
-                    <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
-                        <img class="w-10 h-10" src="{{ asset('img/aa.jpeg') }}"
-                            alt="Jese image">
-                        <div class="ps-3">
-                            <div class="text-base font-semibold">Batik lengan panjang</div>
-                            <div class="font-normal text-gray-500">Couple</div>
-                        </div>
-                    </th>
-                    <td class="px-6 py-4">
-                        Rp 20000
-                    </td>
 
-                    <td class="px-6 py-4">
-                        Jl. Ksusuma bangsa
-                    </td>
+                    @foreach ($data as $item)
+                        {{-- @dd($item) --}}
 
-                    <td class="px-6 py-4">
-                        Jono
-                    </td>
-                    <td class="px-6 py-4">
-                        <div class="flex items-center">
-                            <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div> Paid
-                        </div>
-                    </td>
-                    <td class="px-6 py-4">
-                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit Status</a>
-                    </td>
+                        <th scope="row"
+                            class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
+                            <img class="w-10 h-10" src="{{ asset('produk/' . $item->produk->produkImage[0]->image) }}"
+                                alt="Jese image">
+                            <div class="">
+                                <div class="text-base font-semibold">
+                                    {{ $item->produk->nama_produk }}
+                                </div>
+                                <div class="font-normal text-gray-500">{{ $item->produk->model }}</div>
+                            </div>
+                        </th>
+                        <td class="px-6 py-4">
+                            Rp {{ $item->amount }}
+                        </td>
+
+                        <td class="px-6 py-4">
+                            {{ $item->alamat }}
+                        </td>
+
+                        <td class="px-6 py-4">
+                            {{ $item->user->username }}
+                        </td>
+                        <td class="px-6 py-4">
+                            <div class="flex items-center">
+                                @if ($item->payment_status === 'PAID')
+                                    <div class="h-2.5 w-2.5 rounded-full bg-green-500 me-2"></div>
+                                @elseif($item->payment_status === 'PENDING')
+                                    <div class="h-2.5 w-2.5 rounded-full bg-yellow-500 me-2"></div>
+                                @else
+                                    <div class="h-2.5 w-2.5 rounded-full bg-red-500 me-2"></div>
+                                @endif
+                                {{ $item->payment_status }}
+                            </div>
+                        </td>
+                        <td class="px-6 py-4">
+                            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit
+                                Status</a>
+                        </td>
                 </tr>
-                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                    <td class="w-4 p-4">
-                        <div class="flex items-center">
-                            <input id="checkbox-table-search-2" type="checkbox"
-                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-                            <label for="checkbox-table-search-2" class="sr-only">checkbox</label>
-                        </div>
-                    </td>
-                    <th scope="row" class="flex items-center px-6 py-4 text-gray-900 whitespace-nowrap dark:text-white">
-                        <img class="w-10 h-10" src="{{ asset('img/bb.jpeg') }}"
-                            alt="Jese image">
-                        <div class="ps-3">
-                            <div class="text-base font-semibold">Batik lengan pendek</div>
-                            <div class="font-normal text-gray-500">Baju</div>
-                        </div>
-                    </th>
-                    <td class="px-6 py-4">
-                        Rp 20000
-                    </td>
+                @endforeach
 
-                    <td class="px-6 py-4">
-                        Jl. merpati
-                    </td>
 
-                    <td class="px-6 py-4">
-                        Anton
-                    </td>
-                    <td class="px-6 py-4">
-                        <div class="flex items-center">
-                            <div class="h-2.5 w-2.5 rounded-full bg-red-500 me-2"></div> Unpaid
-                        </div>
-                    </td>
-                    <td class="px-6 py-4">
-                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit status</a>
-                    </td>
-                </tr>
-             
             </tbody>
         </table>
     </div>

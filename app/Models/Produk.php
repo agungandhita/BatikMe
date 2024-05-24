@@ -39,4 +39,9 @@ class Produk extends Model
     {
         return $this->belongsTo(Keranjang::class, 'keranjang_id', 'keranjang_id');
     }
+
+    public function produk()
+    {
+        return $this->hasMany(Produk::class, 'pemesanan_id'); // Pastikan foreign key benar
+    }
 }

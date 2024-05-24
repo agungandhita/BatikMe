@@ -16,6 +16,11 @@ class Pemesanan extends Model
     ];
 
     public function user(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function produk()
+    {
+        return $this->belongsTo(Produk::class, 'produk_id'); // Pastikan foreign key benar
     }
 }
