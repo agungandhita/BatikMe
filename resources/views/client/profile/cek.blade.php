@@ -70,22 +70,8 @@
                             </div>
                             <div class="py-4" id="harga">
                                 <div class="text-center">
-                                        <div class="font-semibold px-2 py-1 rounded-md flex">
-                                            @if ($item->payment_status === 'PAID')
-                                                <h1
-                                                    class=" px-2 rounded-lg text-black font-semibold py-1">
-                                                    Dikemas
-                                                </h1>
-                                            @elseif ($item->payment_status === 'EXPIRED')
-                                                <p class="text-red-600 font-semibold py-1">
-                                                    Gagal
-                                                </p>
-                                            @elseif ($item->payment_status === 'PENDING')
-                                                <p 
-                                                    class="= px-2 rounded-lg text-yellow-700 font-semibold py-1">
-                                                    Menunggu
-                                                </p>
-                                            @endif
+                                    <div class="font-semibold px-2 py-1 rounded-md flex">
+                                        {{ $item->status }}
                                     </div>
                                 </div>
                             </div>
