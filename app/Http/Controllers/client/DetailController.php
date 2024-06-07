@@ -110,7 +110,7 @@ class DetailController extends Controller
                 'payment_status' => $response->status,
                 'payment_link' => $response->invoice_url,
                 'expired' => Carbon::parse($response->expiry_date)->format('Y-m-d H:i:s'),
-                'status' => 'MENUNGGU',
+                'status' => 'menunggu',
             ]);
             DB::commit();
             return redirect($response->invoice_url);
@@ -145,11 +145,11 @@ class DetailController extends Controller
             $order_status = null;
     
             if ($payment_status == 'PAID') {
-                $order_status = 'DIKEMAS';
+                $order_status = 'dikemas';
             } elseif ($payment_status == 'EXPIRED') {
-                $order_status = 'GAGAL';
+                $order_status = 'gagal';
             } elseif ($payment_status == 'PENDING') {
-                $order_status = 'MENUNGGU';
+                $order_status = 'menunggu';
             }
     
             DB::beginTransaction();
