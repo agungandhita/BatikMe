@@ -141,7 +141,7 @@ class DetailController extends Controller
                 ], 400));
             }
     
-            $payment_status = $request;
+            $payment_status = $request->status;
             $order_status = null;
     
             if ($payment_status == 'PAID') {
