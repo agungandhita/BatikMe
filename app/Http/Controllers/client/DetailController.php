@@ -140,33 +140,53 @@ class DetailController extends Controller
                     ],
                 ], 400));
             }
-
-            $payment_status = $request->status;
+    
+            $payment_status = $request;
             $order_status = null;
-
+    
             if ($payment_status == 'PAID') {
                 $order_status = 'DIKEMAS';
             } elseif ($payment_status == 'EXPIRED') {
                 $order_status = 'GAGAL';
             }
-
+    
             DB::beginTransaction();
-            $pemesanan =  Pemesanan::with('produk')->where('doc_no', $request->external_id)->first();
+    
+            $pemesanan = Pemesanan::with('produk')->where('doc_no', $request->external_id)->first();
+            
+            if (!$pemesanan) {
+                throw new HttpResponseException(response([
+                    'error' => [
+                        'code' => 404,
+                        'message' => 'Order not found'
+                    ],
+                ], 404));
+            }
+    
             $updatePesanan = $pemesanan->update([
                 'payment_status' => $payment_status,
                 'status' => $order_status,
             ]);
-
+    
             if ($payment_status == 'PAID') {
                 $size = Size::where('size_id', $pemesanan->size)->first();
+                if (!$size) {
+                    throw new HttpResponseException(response([
+                        'error' => [
+                            'code' => 404,
+                            'message' => 'Size not found'
+                        ],
+                    ], 404));
+                }
                 $stok = $size->update([
                     'qty' => $size->qty - $pemesanan->qty
                 ]);
             }
+    
             $updateProduk = $pemesanan->produk->update([
                 'terjual' => $pemesanan->produk->terjual + $pemesanan->qty
             ]);
-
+    
             DB::commit();
             return response()->json([
                 'error' => false,
@@ -176,7 +196,7 @@ class DetailController extends Controller
             DB::rollBack();
             return response()->json([
                 'error' => true,
-                'message' => 'callback failed'
+                'message' => 'callback failed: ' . $e->getMessage()
             ], 400);
         }
     }
