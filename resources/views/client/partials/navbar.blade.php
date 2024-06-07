@@ -32,7 +32,7 @@
                 Keranjang
             </a> --}}
             <a class="px-2 py-2 text-sm text-gray-500 lg:px-6 md:px-3 hover:text-blue-600" href="/galeri">
-                astaghfirullah
+              aaaa
             </a>
 
             @guest

@@ -110,7 +110,7 @@ class DetailController extends Controller
                 'payment_status' => $response->status,
                 'payment_link' => $response->invoice_url,
                 'expired' => Carbon::parse($response->expiry_date)->format('Y-m-d H:i:s'),
-                'status' => 'MENUNGGU', // Initial status set here
+                'status' => 'MENUNGGU',
             ]);
             DB::commit();
             return redirect($response->invoice_url);
