@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('payment_link');
             $table->string('expired');
             $table->boolean('comment')->default(false);
-            $table->enum('status',['dikemas','dikirim', 'gagal'])->default('dikemas')->nullable();
+            $table->enum('status',['dikemas','dikirim', 'gagal', 'menunggu'])->default('dikemas')->nullable();
             $table->integer('user_created')->nullable();
             $table->timestamps();
             $table->integer('user_updated')->nullable();

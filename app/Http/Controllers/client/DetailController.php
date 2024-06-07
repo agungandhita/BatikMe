@@ -165,7 +165,7 @@ class DetailController extends Controller
     
             $updatePesanan = $pemesanan->update([
                 'payment_status' => $payment_status,
-                // 'status' => $order_status,
+                'status' => $order_status,
             ]);
     
             if ($payment_status == 'PAID') {

@@ -70,9 +70,6 @@
                             </div>
                             <div class="py-4" id="harga">
                                 <div class="text-center">
-
-
-
                                         <div class="font-semibold px-2 py-1 rounded-md flex">
                                             @if ($item->payment_status === 'PAID')
                                                 <h1
