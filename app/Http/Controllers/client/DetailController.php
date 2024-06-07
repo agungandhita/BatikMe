@@ -36,20 +36,29 @@ class DetailController extends Controller
     {
         $data = Category::latest()->get();
 
-        $produk = Category::with('produk.produkimage')->get();
+        $produk = Category::with(['produk.produkimage', 'produk.size'])->get();
+
+        $produkTerjual = [];
+
+        foreach ($produk as $item) {
+            $produkId = $item->id; // Asumsi bahwa id produk ada di $item->id
+            $terjual = Pemesanan::where('produk_id', $produkId)
+                ->where('payment_status', 'PAID')
+                ->sum('qty');
+
+            $produkTerjual[$produkId] = $terjual;
+        }
 
         $tes = Produk::with(['produkImage', 'size'])->withSum('size', 'qty')->get();
-
-
-
 
         return view('client.produk.index', [
             'data' => $data,
             'produk' => $produk,
-            'tes' => $tes
-
+            'tes' => $tes,
+            'produkTerjual' => $produkTerjual
         ]);
     }
+
     public function detailPesanan(Produk $id, Request $request)
     {
         $produk = $id->load('produkimage', 'kategori');
@@ -96,6 +105,7 @@ class DetailController extends Controller
                 'alamat' => auth()->user()->alamat,
                 'doc_no' => $response->external_id,
                 'amount' => $response->amount,
+                'size' => $ukuran->size_id,
                 'description' => $response->description,
                 'payment_status' => $response->status,
                 'payment_link' => $response->invoice_url,
@@ -130,22 +140,33 @@ class DetailController extends Controller
                     ],
                 ], 400));
             }
-    
+
             $payment_status = $request->status;
             $order_status = null;
-    
+
             if ($payment_status == 'PAID') {
                 $order_status = 'DIKEMAS';
             } elseif ($payment_status == 'EXPIRED') {
                 $order_status = 'GAGAL';
             }
-    
+
             DB::beginTransaction();
-            Pemesanan::where('doc_no', $request->external_id)->update([
+            $pemesanan =  Pemesanan::with('produk')->where('doc_no', $request->external_id)->first();
+            $updatePesanan = $pemesanan->update([
                 'payment_status' => $payment_status,
                 'status' => $order_status,
             ]);
-    
+
+            if ($payment_status == 'PAID') {
+                $size = Size::where('size_id', $pemesanan->size)->first();
+                $stok = $size->update([
+                    'qty' => $size->qty - $pemesanan->qty
+                ]);
+            }
+            $updateProduk = $pemesanan->produk->update([
+                'terjual' => $pemesanan->produk->terjual + $pemesanan->qty
+            ]);
+
             DB::commit();
             return response()->json([
                 'error' => false,
@@ -159,7 +180,7 @@ class DetailController extends Controller
             ], 400);
         }
     }
-    
+
     public function invoice()
     {
         return view('client.profile.invoice');

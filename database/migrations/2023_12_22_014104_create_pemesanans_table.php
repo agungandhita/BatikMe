@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('alamat');
             $table->text('doc_no');
             $table->integer('qty');
+            $table->text('size');
             $table->text('note')->nullable();
             $table->bigInteger('amount');
             $table->text('description');

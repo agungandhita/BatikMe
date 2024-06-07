@@ -117,56 +117,59 @@
                                             pembeli
                                         </th>
 
-                                        <th scope="col"
+                                        {{-- <th scope="col"
                                         class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
                                         Review
-                                    </th>
+                                    </th> --}}
                                     </tr>
                                 </thead>
                                 <tbody class=" bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
+                                 @foreach ($item as $data)
+
                                     <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
 
-                                        <td class="flex items-center p-4 space-x-4 whitespace-nowrap ">
-                                            <img class="w-20 h-20 p-3" src="{{ asset('produk/aa.jpeg') }}">
-
-                                            <div class="text-sm font-normal text-gray-500 dark:text-gray-400">
-                                                <div class="text-base font-semibold text-gray-900 dark:text-white">
-                                                    batik
-                                                </div>
-                                                <div class="text-sm font-normal text-gray-500 dark:text-gray-400">
-                                                    lengan panjang
-                                                </div>
+                                        <td scope="row"
+                                        class="flex items-center space-x-6 px-3 py-4 text-gray-900 whitespace-nowrap dark:text-white">
+                                        <img class="w-10 h-10" src="{{ asset('produk/' . $data->produk->produkImage[0]->image) }}"
+                                            alt="Jese image">
+                                        <div class="text-sm font-normal text-gray-500 dark:text-gray-400">
+                                            <div class="text-base font-semibold text-gray-900 dark:text-white">
+                                                {{ $data->produk->nama_produk }}
+            
                                             </div>
-                                        </td>
+                                            <div class="text-sm font-normal text-gray-500 dark:text-gray-400">
+                                                {{ $data->produk->model }}
+                                            </div>
+                                        </div>
+                                    </td>
                                         <td
                                             class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-white">
 
-                                            5/6/2022</td>
+                                            {{ $data->created_at->format('d-m-Y H:i:s') }}</td>
 
                                         <td
-                                            class="p-1  overflow-hidden text-base font-normal text-gray-500  dark:text-white">
-                                            {{-- <a href="/admin/size/{{ $user->produk_id }}"> --}}
-                                            5 buah
+                                            class="p-1 overflow-hidden text-base font-normal text-gray-500  dark:text-white pl-4">
+                                            {{ $data->qty }} Pcs
                                             </a>
                                         </td>
 
                                         <td class="mt-8 text-base font-medium text-gray-900 dark:text-white">
-                                            Rp 20000</td>
+                                            {{ $data->amount }}</td>
 
                                         <td
                                             class="p-4 text-base font-normal text-gray-900 whitespace-nowrap dark:text-white">
                                             <div class="flex items-center">
-                                                <p>Andhi</p>
+                                                <p>{{ $data->user->username }}</p>
                                             </div>
                                         </td>
 
 
-                                        <td
-                                            class="p-4 text-base font-normal text-gray-900 whitespace-nowrap dark:text-white ">
-                                            <div class="flex items-center">
-                                                <p class="hover:text-blue-600 cursor-pointer">Lihat Review</p>
-                                            </div>
-                                        </td>
+                                            {{-- <td
+                                                class="p-4 text-base font-normal text-gray-900 whitespace-nowrap dark:text-white ">
+                                                <div class="flex items-center">
+                                                    <p class="hover:text-blue-600 cursor-pointer">Lihat Review</p>
+                                                </div>
+                                            </td> --}}
 
 
                                         {{-- <td class="p-4 space-x-2 whitespace-nowrap">
@@ -198,6 +201,7 @@
                                             onclick="delete_.showModal()">Hapus</button>
                                     </td> --}}
                                     </tr>
+                                    @endforeach
 
                                 </tbody>
                             </table>

@@ -69,28 +69,26 @@
                                 @endif
                             </div>
                             <div class="py-4" id="harga">
-                                <div class="text-center border">
-                                    <div class="border">
+                                <div class="text-center">
 
 
 
-                                        <div class="text-white bg-slate-500 font-semibold px-2 py-1 rounded-md flex">
+                                        <div class="font-semibold px-2 py-1 rounded-md flex">
                                             @if ($item->payment_status === 'PAID')
-                                                <a href="{{ $item->payment_link }}"
-                                                    class=" px-2 rounded-lg text-white font-semibold py-1">
+                                                <h1
+                                                    class=" px-2 rounded-lg text-black font-semibold py-1">
                                                     Dikemas
-                                                </a>
+                                                </h1>
                                             @elseif ($item->payment_status === 'EXPIRED')
                                                 <p class="text-red-600 font-semibold py-1">
                                                     Gagal
                                                 </p>
                                             @elseif ($item->payment_status === 'PENDING')
-                                                <a href="{{ $item->payment_link }}"
-                                                    class="= px-2 rounded-lg text-white font-semibold py-1">
+                                                <p 
+                                                    class="= px-2 rounded-lg text-yellow-700 font-semibold py-1">
                                                     Menunggu
-                                                </a>
+                                                </p>
                                             @endif
-                                        </div>
                                     </div>
                                 </div>
                             </div>

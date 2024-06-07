@@ -77,29 +77,14 @@
             </form>
             <form action="/detail-pesanan/{{ $data->produk_id }}" method="GET">
                 <select name="ukuran" id="ukuran">
-                    @foreach($data->size as $size)
-                    <option value="{{ $size->size_id }}">{{ $size->size }}</option>
+                    @foreach ($data->size as $size)
+                        @if ($size->qty > 0)
+                            <option value="{{ $size->size_id }}">{{ $size->size }}</option>
+                        @else
+                            <option value="{{ $size->size_id }}" disabled>{{ $size->size }} - Stok Habis</option>
+                        @endif
                     @endforeach
                 </select>
-                {{-- <div class="flex flex-wrap gap-x-6 border-b-2 pb-2">
-                    
-                    <input type="checkbox" value="XXL"
-                        class="border p-1 hover:bg-blue-700 bg-slate-100 rounded-md text-black hover:text-white text-lg font-semibold">
-
-
-                    <input type="checkbox" value="XL"
-                        class="border p-1 hover:bg-blue-700 bg-slate-100 rounded-md text-black hover:text-white text-lg font-semibold">
-
-                    <input type="checkbox" value="S"
-                        class="border p-1 hover:bg-blue-700 bg-slate-100 rounded-md text-black hover:text-white text-lg font-semibold">
-
-                    <input type="checkbox" value="M"
-                        class="border p-1 hover:bg-blue-700 bg-slate-100 rounded-md text-black hover:text-white text-lg font-semibold">
-                </div> --}}
-                <!-- Tombol untuk menutup modal -->
-
-                {{-- modal keranjang --}}
-
                 <div class="mt-2 flex justify-between border-b-2 pb-3">
                     <div class="mt-2">
                         <h1 class="text-lg font-semibold text-black">
@@ -113,9 +98,9 @@
                                 <path d="M5 11V13H19V11H5Z"></path>
                             </svg>
                         </button>
-                        <input class="w-10 bg-slate-200 text-center p-1  text-black" id="qty" name="qty" type="number"
-                            value="0">
-
+                        <input class="w-10 bg-slate-200 text-center p-1 text-black" id="qty" name="qty"
+                            type="number" value="0">
+    
                         <button class="text-white bg-blue-700" type="button" id="btnIncrease">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-6 h-6"
                                 fill="currentColor">
@@ -123,26 +108,23 @@
                             </svg>
                         </button>
                     </div>
-
                 </div>
                 {{-- akhir modal keranjang --}}
                 <div class="flex justify-between mt-3">
                     <h1 class="text-lg font-semibold capitalize text-black">
-                        harga
+                        Harga
                     </h1>
-
-
                     <p id="total" class="text-blue-500 font-semibold text-xl">Rp {{ $data->harga }}</p>
-
                 </div>
                 <div class="mt-3">
-                    <button class="text-center bg-blue-700 text-white font-semibold p-2 w-full">
-                        beli sekarang
+                    <button class="text-center bg-blue-700 text-white font-semibold p-2 w-full" type="submit">
+                        Beli Sekarang
                     </button>
                 </div>
             </form>
         </div>
     </dialog>
+    
 
 
     {{-- modal beli --}}
@@ -155,8 +137,8 @@
             </form>
             <form action="/detail-pesanan/{{ $data->produk_id }}" method="GET">
                 <select name="ukuran" id="ukuran">
-                    @foreach($data->size as $size)
-                    <option value="{{ $size->size_id }}">{{ $size->size }}</option>
+                    @foreach ($data->size as $size)
+                        <option value="{{ $size->size_id }}">{{ $size->size }}</option>
                     @endforeach
                 </select>
                 {{-- <div class="flex flex-wrap gap-x-6 border-b-2 pb-2">
@@ -191,8 +173,8 @@
                                 <path d="M5 11V13H19V11H5Z"></path>
                             </svg>
                         </button>
-                        <input class="w-10 bg-slate-200 text-center p-1  text-black" id="qty" name="qty" type="number"
-                            value="0">
+                        <input class="w-10 bg-slate-200 text-center p-1  text-black" id="qty" name="qty"
+                            type="number" value="0">
 
                         <button class="text-white bg-blue-700" type="button" id="btnIncrease">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-6 h-6"

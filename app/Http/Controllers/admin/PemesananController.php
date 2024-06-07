@@ -10,7 +10,15 @@ use Illuminate\Http\Request;
 class PemesananController extends Controller
 {
     public function index(){
-        return view('admin.data.index');
+        
+
+        $barang = Pemesanan::with(['produk' => function ($query) {
+            $query->with('produkimage');
+        }, 'user'])->get();
+
+        return view('admin.data.index', [
+            'item' => $barang
+        ]);
     }
 
     public function pembayaran() {
@@ -18,9 +26,6 @@ class PemesananController extends Controller
             $query->with('produkimage');
         }, 'user'])->get();
 
-
-
-     
 
         return view('admin.pembayaran.index', [
             'data' => $produk
