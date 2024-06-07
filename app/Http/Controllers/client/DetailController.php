@@ -194,6 +194,7 @@ class DetailController extends Controller
             ], 200);
         } catch (Exception $e) {
             DB::rollBack();
+            Log::info('kontol', ['data' => $e->getMessage()]);
             return response()->json([
                 'error' => true,
                 'message' => 'callback failed: ' . $e->getMessage()
