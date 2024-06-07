@@ -11,6 +11,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Pemesanan extends Model
 {
     use HasFactory,SoftDeletes;
+    protected $table = "pemesanans";
+    protected $primaryKey = "pemesanan_id";
+
 
     protected $guarded =[
         'pemesanan_id'
