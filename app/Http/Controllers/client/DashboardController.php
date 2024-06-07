@@ -12,12 +12,16 @@ use App\Models\Berita;
 
 class DashboardController extends Controller
 {
-    public function index() {
+    public function index(Request $request) {
         $data = Category::latest()->get();
 
         $produk = Category::with(['produk.produkimage' => function ($tes) {
             $tes->take(4);
-        }])->get();
+        }]);
+
+        if(request('kategori')){
+            $produk->where('kategori_id', request('kategori'));
+        }
 
         $tes = Produk::with(['produkImage', 'size'])->withSum('size', 'qty')->get();
 
@@ -26,17 +30,20 @@ class DashboardController extends Controller
         $cek = Berita::latest()->get();
 
 
-        // dd($cek);
 
+        
 
         return view('client.home.index', compact('data'), [
             'data' => $data,
-            'produk' => $produk,
+            'produk' => $produk->get(),
             'tes' => $tes,
+            'kategori' => $produk->get(),
             'gambar' => $banner,
             'berita' => $cek
             
             
         ]);
     }
+
+   
 }

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\client\GaleriController;
 use App\Http\Controllers\KeranjangController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\auth\AuthController;
@@ -49,8 +50,8 @@ Route::get('/produk/{id}', [DetailController::class, 'index']);
 
 
 
-Route::get('/cek', function () {
-    return view('client.berita.index');
+Route::get('/coba', function () {
+    return view('client.profile.cetak');
 });
 
 
@@ -163,16 +164,27 @@ Route::middleware('auth')->group(function () {
     // user
     Route::get('/user', [ProfileController::class, 'index']);
     Route::post('/user/update/{id}', [ProfileController::class, 'update']);
+    Route::post('/user/profile/{id}', [ProfileController::class, 'gambar']);
+
     Route::get('/user/pesanan', [ProfileController::class, 'bayar']);
 
 
     Route::get('/keranjang', [KeranjangController::class, 'index']);
     Route::get('/detail-pesanan/{id}', [DetailController::class, 'detailPesanan']);
     Route::post('pesanan/bayar/{id}', [DetailController::class, 'payment'])->name('bayar');
+
+
+    // Route::get('/invoice', [DetailController::class, 'invoice']);
+
+    // galeri
+    Route::get('/galeri', [GaleriController::class, 'index']);
 });
 
 
 Route::get('/home', [DashboardController::class, 'index']);
+
+Route::get('/galeri', [GaleriController::class, 'index']);
+
 
 Route::get('/produks', [ClientProdukController::class, 'index']);
 Route::get('/tentang', [AboutUsController::class, 'index']);
@@ -181,4 +193,4 @@ Route::get('/produks/detail/{id}', [ClientProdukController::class, 'detail']);
 
 Route::get('/blog/{id}', [ControllersBeritaController::class, 'index']);
 
-Route::post('callback/xendit',[DetailController::class, 'callback']);
+Route::post('callback/xendit', [DetailController::class, 'callback']);

@@ -11,7 +11,9 @@ use App\Models\Pemesanan;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Exceptions\HttpResponseException;
 
@@ -38,7 +40,7 @@ class DetailController extends Controller
 
         $tes = Produk::with(['produkImage', 'size'])->withSum('size', 'qty')->get();
 
-        
+
 
 
         return view('client.produk.index', [
@@ -59,12 +61,13 @@ class DetailController extends Controller
 
     public function payment(Produk $id, Request $request)
     {
-
-        // dd($request->all());
-        // dd($this->invoiceUrl);
-
-
         try {
+            $user = Auth::user();
+
+            if (empty($user->alamat)) {
+                return redirect('/user');
+            }
+
             $qty = $request->qty;
             $ukuran = Size::where('size_id', $request->ukuran)->first();
             $external_id = Str::uuid();
@@ -80,13 +83,16 @@ class DetailController extends Controller
                     'alamat pembeli' => auth()->user()->alamat,
                     'no_tlpn pembeli' => auth()->user()->no_tlpn,
                     'email pembeli' => auth()->user()->email,
-
-                ]
+                ],
+                "success_redirect_url" => url('/') . '/user/pesanan'
             ]);
+
             $response = $get->object();
             $up = Pemesanan::create([
                 'user_id' => auth()->user()->user_id,
                 'produk_id' => $id->produk_id,
+                'qty' => $qty,
+                'note' => $request->note,
                 'alamat' => auth()->user()->alamat,
                 'doc_no' => $response->external_id,
                 'amount' => $response->amount,
@@ -94,22 +100,20 @@ class DetailController extends Controller
                 'payment_status' => $response->status,
                 'payment_link' => $response->invoice_url,
                 'expired' => Carbon::parse($response->expiry_date)->format('Y-m-d H:i:s'),
-                'status' => 'unpaid',
-
+                'status' => 'DIKEMAS', // Initial status set here
             ]);
             DB::commit();
             return redirect($response->invoice_url);
         } catch (Exception $e) {
+            Log::info('error', ['error' => $e->getMessage()]);
             DB::rollBack();
             return redirect()->back()->with('toast_error', 'Pembayaran tidak berhasil coba lagi nanti');
         }
     }
+
     public function verifyCallbackToken($token)
     {
-        if ($this->callback_token !== $token) {
-            return false;
-        }
-        return true;
+        return $this->callback_token === $token;
     }
 
     public function callback(Request $request)
@@ -126,17 +130,22 @@ class DetailController extends Controller
                     ],
                 ], 400));
             }
-            if ($request->status == 'PAID') {
-                $payment_status = 'PAID';
-            } else if ($request->status == 'EXPIRED') {
-                $payment_status = 'EXPIRED';
+    
+            $payment_status = $request->status;
+            $order_status = null;
+    
+            if ($payment_status == 'PAID') {
+                $order_status = 'DIKEMAS';
+            } elseif ($payment_status == 'EXPIRED') {
+                $order_status = 'GAGAL';
             }
-
+    
             DB::beginTransaction();
-            $update = Pemesanan::where('doc_no', $request->external_id)->update([
-                'payment_status' => $payment_status
+            Pemesanan::where('doc_no', $request->external_id)->update([
+                'payment_status' => $payment_status,
+                'status' => $order_status,
             ]);
-
+    
             DB::commit();
             return response()->json([
                 'error' => false,
@@ -150,6 +159,12 @@ class DetailController extends Controller
             ], 400);
         }
     }
+    
+    public function invoice()
+    {
+        return view('client.profile.invoice');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -157,7 +172,6 @@ class DetailController extends Controller
      */
     public function create()
     {
-        //
     }
 
     /**

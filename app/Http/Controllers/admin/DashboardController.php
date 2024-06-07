@@ -18,6 +18,9 @@ class DashboardController extends Controller
     public function index()
     {
         $data = Dashboard::latest()->get();
+        dd($data);
+
+        // dd($data);   
 
         return view('admin.baner.index',[
             'data' => $data

@@ -19,13 +19,15 @@ return new class extends Migration
             $table->foreignId('produk_id');
             $table->string('alamat');
             $table->text('doc_no');
+            $table->integer('qty');
+            $table->text('note')->nullable();
             $table->bigInteger('amount');
             $table->text('description');
             $table->string('payment_status');
             $table->string('payment_link');
             $table->string('expired');
             $table->boolean('comment')->default(false);
-            $table->enum('status',['dikemas','dikirim', 'gagal'])->default('dikemas');
+            $table->enum('status',['dikemas','dikirim', 'gagal'])->default('dikemas')->nullable();
             $table->integer('user_created')->nullable();
             $table->timestamps();
             $table->integer('user_updated')->nullable();

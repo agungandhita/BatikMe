@@ -109,7 +109,13 @@
                             <tbody class=" bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
                                 @foreach ($data as $no => $user)
                                     <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
-
+                                        <td class="w-4 p-4">
+                                            <div class="flex items-center">
+                                                <input id="checkbox-table-search-1" type="checkbox"
+                                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                                                <label for="checkbox-table-search-1" class="sr-only">checkbox</label>
+                                            </div>
+                                        </td>
                                         <td class="flex items-center p-4 space-x-6 whitespace-nowrap ">
                                             <img class="w-20 h-20 p-3"
                                                 src="{{ asset('produk/' . $user->produkImage[0]->image) }}">

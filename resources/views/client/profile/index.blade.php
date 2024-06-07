@@ -37,21 +37,48 @@
                     <div class="grid max-w-2xl mx-auto mt-8">
                         <div class="flex flex-col items-center space-y-5 sm:flex-row sm:space-y-0">
 
-                            <img class="object-cover w-40 h-40 p-1 rounded-full ring-2 ring-indigo-300 dark:ring-indigo-500"
-                                src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGZhY2V8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
-                                alt="Bordered avatar">
 
-                            <div class="flex flex-col space-y-5 sm:ml-8">
-                                <button type="button"
-                                    class="py-3.5 px-7 text-base font-medium text-indigo-100 focus:outline-none bg-[#202142] rounded-lg border border-indigo-200 hover:bg-indigo-900 focus:z-10 focus:ring-4 focus:ring-indigo-200 ">
-                                    Change picture
-                                </button>
-                                <button type="button"
-                                    class="py-3.5 px-7 text-base font-medium text-indigo-900 focus:outline-none bg-white rounded-lg border border-indigo-200 hover:bg-indigo-100 hover:text-[#202142] focus:z-10 focus:ring-4 focus:ring-indigo-200 ">
-                                    Delete picture
-                                </button>
-                            </div>
+                                <img class="object-cover w-40 h-40 p-1 rounded-full ring-2 ring-indigo-300 dark:ring-indigo-500"
+                                src="{{ asset('ft_user/' . $data->image) }}"
+                                    alt="Bordered avatar">
+
+                                <div class="flex flex-col space-y-5 sm:ml-8">
+                                    <button type="button"  onclick="my_modal_edit.showModal()"
+                                        class="py-3.5 px-7 text-base font-medium text-indigo-100 focus:outline-none bg-[#202142] rounded-lg border border-indigo-200 hover:bg-indigo-900 focus:z-10 focus:ring-4 focus:ring-indigo-200 ">
+                                        Change picture
+                                    </button>
+                                    <button type="button"
+                                        class="py-3.5 px-7 text-base font-medium text-indigo-900 focus:outline-none bg-white rounded-lg border border-indigo-200 hover:bg-indigo-100 hover:text-[#202142] focus:z-10 focus:ring-4 focus:ring-indigo-200 ">
+                                        Delete picture
+                                    </button>
+                                </div>
                         </div>
+
+                        <dialog id="my_modal_edit" class="modal">
+                            <div class="modal-box bg-white">
+                                <form action="/user/profile/{{ $data->user_id }}" enctype="multipart/form-data" method="POST">
+                                    @csrf
+                                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                        Gambar</label>
+            
+                                    <img src="{{ asset('ft_user/' . $data->image) }}" alt="" class="h-40 w-full object-contain justify-center">
+            
+                                    <input
+                                        class="mt-3 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                                        id="file_input" type="file" name="image">
+                                    <div class="modal-action">
+                                        <label for="closeDelete" id="closeDelete" class="btn bg-red-600 hover:bg-red-700 border-none">Tidak</label>
+                                        <button type="submit" class="btn bg-lime-600 hover:bg-lime-700 border-none">edit</button>
+                                    </div>
+                                </form>
+                                <div class="modal-action hidden">
+                                    <form method="dialog">
+                                        <!-- if there is a button in form, it will close the modal -->
+                                        <button class="btn" id="closeDelete">Close</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </dialog>
 
                         <div class="items-center mt-8 sm:mt-14 text-[#202142]">
 
@@ -66,9 +93,6 @@
                                             class="bg-indigo-50 border border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 "
                                             placeholder="Your first name" value="{{ $data->username }}" required>
                                     </div>
-
-
-
                                 </div>
 
                                 <div class="mb-2 sm:mb-6">

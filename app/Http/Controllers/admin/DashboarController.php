@@ -9,6 +9,7 @@ use index;
 class DashboarController extends Controller
 {
     public function index() {
+        // dd('asasas');
         return view('admin.dashboard.index', [
             'title' => 'admin'
         ]);

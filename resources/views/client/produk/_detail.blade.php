@@ -11,7 +11,7 @@
                         class="relative w-full overflow-hidden whitespace-no-wrap flex flex-no-wrap [backface-visibility: hidden] [transform-style: preserve-3d] [touch-action: pan-Y] [will-change: transform]">
                         @foreach ($data->produkImage as $item)
                             <li><img src="{{ asset('produk/' . $item->image) }}"
-                                    class="w-full h-40 md:h-full object-contain" />
+                                    class="w-full h-60 md:h-80 md:mt-20 object-contain" />
                             </li>
                         @endforeach
 

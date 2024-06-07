@@ -23,4 +23,6 @@ class Pemesanan extends Model
     {
         return $this->belongsTo(Produk::class, 'produk_id'); // Pastikan foreign key benar
     }
+
+   
 }
