@@ -62,10 +62,9 @@
                         <h1 class="text-xs md:text-lg font-semibold text-black">
                             Terjual
                             <span>
-                                {{ $produkTerjual[$item->id] ?? 0 }}
+                               {{ $data->terjual }}
                             </span>
 
-                            {{-- @dd($totalTerjual) --}}
                         </h1>
                     </div>
                 </div>
