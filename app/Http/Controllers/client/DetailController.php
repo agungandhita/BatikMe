@@ -148,6 +148,8 @@ class DetailController extends Controller
                 $order_status = 'DIKEMAS';
             } elseif ($payment_status == 'EXPIRED') {
                 $order_status = 'GAGAL';
+            } elseif ($payment_status == 'PENDING') {
+                $order_status = 'MENUNGGU';
             }
     
             DB::beginTransaction();
