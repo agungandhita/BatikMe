@@ -3,11 +3,11 @@
 @include('admin.partials.navbar')
 
 
-<div class="flex pt-16 overflow-hidden bg-slate-100 dark:bg-gray-800">
+<div class="flex pt-16 overflow-hidden bg-slate-100">
 
 @include('admin.partials.copyside')
 
-<div id="main-content" class="relative w-full h-full overflow-y-auto bg-slate-100 lg:ml-64 dark:bg-gray-800">
+<div id="main-content" class="relative w-full h-full overflow-y-auto bg-slate-100 lg:ml-64 ">
     <main>
 
 @yield('container')
