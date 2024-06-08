@@ -160,6 +160,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/blog/{id}', [ControllersBeritaController::class, 'index']);
 
 
+
     Route::get('/produks', [ClientProdukController::class, 'index']);
     Route::get('/produks/detail/{id}', [ClientProdukController::class, 'detail']);
 

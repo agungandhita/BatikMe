@@ -13,15 +13,17 @@ class BeritaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
 
-        $data = Berita::latest()->get()->all();
+        $data = Berita::latest()->get();
 
-        // dd($data);
-        
+        $cek = Berita::findOrFail($id);
+
+
         return view('client.berita.index', [
-            'data' => $data
+            'berita' => $data,
+            'blog' => $cek
         ]);
     }
 
