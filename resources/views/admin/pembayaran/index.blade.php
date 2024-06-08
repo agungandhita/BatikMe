@@ -60,7 +60,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($data as $item)
+                @foreach ($data as $no => $item)
                     <tr
                         class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
 
@@ -105,8 +105,9 @@
                             </div>
                         </td>
                         <td class="px-6 py-4">
-                            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit
-                                Status</a>
+                            <button
+                                onclick="my_update{{ $no }}.showModal()"class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit
+                                Status</button>
                         </td>
                     </tr>
                 @endforeach
@@ -114,5 +115,34 @@
 
             </tbody>
         </table>
+
+        @foreach ($data as $key => $tes)
+            <dialog id="my_update{{ $key }}" class="modal">
+                <div class="modal-box bg-slate-200">
+
+
+                    <form action="/pembayaran/update/{{ $tes->pemesanan_id }}" method="POST">
+                        @csrf
+                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                            status</label>
+                            <select class="w-full text-black" name="status" id="">
+
+                                <option value="dikirim">Dikirim</option>
+                                <option value="gagal">gagal</option>
+                            </select>
+                        <div class="flex gap-x-4 mt-4">
+                            <button type="submit" id="btn-select-file"
+                                class="bg-green-600 py-2 px-4 rounded-md text-white">SEND</button>
+                            <a href="" class="bg-red-600 px-4 py-2 text-white rounded-md">UNDO</a>
+                        </div>
+                    </form>
+
+
+
+                </div>
+            </dialog>
+        @endforeach
+
+
     </div>
 @endsection

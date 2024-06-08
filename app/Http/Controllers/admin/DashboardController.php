@@ -18,7 +18,7 @@ class DashboardController extends Controller
     public function index()
     {
         $data = Dashboard::latest()->get();
-        dd($data);
+        // dd($data);
 
         // dd($data);   
 
@@ -46,7 +46,7 @@ class DashboardController extends Controller
     public function store(Request $request)
     {
         $cek = $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif'
         ]);
 
         $imageData = $request->image;

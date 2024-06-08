@@ -16,7 +16,7 @@ class BeritaController extends Controller
     public function index()
     {
 
-        $data = Berita::latest()->get();
+        $data = Berita::latest()->get()->all();
 
         // dd($data);
         

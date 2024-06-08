@@ -150,6 +150,8 @@ Route::middleware('admin')->group(function () {
 
     // pembayaran dan kelola pesanan
     Route::get('/pembayaran', [PemesananController::class, 'pembayaran']);
+    Route::post('/pembayaran/update/{id}', [PemesananController::class, 'update']);
+
 });
 
 Route::middleware('auth')->group(function () {

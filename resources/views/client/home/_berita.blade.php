@@ -7,7 +7,7 @@
 
     <a href="/blog/{{ $item->berita_id }}">
     <div class="rounded overflow-hidden shadow-lg">
-      <img class="w-full" src="{{ asset ('img/cek.jpg') }}" alt="Mountain">
+      <img class="w-full h-60 object-contain" src="{{ asset('image/' . $item->image) }}" alt="Mountain">
       <div class="px-6 py-4">
         <div class="font-bold text-xl mb-2">{{ $item->judul }}</div>
         <p class="text-gray-700 text-base line-clamp-1">

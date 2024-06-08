@@ -1,4 +1,4 @@
-    <article class="mt-0">
+    {{-- <article class="mt-0">
         <div class="flex items-center mb-4">
             <img class="w-10 h-10 me-4 rounded-full" src="{{ asset ('img/aa.jpeg') }}" alt="">
             <div class="font-medium text-black">
@@ -27,4 +27,4 @@
        
     </article>
     
-
+ --}}

@@ -12,7 +12,7 @@
                 <input
                     class="mt-3 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                     id="file_input" type="file" name="image">
-            
+
                 <div class="modal-action">
                     <div class="modal-action">
                         <label for="closeDelete" class="btn bg-red-600 hover:bg-red-700 border-none">Tidak</label>
@@ -28,33 +28,31 @@
             </form> --}}
         </dialog>
 
-<div class="flex justify-between">
-        @foreach ($data as $cek => $item)
-            <div class="card w-96 bg-neutral text-neutral-content">
-                <img src="{{ asset('dashboard/' . $item->image) }}" alt="" class="w-full h-full">
-                <div class="card-body items-center text-center">
-                    <div class="card-actions">
-                        <button class="btn btn-primary mt-0 text-white bg-blue-700"
-                            onclick="my_modal_{{ $cek }}.showModal()">update</button>
-                    </div>
+        <div class="grid grid-cols-3     justify-between">
+            @foreach ($data as $cek => $item)
+                <div class="card w-96 bg-neutral text-neutral-content justify-between">
+                    <img src="{{ asset('dashboard/' . $item->image) }}" alt="" class="w-full h-full">
+                    <button class="btn btn-primary mt-0 text-white bg-blue-700 w-20 items-center text-center flex"
+                        onclick="my_modal_{{ $cek }}.showModal()">update</button>
                 </div>
-            </div>
-        @endforeach
-    </div>
+            @endforeach
+        </div>
 
 
-    {{-- update --}}
-    @foreach ($data as $cek => $edit)
-        <dialog id="my_modal_{{ $cek }}" class="modal modal-bottom sm:modal-middle ">
-                <form id="updateForm" action="/admin/update/{{ $edit->dashboard_id }}" method="POST" enctype="multipart/form-data" class="modal-box bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
+        {{-- update --}}
+        @foreach ($data as $cek => $edit)
+            <dialog id="my_modal_{{ $cek }}" class="modal modal-bottom sm:modal-middle ">
+                <form id="updateForm" action="/admin/update/{{ $edit->dashboard_id }}" method="POST"
+                    enctype="multipart/form-data" class="modal-box bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
 
                     @csrf
                     {{-- @method('PUT') --}}
 
-                    <img id="oldImage" src="{{ asset('dashboard/' . $edit->image) }}" alt="Old Image" class="h-32 w-auto mb-4">
+                    <img id="oldImage" src="{{ asset('dashboard/' . $edit->image) }}" alt="Old Image"
+                        class="h-32 w-auto mb-4">
                     <input
-                    class="mt-3 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-                    id="file_input" type="file" name="image">
+                        class="mt-3 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                        id="file_input" type="file" name="image">
 
 
                     <img id="newImage" src="#" alt="New Image Preview" class="h-32 w-auto mb-4 hidden">
@@ -62,11 +60,11 @@
                         class="bg-indigo-500 text-white px-4 py-2 rounded-md hover:bg-indigo-600">Update</button>
 
                 </form>
-        </dialog>
-    @endforeach
-@endsection
+            </dialog>
+        @endforeach
+    @endsection
 
-{{-- @push('script')
+    {{-- @push('script')
     <script>
         function previewImage(event) {
             const newImage = document.getElementById('newImage');
@@ -81,4 +79,3 @@
         }
     </script>
 @endpush --}}
-

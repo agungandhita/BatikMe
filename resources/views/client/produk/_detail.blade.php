@@ -99,12 +99,12 @@
             </p>
         </div>
 
-        <div class="px-10 border pt-1 hidden md:block">
+        {{-- <div class="px-10 border pt-1 hidden md:block">
             <h1 class="text-sm font-bold mb-2 capitalize text-black text-xl">
                 Penilaian produk
             </h1>
             @include('client.produk._review')
-        </div>
+        </div> --}}
 
         {{-- <div class="px-10 border pt-1 hidden md:block">
             <h1 class="text-sm font-bold mb-2 capitalize text-black text-xl">
