@@ -18,7 +18,7 @@ class DashboardController extends Controller
     public function index()
     {
         $data = Dashboard::latest()->get();
-        dd($data);
+        // dd($data);
 
         // dd($data);   
 
@@ -106,16 +106,16 @@ class DashboardController extends Controller
         $old = $img;
         $imageData = $request->image;
 
-        dd($request->all());
-
-        if($request->hashfile('dashboard')) {
+        
+        if($request->hasfile('image')) {
+            // dd($request->all());
 
             $baru = $request->file('image');
             $extension = $imageData->getClientOriginalExtension();
             $name = hash('sha256', time()) . '.' . $extension;
             $simpan = $baru->move('dashboard', $name);
 
-            $cek['image'] = Storage::url($simpan);
+            $cek['image'] = $name;
 
             if($old) {
                 Storage::delete($old);
@@ -129,7 +129,7 @@ class DashboardController extends Controller
                 'user_updated' => Auth::id()
              ]);
 
-             return redirect('/manage/dashboard')->with('succes', 'berhasil mengupdate gambar');
+             return redirect('/admin/dashboard')->with('succes', 'berhasil mengupdate gambar');
 
 
         }
