@@ -128,13 +128,13 @@ Route::middleware('admin')->group(function () {
     Route::post('/team/delete/{id}', [TeamController::class, 'destroy']);
 
     //berita
-    Route::get('/berita', [BeritaController::class, 'index']);
-    Route::get('/berita/tambah', [BeritaController::class, 'create']);
-    Route::post('/berita/tambah/add', [BeritaController::class, 'store']);
-    Route::get('/admin/berita/edit/{id}', [BeritaController::class, 'edit']);
-    Route::post('/admin/berita/update/{id}', [BeritaController::class, 'update']);
-    Route::post('/admin/berita/delete/{id}', [BeritaController::class, 'destroy']);
-    Route::get('/admin/berita/read/{id}', [BeritaController::class, 'read']);
+    Route::get('/berita', [BeritaController::class, 'index'])->name('berita.index'); 
+    Route::get('/berita/tambah', [BeritaController::class, 'create'])->name('berita.create');
+    Route::post('/berita/tambah/add', [BeritaController::class, 'store'])->name('berita.store');
+    Route::get('/admin/berita/edit/{id}', [BeritaController::class, 'edit'])->name('berita.edit');
+    Route::post('/admin/berita/update/{id}', [BeritaController::class, 'update'])->name('berita.update');
+    Route::post('/admin/berita/delete/{id}', [BeritaController::class, 'destroy'])->name('berita.destroy');
+    Route::get('/admin/berita/read/{id}', [BeritaController::class, 'read'])->name('berita.read');
 
     // dashboard
     Route::get('/admin/dashboard', [AdminDashboardController::class, 'index']);

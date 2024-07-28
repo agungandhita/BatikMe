@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use App\Http\Requests\StoreBeritaRequest;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Contracts\View\View as ViewContract;
 
 class BeritaController extends Controller
@@ -44,17 +45,18 @@ class BeritaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreBeritaRequest $request)
+    public function store(StoreBeritaRequest $request): RedirectResponse
     {
-
-        if($files=$request->file('image')){
-            $extension=$files->getClientOriginalExtension();
+        // Proses file gambar jika ada
+        if ($files = $request->file('image')) {
+            $extension = $files->getClientOriginalExtension();
             $name = hash('sha256', time()) . '.' . $extension;
-            $files->move('image',$name);
-    }
+            $files->move('image', $name);
+        } else {
+            $name = null; 
+        }
 
-
-         Berita::create([
+        Berita::create([
             'judul' => $request->judul,
             'image' => $name,
             'kategori' => $request->kategori,
@@ -62,10 +64,9 @@ class BeritaController extends Controller
             'user_created' => Auth::id(),
             'created_at' => now(),
             'updated_at' => null
-
-
         ]);
-        return redirect()->route('/berita');
+
+        return redirect('/berita')->with('success', 'Berita berhasil ditambahkan.');
     }
 
     /**
@@ -82,15 +83,15 @@ class BeritaController extends Controller
      * @param  \App\Models\Berita  $berita
      * @return \Illuminate\Http\Response
      */
-    public function edit($id): ViewContract
-    {
-        $berita = Berita::where('berita_id', $id)->first();
-    
-        return view('admin.berita.edit', [
-            'data' => $berita,
-            'title' => 'Edit Berita'
-        ]);
-    }
+   public function edit($id): ViewContract
+{
+    $berita = Berita::where('berita_id', $id)->first();
+
+    return view('admin.berita.edit', [
+        'data' => $berita,
+        'title' => 'Edit Berita'
+    ]);
+}
     
 
     /**
