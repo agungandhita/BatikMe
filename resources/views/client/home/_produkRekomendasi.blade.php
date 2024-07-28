@@ -1,4 +1,4 @@
-<div class="px-2 grid grid-cols-2 md:grid-cols-4 gap-x-3">
+<div class="px-8 grid grid-cols-2 md:grid-cols-4 gap-x-3">
 
     <!-- component -->
     @foreach ($tes as $item)
@@ -20,7 +20,7 @@
                     <h2 class="mb-2 text-left text-lg md:text-xl font-medium text-gray-900">{{ $item->nama_produk }}</h2>
                     <p class="mb-2 text-left text-sm text-gray-700 line-clamp-1">{{ $item->deskripsi }}</p>
                     <div class="flex items-center justify-between">
-                        <p class="mr-2 text-sm font-semibold text-green-500 ">{{ $item->harga }}</p>
+                        <p class="mr-2 text-sm font-semibold text-green-500 ">{{ $item->numberFormat($item->harga) }}</p>
                         <p class="mr-2 text-xs font-normal md:text-base text-gray-500 ">{{ $item->terjual }}
                             <span>terjual</span>
                         </p>

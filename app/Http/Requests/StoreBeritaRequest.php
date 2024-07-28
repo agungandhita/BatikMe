@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreBeritaRequest extends FormRequest
@@ -13,9 +14,9 @@ class StoreBeritaRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return Auth::check(); 
     }
-
+    
     /**
      * Get the validation rules that apply to the request.
      *
@@ -24,7 +25,10 @@ class StoreBeritaRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'judul' => 'required|max:255',
+            'image.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'kategori' => 'required',
+            'isi' => 'required',
         ];
     }
 }

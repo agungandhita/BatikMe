@@ -4,9 +4,12 @@ namespace App\Http\Controllers\admin;
 
 use App\Models\Berita;
 use Illuminate\Http\Request;
+use Illuminate\Contracts\View\View;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use App\Http\Requests\StoreBeritaRequest;
+use Illuminate\Contracts\View\View as ViewContract;
 
 class BeritaController extends Controller
 {
@@ -15,25 +18,22 @@ class BeritaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(): View
     {
-
         $data = Berita::latest()->get();
-
-
+    
         return view("admin.berita.berita", [
-            'data'=>$data,
-            'title'=>'berita'
-
+            'data' => $data,
+            'title' => 'berita'
         ]);
     }
-
+    
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create():View
     {
         return view("admin.berita.add");
     }
@@ -44,14 +44,8 @@ class BeritaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreBeritaRequest $request)
     {
-        $request->validate([
-            'judul' => 'required|max:255',
-            'image.*' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'kategori' => 'required',
-            'isi' => 'required',
-        ]);
 
         if($files=$request->file('image')){
             $extension=$files->getClientOriginalExtension();
@@ -71,7 +65,7 @@ class BeritaController extends Controller
 
 
         ]);
-        return redirect('/berita');
+        return redirect()->route('/berita');
     }
 
     /**
@@ -80,11 +74,7 @@ class BeritaController extends Controller
      * @param  \App\Models\Berita  $berita
      * @return \Illuminate\Http\Response
      */
-    public function show(Berita $berita, $id)
-    {
-
-      
-    }
+    
 
     /**
      * Show the form for editing the specified resource.
@@ -92,17 +82,16 @@ class BeritaController extends Controller
      * @param  \App\Models\Berita  $berita
      * @return \Illuminate\Http\Response
      */
-    public function edit(Berita $berita, $id)
+    public function edit($id): ViewContract
     {
-
         $berita = Berita::where('berita_id', $id)->first();
-
-
+    
         return view('admin.berita.edit', [
-            'data'=>$berita,
-            'title'=> 'edit berita'
+            'data' => $berita,
+            'title' => 'Edit Berita'
         ]);
     }
+    
 
     /**
      * Update the specified resource in storage.
@@ -147,7 +136,7 @@ class BeritaController extends Controller
             'user_updated' => Auth::id()
         ]);
 
-        return redirect('/berita');
+        return redirect()->route('/berita');
 
 
     
@@ -185,14 +174,6 @@ class BeritaController extends Controller
     {
         $data = $id;
 
-
-        // if ($data !== null) {
-        //     $data->update([
-        //         'views' => $data->views + 1
-        //     ]);
-        // }
-        // return $data;
-        
         return view('admin.berita.read',compact('data'));
     }
 

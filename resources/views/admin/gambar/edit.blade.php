@@ -13,23 +13,12 @@
             {{-- @dd($data->produkImage) --}}
 
             @foreach ($data->produkImage as $key => $item)
-
-                <div class="bg-white border-none dark:bg-gray-700 p-2 rounded-lg w-40">
-
-
-
-
-
+                <div class="bg-slate-200 border-none space-y-4 dark:bg-gray-700 p-2 rounded-lg w-40">
                     <img src="{{ asset('produk/' . $item->image) }}" class="object-cover h-40" alt="">
-
                     <div class="flex gap-x-2 justify-center">
-
-
-
-                        <button class="btn text-white bg-transparent border-transparent"
+                        <button class="btn text-black bg-transparent"
                             onclick="my_modal_{{ $key }}.showModal()">Edit</button>
-
-                        <button class="text-red-600" onclick="delete_{{ $key }}.showModal()">Hapus</button>
+                        <button class="text-red-600 btn" onclick="delete_{{ $key }}.showModal()">Hapus</button>
                     </div>
                 </div>
             @endforeach
@@ -38,15 +27,17 @@
 
 
 
+
         {{-- edit baru --}}
         @foreach ($data->produkImage as $key => $edit)
             <dialog id="my_modal_{{ $key }}" class="modal">
-                <div class="modal-box">
+                <div class="modal-box bg-white">
                     <form action="/admin/produk-image/update/{{ $edit->gambarproduk_id }}" method="POST"
                         enctype="multipart/form-data">
                         @csrf
                         <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                            Gambar</label>
+                            Gambar
+                        </label>
 
                         <img src="{{ asset('produk/' . $edit->image) }}" alt="" class="h-80">
 
@@ -54,15 +45,20 @@
                             class="mt-3 block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                             id="file_input" type="file" name="image">
                         <div class="modal-action">
-                            <label for="closeDelete" id="closeDelete" class="btn bg-red-600 hover:bg-red-700 border-none">Tidak</label>
-                            <button type="submit" class="btn bg-lime-600 hover:bg-lime-700 border-none">edit</button>
+                            <button type="button" class="btn bg-red-600 hover:bg-red-700 text-white border-none"
+                                onclick="document.getElementById('my_modal_{{ $key }}').close();">
+                                Tidak
+                            </button>
+                            <button type="submit" class="btn bg-lime-600 text-white hover:bg-lime-700 border-none">
+                                Edit
+                            </button>
                         </div>
                     </form>
                     <div class="modal-action hidden">
-                        <form method="dialog">
-                            <!-- if there is a button in form, it will close the modal -->
-                            <button class="btn" id="closeDelete">Close</button>
-                        </form>
+                        <button type="button" class="btn"
+                            onclick="document.getElementById('my_modal_{{ $key }}').close();">
+                            Close
+                        </button>
                     </div>
                 </div>
             </dialog>

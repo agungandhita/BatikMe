@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('categories', function (Blueprint $table) {
             $table->id('kategori_id');
             $table->string("nama_kategori");
+            $table->text('gambar');
             $table->integer('user_created')->nullable();
             $table->timestamps();
             $table->integer('user_updated')->nullable();

@@ -3,14 +3,14 @@
 
 
 @section('container')
-    <div class="text-center mt-2">
+    <div class="text-center mt-6">
         <h1 class="font-bold text-md md:text-3xl text-black px-4">Cari Sesuai Keinginan Anda</h1>
         <h5 class="text-xs md:text-xl font-serif text-black px-4">disini kami menyediakan berbagai macam kategori seperti di
             bawah
             ini</h5>
 
 
-        <div class="grid grid-cols-2 md:grid md:grid-cols-4 w-full gap-x-5 pt-4 md:pl-8 justify-center items-center px-4">
+        <div class="grid grid-cols-2 md:grid md:grid-cols-4 w-full gap-x-5 pt-2 md:pl-8 justify-center items-center px-4 ">
 
             {{-- @dd($produk) --}}
             @foreach ($produk as $key => $cek)
@@ -20,9 +20,9 @@
 
 
 
-                <a href="/produks?kategori={{ $cek->kategori_id }}" class="h-60">
-                    <div class="transition-transform duration-300 ease-in-out transform hover:scale-105">
-                        <img class="h-60 py-2 md:h-80 object-cover rounded-lg" src="{{ asset('produk/' . $image) }}"
+                <a href="/produks?kategori={{ $cek->kategori_id }}" class="h-60 border rounded-lg mt-6 ">
+                    <div class="transition-transform duration-300 ease-in-out transform hover:scale-105 h-60 ">
+                        <img class="h-60 md:h-70 md:mb-5 object-cover rounded-lg" src="{{ asset('produk/' . $image) }}"
                             alt="" />
                         <p class="text-md font-bold md:text-xl text-gray-700">{{ $cek->nama_kategori }}
                         </p>
@@ -32,28 +32,15 @@
 
         </div>
 
-        <div id="animated-segment" class="mt-16 md:mt-44">
+        <div id="animated-segment" class="mt-16 md:mt-24">
             <P class="text-black font-semibold text-xl md:text-3xl">
                 Rekomendasi untuk anda
             </P>
         </div>
 
-        {{-- <div class="grid grid-cols-3 md:flex justify-between gap-x-5 px-8 mb-4 mt-3">
-            @foreach ($data as $item)
-                <button
-                    class="w-35 md:w-60 hover:bg-blue-400 hover:border rounded-lg my-4 animate-fade-up animate-duration-[900ms] animate-delay-200">
-                    <a href="/produks?kategori={{ $item->kategori_id }}">
-                        <p
-                            class="text-md md:text-xl  py-2 font-semibold shadow-best text-black rounded-lg bg-blend-overlay hover hover:text-white">
-                            {{ $item->nama_kategori }}
-                        </p>
-                    </a>
+        
 
-                </button>
-            @endforeach
-        </div> --}}
-
-        <div class="">
+        <div class="mt-2">
             @include('client.home._produkRekomendasi')
         </div>
 

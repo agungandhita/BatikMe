@@ -129,28 +129,7 @@ class ProdukController extends Controller
         return redirect('/admin/produk')->with('success', 'successful additional to the Produk');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Produk  $produk
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Produk $produk)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Produk  $produk
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Produk $produk)
-    {
-        //
-    }
-
+ 
     /**
      * Update the specified resource in storage.
      *

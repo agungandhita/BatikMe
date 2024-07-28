@@ -6,6 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @vite(['resources/css/app.css','resources/js/app.js'])
     <link rel="stylesheet" href="{{ asset('src/style.css') }}">
+    <style>[x-cloak]{display:none}</style>
+    <script src="https://unpkg.com/alpinejs" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs" defer></script>
+    
     <script>document.documentElement.classList.add('js')</script>
     {{-- <script>
         // On page load or when changing themes, best to add inline in `head` to avoid FOUC

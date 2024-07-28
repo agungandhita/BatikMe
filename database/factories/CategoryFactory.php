@@ -18,6 +18,7 @@ class CategoryFactory extends Factory
     {
         return [
             'nama_kategori' => fake()->randomElement(['Anak', 'Gaun']),
+            'gambar' => 'okeeeee',
             'user_created' => 1,
             'user_updated' => null
         ];

@@ -4,13 +4,14 @@ namespace App\Models;
 
 use App\Models\Category;
 use App\Models\ProdukImage;
+use App\Traits\NumberFormat;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Produk extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, NumberFormat;
 
     protected $table = "produks";
     protected $primaryKey = "produk_id";

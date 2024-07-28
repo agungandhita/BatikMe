@@ -1,7 +1,7 @@
 @extends('admin.layouts.main')
 
 @section('container')
-    <div class="px-4 pt-20 mb-8">
+    <div class="px-4 pt-20 mb-8 min-h-screen">
         <h1 class="text-gray-900 dark:text-white font-semibold text-xl mb-8">Kelola Size Dan Stock Produk</h1>
 
         <button data-modal-target="authentication-size" data-modal-toggle="authentication-size"
@@ -94,22 +94,22 @@
 
         @foreach ($data as $stock => $size)
             <dialog id="my_modal_3{{ $stock }}" class="modal">
-                <div class="modal-box bg-slate-800">
+                <div class="modal-box bg-white">
 
 
                     <form action="/admin/size/update/{{ $size->size_id }}" method="POST">
                         @csrf
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                        <label for="email" class="block mb-2 text-xl font-semibold  text-gray-900 ">
                             stock</label>
                         <input type="number" name="qty" id="qty"
-                            class="bg-gray-500 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                            placeholder="jenis kain atau pakaian" value="" required />
+                            class="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:placeholder-gray-400 dark:text-white"
+                            placeholder="jumlah" value="" required />
 
 
                         <div class="flex gap-x-4 mt-4">
                             <button type="submit" id="btn-select-file"
-                                class="bg-green-600 py-2 px-4 rounded-md text-white">SEND</button>
-                            <a href="" class="bg-red-600 px-4 py-2 text-white rounded-md">UNDO</a>
+                                class="bg-green-600 py-2 px-4 rounded-md text-white">kirim</button>
+                            <a href="" class="bg-red-600 px-4 py-2 text-white rounded-md">batal</a>
                         </div>
                     </form>
 

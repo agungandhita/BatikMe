@@ -78,11 +78,11 @@
                                 <tr>
 
                                     <th scope="col"
-                                        class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
+                                        class="max-w-sm p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
                                         nama Produk
                                     </th>
-                                    <th scope="col"
-                                        class="p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
+                                    <th scope=""
+                                        class=" max-w-sm p-4 text-xs font-medium text-left text-gray-500 uppercase dark:text-gray-400">
                                         Kategori
                                     </th>
 
@@ -110,12 +110,12 @@
                                 @foreach ($data as $no => $user)
                                     <tr class="hover:bg-gray-100 dark:hover:bg-gray-700">
                                         
-                                        <td class="flex items-center p-4 space-x-6 whitespace-nowrap ">
-                                            <img class="w-20 h-20 p-3"
+                                        <td class="max-w-sm flex items-center p-4 space-x-3 border border-green-500">
+                                            <img class="w-20 h-20"
                                                 src="{{ asset('produk/' . $user->produkImage[0]->image) }}">
 
-                                            <div class="text-sm font-normal text-gray-500 dark:text-gray-400">
-                                                <div class="text-base font-semibold text-gray-900 dark:text-white">
+                                            <div class="border border-red-500">
+                                                <div class="text-sm font-semibold text-gray-900 dark:text-white">
                                                     {{ $user->nama_produk }}
                                                 </div>
                                                 <div class="text-sm font-normal text-gray-500 dark:text-gray-400">
@@ -124,19 +124,19 @@
                                             </div>
                                         </td>
                                         <td
-                                            class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w-xs dark:text-white">
+                                            class="max-w-sm p-4 overflow-hidden text-base font-normal text-gray-500 truncate xl:max-w- dark:text-white">
 
                                             {{ $user->kategori->nama_kategori }}</td>
 
                                         <td
-                                            class="p-1  overflow-hidden text-base font-normal text-gray-500  dark:text-white">
+                                            class="max-w-sm  p-1 overflow-hidden text-base font-normal text-gray-500  dark:text-white border border-red-800">
                                             <a href="/admin/size/{{ $user->produk_id }}">
                                                 lihat stock
                                             </a>
                                         </td>
 
-                                        <td class="top-0 text-base font-medium text-gray-900 dark:text-white    ">
-                                            {{ $user->deskripsi }}</td>
+                                        <td class="text-base max-w-sm  h-32 border border-red-600 font-medium text-gray-900 dark:text-white">
+                                            {{ Str::limit($user->deskripsi, 100, '...') }}</td>
 
                                         <td
                                             class="p-4 text-base font-normal text-gray-900 whitespace-nowrap dark:text-white">
@@ -460,7 +460,6 @@
                         <select id="" name="kategori"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                             onclick="updateModel()">
-                            @
 
                             @foreach ($kategori as $cek)
                                 <option class="uppercase" value="{{ $cek->kategori_id }}">{{ $cek->nama_kategori }}
