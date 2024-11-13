@@ -137,7 +137,7 @@ class BeritaController extends Controller
             'user_updated' => Auth::id()
         ]);
 
-        return redirect()->route('/berita');
+        return redirect('/berita')->with('success', 'Berita berhasil di edit.');
 
 
     

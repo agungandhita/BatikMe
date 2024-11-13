@@ -2,16 +2,9 @@
     <div
         class="container relative flex flex-wrap items-center justify-between h-24 mx-auto overflow-hidden font-medium border-b border-gray-200 md:overflow-visible lg:justify-center sm:px-4 md:px-2 lg:px-0">
         <div class="flex items-center justify-start w-1/4 h-full pr-4">
-            <a href="#_" class="flex items-center py-4 space-x-2 font-extrabold text-gray-900 md:py-0">
-                <span class="flex items-center justify-center w-8 h-8 text-white bg-gray-900 rounded-full">
-                    <svg class="w-auto h-5 -translate-y-px" viewBox="0 0 69 66" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="m31.2 12.2-3.9 12.3-13.4.5-13.4.5 10.7 7.7L21.8 41l-3.9 12.1c-2.2 6.7-3.8 12.4-3.6 12.5.2.2 5-3 10.6-7.1 5.7-4.1 10.9-7.2 11.5-6.8.6.4 5.3 3.8 10.5 7.5 5.2 3.8 9.6 6.6 9.8 6.4.2-.2-1.4-5.8-3.6-12.5l-3.9-12.2 8.5-6.2c14.7-10.6 14.8-9.6-.4-9.7H44.2L40 12.5C37.7 5.6 35.7 0 35.5 0c-.3 0-2.2 5.5-4.3 12.2Z"
-                            fill="currentColor" />
-                    </svg>
-                </span>
-                <span>LOGO</span>
+            <a href="#_" class="flex items-center py-4 md:space-x-2 font-extrabold md:py-0">
+                <img src="{{ asset('img/w.png') }}" class="flex items-center hidden md:block justify-center w-30 h-8 object-contain text-white rounded-full">
+                <span class="text-gray-900">BatikMe.id</span>
             </a>
         </div>
         <div class="top-0 left-0 items-start hidden w-full h-full p-4 text-sm bg-gray-900 bg-opacity-50 md:items-center md:w-3/4 md:absolute lg:text-base md:bg-transparent md:p-0 md:relative md:flex"
@@ -40,9 +33,9 @@
                     </svg>
                 </a>
                 <div
-                    class="flex flex-col items-start justify-center w-full space-x-6 text-center lg:space-x-8 md:w-2/3 md:mt-0 md:flex-row md:items-center">
+                    class="flex flex-col items-start justify-center w-full space-x-6 text-center lg:space-x-8 md:w-2/3 md:mt-0 md:flex-row md:items-center capitalize">
                     <a href="/home"
-                        class="inline-block w-full py-2 mx-0 ml-6 font-medium text-left text-black md:ml-0 md:w-auto md:px-0 md:mx-2 lg:mx-3 md:text-center">Beranda</a>
+                        class="transform inline-block w-full py-2 mx-0 ml-6 font-medium text-left text-black md:ml-0 md:w-auto md:px-0 md:mx-2 lg:mx-3 md:text-center">Beranda</a>
                     <a href="/produks"
                         class="inline-block w-full py-2 mx-0 font-medium text-left text-gray-700 md:w-auto md:px-0 md:mx-2 hover:text-black lg:mx-3 md:text-center">produk</a>
                     <a href="/tentang"
@@ -61,24 +54,41 @@
                             class="inline-flex items-center w-full px-5 px-6 py-3 text-sm font-medium leading-4 text-white bg-gray-900 md:w-auto md:rounded-full hover:bg-gray-800 focus:outline-none md:focus:ring-2 focus:ring-0 focus:ring-offset-2 focus:ring-gray-800">register</a>
                     </div>
                 @else
-                    <div class="inline-flex items-center gap-2 list-none lg:ml-auto">
-                        <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown"
-                            class="text-white font-medium rounded-lg text-sm text-center inline-flex items-center "
-                            type="button">
-                            <img src="{{ asset('img/aa.jpeg') }}" alt="" class="w-10 rounded-full hidden md:block">
-                        </button>
-
-                        <div class="inline-flex items-center gap-x-4 list-none lg:ml-auto md:hidden">
-                            <a href="#">
+                    <div class="inline-flex items-center gap-2 list-none lg:ml-auto mr-8">
+                        <div class="hidden md:block">
+                            <div class="flex  space-x-5 items-center ">
+                                {{-- tampilan dekstop --}}
+                                {{-- <a href="" class="text-black font-bold  items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round"
+                                        class="icon icon-tabler icons-tabler-outline icon-tabler-shopping-cart">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                                        <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                                        <path d="M17 17h-11v-14h-2" />
+                                        <path d="M6 5l14 1l-1 7h-13" />
+                                    </svg>
+                                </a> --}}
+                                <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown"
+                                    class="text-white font-medium rounded-lg text-sm inline-flex items-center "
+                                    type="button">
+                                    <img src="{{ asset('img/aa.jpeg') }}" alt=""
+                                        class="w-10 rounded-full hidden md:block">
+                                </button>
+                            </div>
+                        </div>
+                        <div class="items-center gap-y-3  ml-6 mb-4 border gap-x-4 list-none lg:ml-auto md:hidden uppercase">
+                            <a href="/user">
                                 <button
-                                    class="block mt-2 text-sm text-gray-500 md:mt-0 hover:text-blue-600 focus:outline-none focus:shadow-outline">
-                                    Profile
+                                    class="block uppercase text-sm text-black md:mt-0 hover:text-blue-600 focus:outline-none focus:shadow-outline">
+                                    profile
                                 </button>
                             </a>
                             <form action="/logout" method="POST" class="inline">
                                 @csrf
                                 <button type="submit"
-                                    class="block mt-2 text-sm text-gray-500 md:mt-0 hover:text-blue-600 focus:outline-none focus:shadow-outline">
+                                    class="block uppercase text-sm text-black md:mt-0 hover:text-blue-600 focus:outline-none focus:shadow-outline">
                                     Logout
                                 </button>
                             </form>
@@ -86,7 +96,7 @@
 
                         <!-- Dropdown menu -->
                         <div id="dropdown"
-                            class="z-60 absolute hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
+                            class="z-60 absolute hidden border border-red-600 bg-white divide-y divide-gray-100 rounded-lg shadow w-44">
                             <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
                                 aria-labelledby="dropdownDefaultButton">
                                 <li>

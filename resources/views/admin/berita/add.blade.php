@@ -12,7 +12,7 @@
             @csrf
             <div class="w-full">
                 <label for="image"
-                    class="bg-slate-300 inline-block hover:gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 p-2 w-full text-center text-gray-900 dark:text-white font-semibold rounded-lg @error('image')
+                    class="inline-block bg-white hover:bg-gray-100 border p-2 w-full text-center text-gray-900 font-semibold rounded-lg @error('image')
                         peer
                     @enderror">Tambah
                     Foto</label>
@@ -27,7 +27,7 @@
             <div class="mt-4">
                 <label for="judul" class="font-semibold text-gray-900 dark:text-white">Judul Berita</label>
                 <input type="text" id="judul" name="judul"
-                    class="p-2 bg-slate-300 hover:bg-gray-100 border-none dark:bg-gray-700 dark:hover:bg-gray-600 rounded-lg w-full mt-2 text-gray-900 dark:text-white @error('judul')
+                    class="p-2 bg-white hover:bg-gray-100 border-black rounded-lg w-full mt-2 text-gray-900  @error('judul')
                         peer
                     @enderror">
                 @error('judul')
@@ -39,7 +39,7 @@
             <div class="mt-4">
                 <label for="kategori" class="font-semibold text-gray-900 dark:text-white">Kategori Berita</label>
                 <input type="text" id="kategori" name="kategori"
-                    class="p-2 bg-slate-300 hover:bg-gray-100 border-none dark:bg-gray-700 dark:hover:bg-gray-600 rounded-lg w-full mt-2 text-gray-900 dark:text-white @error('kategori')
+                    class="p-2 bg-white hover:bg-gray-100 border-black rounded-lg w-full mt-2 text-gray-900  @error('kategori')
                   peer
               @enderror">
                 @error('kategori')
@@ -51,7 +51,7 @@
             <div class="mt-4">
                 <label for="isi" class="font-semibold text-gray-900 dark:text-white">Isi Berita</label>
                 <textarea name="isi" id="isiBerita"
-                    class="p-2 bg-slate-300 hover:bg-gray-100 border-none dark:bg-gray-700 dark:hover:bg-gray-600 rounded-lg w-full mt-2 text-gray-900 dark:text-white @error('isi')
+                    class="p-2 bg-slate-300 hover:bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 rounded-lg w-full mt-2 text-gray-900 dark:text-white @error('isi')
                         peer
                     @enderror">
                 </textarea>
@@ -63,7 +63,7 @@
             </div>
 
             <div class="mt-6 flex gap-x-4">
-                <a href="/admin/berita"
+                <a href="/berita"
                     class="bg-red-600 hover:bg-red-700 text-white rounded-lg p-2 font-semibold">Batal</a>
                 <button type="submit"
                     class="text-white font-semibold bg-lime-600 hover:bg-lime-500 p-2 rounded-lg ">Simpan</button>

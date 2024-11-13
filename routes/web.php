@@ -1,34 +1,28 @@
 <?php
 
-use App\Http\Controllers\AboutUsController;
-use App\Http\Controllers\client\GaleriController;
-use App\Http\Controllers\KeranjangController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\auth\AuthController;
+use App\Http\Controllers\AboutUsController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\admin\SizeController;
 use App\Http\Controllers\admin\TeamController;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\auth\LoginController;
-use Illuminate\Routing\Controllers\Middleware;
 use App\Http\Controllers\admin\AboutController;
+use App\Http\Controllers\client\CartController;
 use App\Http\Controllers\admin\BeritaController;
 use App\Http\Controllers\admin\FroalaController;
 use App\Http\Controllers\admin\ProdukController;
-use App\Http\Controllers\admin\ArticleController;
+use App\Http\Controllers\ClientProdukController;
 use App\Http\Controllers\auth\RegisterController;
 use App\Http\Controllers\client\DetailController;
+use App\Http\Controllers\client\GaleriController;
 use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\DashboarController;
-use App\Http\Controllers\client\DashboardController;
-use App\Http\Controllers\ProdukController as Produk;
-use App\Http\Controllers\admin\ProdukImageController;
-use App\Http\Controllers\admin\BeritaKategoriController;
-use App\Http\Controllers\ProdukController as ControllersProdukController;
-use App\Http\Controllers\admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\admin\PemesananController;
+use App\Http\Controllers\client\DashboardController;
+use App\Http\Controllers\admin\ProdukImageController;
 use App\Http\Controllers\BeritaController as ControllersBeritaController;
-use App\Http\Controllers\ClientProdukController;
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\admin\DashboardController as AdminDashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -128,7 +122,7 @@ Route::middleware('admin')->group(function () {
     Route::post('/team/delete/{id}', [TeamController::class, 'destroy']);
 
     //berita
-    Route::get('/berita', [BeritaController::class, 'index'])->name('berita.index'); 
+    Route::get('/berita', [BeritaController::class, 'index'])->name('berita.index');
     Route::get('/berita/tambah', [BeritaController::class, 'create'])->name('berita.create');
     Route::post('/berita/tambah/add', [BeritaController::class, 'store'])->name('berita.store');
     Route::get('/admin/berita/edit/{id}', [BeritaController::class, 'edit'])->name('berita.edit');
@@ -151,7 +145,6 @@ Route::middleware('admin')->group(function () {
     // pembayaran dan kelola pesanan
     Route::get('/pembayaran', [PemesananController::class, 'pembayaran']);
     Route::post('/pembayaran/update/{id}', [PemesananController::class, 'update']);
-
 });
 
 Route::middleware('auth')->group(function () {
@@ -159,7 +152,11 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/blog/{id}', [ControllersBeritaController::class, 'index']);
 
-
+    //keranjang
+    Route::get('/cart', [CartController::class, 'index']);
+    Route::post('/cart/add/{produk_id}', [CartController::class, 'add']);
+    Route::delete('/cart/remove/{cart_id}', [CartController::class, 'remove']);
+    Route::put('/cart/update/{cart_id}', [CartController::class, 'update']);
 
     Route::get('/produks', [ClientProdukController::class, 'index']);
     Route::get('/produks/detail/{id}', [ClientProdukController::class, 'detail']);
@@ -172,7 +169,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/user/pesanan', [ProfileController::class, 'bayar']);
 
 
-    Route::get('/keranjang', [KeranjangController::class, 'index']);
     Route::get('/detail-pesanan/{id}', [DetailController::class, 'detailPesanan']);
     Route::post('pesanan/bayar/{id}', [DetailController::class, 'payment'])->name('bayar');
 

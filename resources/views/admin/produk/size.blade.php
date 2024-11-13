@@ -2,14 +2,18 @@
 
 @section('container')
     <div class="px-4 pt-20 mb-8 min-h-screen">
-        <h1 class="text-gray-900 dark:text-white font-semibold text-xl mb-8">Kelola Size Dan Stock Produk</h1>
+        <h1 class="text-gray-900 dark:text-white font-semibold text-xl mb-8 capitalize">atur Size Dan Stock Produk</h1>
 
-        <button data-modal-target="authentication-size" data-modal-toggle="authentication-size"
-            class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-2 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        <div class="flex gap-x-3">
+            <a href="/admin/produk" class="text-white font-semibold bg-blue-700 border-transparent hover:bg-red-600 btn">kembali</a>
+
+            <button data-modal-target="authentication-size" data-modal-toggle="authentication-size"
+            class="block text-white bg-blue-700 hover:bg-black font-medium rounded-lg text-sm px-2 py-2.5 text-center"
             type="button">
-            Tambah Stock dan size
+            Tambah Stock
         </button>
-
+    </div>
+        
 
 
         <div class="flex flex-wrap gap-4 mt-10">
@@ -26,7 +30,7 @@
                     </h1>
                     <div class="flex gap-x-2 mx-auto justify-center">
                         <button class="text-lime-600 text-sm md:text-xl"
-                            onclick="my_modal_3{{ $size }}.showModal()">Edit</button>
+                            onclick="my_modal_3{{ $size }}.showModal()">stock</button>
                         <button class="text-red-600 text-sm md:text-xl"
                             onclick="delete_{{ $size }}.showModal()">Hapus</button>
                     </div>
@@ -60,11 +64,11 @@
                         </button>
                     </div>
                     <!-- Modal body -->
-                    <div class="p-4 md:p-5">
-                        <form class="space-y-4" action="/admin/size/add/{{ $produk_id }}" method="POST">
+                    <div class="p-4 md:p-3">
+                        <form class="space-y-1" action="/admin/size/add/{{ $produk_id }}" method="POST">
                             @csrf
                             <div>
-                                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                <label for="email" class="block mb-2 text-md font-medium text-gray-900 dark:text-white">
                                     size</label>
                                 <input type="text" name="size" id="size"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
@@ -72,10 +76,10 @@
                             </div>
 
                             <div>
-                                <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                <label for="email" class="block mb-2 text-md font-medium text-gray-900 dark:text-white">
                                     Jumlah</label>
                                 <input type="number" name="qty" id="qty"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white uppercase"
+                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white uppercase mb-3"
                                     placeholder="jenis kain atau pakaian" required />
                             </div>
 

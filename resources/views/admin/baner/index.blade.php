@@ -1,7 +1,8 @@
 @extends('admin.layouts.main')
 
 @section('container')
-    <div class="px-4 pt-20 mb-4">
+    <div class="px-4 pt-20 mb-4 min-h-screen">
+        <h1 class="font-semibold text-2xl mb-4">Tambahkan Gambar untuk banner</h1>
         <button class="btn mb-4 bg-blue-700 hover:bg-black text-white font-semibold" onclick="my_modal3.showModal()">Tambah Gambar</button>
 
         {{-- Tambah --}}
@@ -28,11 +29,11 @@
         </dialog>
         
 
-        <div class="grid grid-cols-3     justify-between">
+        <div class="flex gap-x-8">
             @foreach ($data as $cek => $item)
-                <div class="card w-96 bg-neutral text-neutral-content justify-between">
-                    <img src="{{ asset('dashboard/' . $item->image) }}" alt="" class="w-full h-full">
-                    <button class="btn btn-primary mt-0 text-white bg-blue-700 w-20 items-center text-center flex"
+                <div class="card border w-96 bg-neutral text-neutral-content">
+                    <img src="{{ asset('dashboard/' . $item->image) }}" alt="" class="w-full h-40 object-cover">
+                    <button class="btn btn-primary mt-4 text-white bg-blue-700 w-20 mx-auto"
                         onclick="my_modal_{{ $cek }}.showModal()">update</button>
                 </div>
             @endforeach

@@ -20,7 +20,7 @@ class Keranjang extends Model
 
     public function produk()
     {
-        return $this->hasMany(Produk::class, 'produk_id', 'produk_id');
+        return $this->belongsTo(Produk::class, 'produk_id', 'produk_id');
     }
 
     public function user()

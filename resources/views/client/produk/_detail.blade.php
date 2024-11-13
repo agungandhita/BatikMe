@@ -11,14 +11,13 @@
                         class="relative w-full overflow-hidden whitespace-no-wrap flex flex-no-wrap [backface-visibility: hidden] [transform-style: preserve-3d] [touch-action: pan-Y] [will-change: transform]">
                         @foreach ($data->produkImage as $item)
                             <li><img src="{{ asset('produk/' . $item->image) }}"
-                                    class="w-full h-60 md:h-80 md:mt-20 object-contain" />
+                                    class="w-full h-60 md:h-80 md:mt-10 object-contain" />
                             </li>
                         @endforeach
 
                     </ul>
                 </div>
             </div>
-
             <script src="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.0.2/glide.js"></script>
 
             <script>
@@ -37,15 +36,12 @@
 
                 glide02.mount();
             </script>
-
-            {{-- detail produk --}}
-            {{-- @dd($data) --}}
             <div class="px-2 mt-4">
                 <h1 class="text-base md:text-3xl font-semibold text-black capitalize">
                     {{ $data->nama_produk }}
                 </h1>
 
-                <div class="flex my-4 gap-x-2">
+                <div class="flex gap-x-2">
                     <div class="">
                         <h1 class="text-xs md:text-lg font-semibold text-black">
                             Stock
@@ -62,7 +58,7 @@
                         <h1 class="text-xs md:text-lg font-semibold text-black">
                             Terjual
                             <span>
-                               {{ $data->terjual }}
+                                {{ $data->terjual }}
                             </span>
 
                         </h1>
@@ -70,7 +66,7 @@
                 </div>
 
                 <div
-                    class="mt-8 md:mb-8 md:bg-gray-100 py-2 md:px-2 md:py-4 flex justify-between items-center 
+                    class="mt-2 md:mb-4 md:bg-gray-100 py-2 md:px-2 md:py-4 flex justify-between items-center 
         md:border-green-800 md:border-l-4">
                     <span class="text-green-800 md:px-4 text-xl md:text-2xl font-bold">Rp
                         {{ number_format($data->harga, 0, ',', '.') }}</span>
@@ -99,28 +95,12 @@
             </p>
         </div>
 
-        {{-- <div class="px-10 border pt-1 hidden md:block">
-            <h1 class="text-sm font-bold mb-2 capitalize text-black text-xl">
-                Penilaian produk
-            </h1>
-            @include('client.produk._review')
-        </div> --}}
-
-        {{-- <div class="px-10 border pt-1 hidden md:block">
-            <h1 class="text-sm font-bold mb-2 capitalize text-black text-xl">
-            Produk Lainya
-            </h1>
-            @include('client.produk._lainya')
-        </div> --}}
-
-
-
         <div class="md:hidden">
             @include('client.produk._spek')
         </div>
     </div>
 
-    <div class="pt-2">  
+    <div class="pt-2">
     </div>
 @endsection
 
@@ -131,7 +111,7 @@
             const quantityInput = document.getElementById("qty");
             const increaseButton = document.getElementById("btnIncrease");
             const decreaseButton = document.getElementById("btnDecrease");
-            
+
             function calculateTotalPrice() {
                 let price = @json($data->harga);
                 const quantity = parseInt(quantityInput.value);

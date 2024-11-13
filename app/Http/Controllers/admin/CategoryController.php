@@ -7,7 +7,10 @@ use App\Models\Category;
 use App\Models\ProdukImage;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreCategoryRequest;
+use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Size;
+use GrahamCampbell\ResultType\Success;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 
@@ -20,12 +23,11 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $data = Category::latest();
-
+        $data = Category::get();
 
 
         return view('admin.produk.kategori', [
-            'data' => $data->paginate(10),
+            'data' => $data,
             'title' => 'produk',
         ]);
     }
@@ -38,21 +40,31 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreCategoryRequest $request)
     {
-        $cek = $request->validate([
-            'nama_kategori' => 'required|max:255',
-        ]);
-
+        if ($files = $request->file('gambar')) {
+            $extension = $files->getClientOriginalExtension();
+            
+            $name = hash('sha256', time()) . '.' . $extension;
+            
+            $files->move(public_path('kategori'), $name);
+        } else {
+            $name = null; 
+        }
+        
+        
         Category::create([
-            'nama_kategori' => $cek['nama_kategori'],
+            'nama_kategori' => $request['nama_kategori'],
+            'gambar' => $name, 
             'user_created' => Auth::id(),
             'created_at' => now(),
             'updated_at' => null
         ]);
-
-        return redirect('/admin/kategori');
+    
+        // Redirect dengan pesan sukses
+        return redirect('/admin/kategori')->with('success', 'Berhasil menambahkan kategori');
     }
+    
 
 
     /**
@@ -62,16 +74,31 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateCategoryRequest $request, $id)
     {
-        $cek = $request->validate([
-            'nama_kategori' => 'required|max:255',
-        ]);
+
+        $img = Category::where('kategori_id', $id)->pluck('gambar')->first();
+
+        if ($files = $request->file('gambar')) {
+            $extension = $files->getClientOriginalExtension();
+            $name = hash('sha256', time()) . '.'  . $extension;
+            $up = $files->move('kategori', $name);
+
+            if ($up) {
+                $storage = public_path('kategori/' . $img);
+                if (File::exists($storage)) {
+                    unlink($storage);
+                }
+            }
+        } else {
+            $name = $img;
+        }
 
         Category::where('kategori_id', $id);
 
         Category::find($id)->update([
-            'nama_kategori' => $cek['nama_kategori'],
+            'nama_kategori' => $request['nama_kategori'],
+            'gambar' => $name,
             'user_created' => Auth::id(),
             'user_updated' => Auth::id(),
             'updated_at' => now()
@@ -104,21 +131,6 @@ class CategoryController extends Controller
                 'deleted' => true,
                 'deleted_at' => now()
             ]);
-
-            $produkImage = ProdukImage::where('produk_id', $item->produk_id)->get();
-
-            foreach ($produkImage as $image) {
-                $image->update([
-                    'user_deleted' => auth()->user()->user_id,
-                    'deleted' => true,
-                    'deleted_at' => now()
-                ]);
-
-                $storage = public_path('produk/' . $image->image);
-                if (File::exists($storage)) {
-                    unlink($storage);
-                }
-            }
 
             $size = Size::where('produk_id', $item->produk_id)->get();
             foreach ($size as $cek) {

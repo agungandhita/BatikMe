@@ -41,7 +41,7 @@ class DetailController extends Controller
         $produkTerjual = [];
 
         foreach ($produk as $item) {
-            $produkId = $item->id; // Asumsi bahwa id produk ada di $item->id
+            $produkId = $item->id; 
             $terjual = Pemesanan::where('produk_id', $produkId)
                 ->where('payment_status', 'PAID')
                 ->sum('qty');
@@ -165,7 +165,7 @@ class DetailController extends Controller
                 ], 404));
             }
     
-            $updatePesanan = $pemesanan->update([
+            $pemesanan->update([
                 'payment_status' => $payment_status,
                 'status' => $order_status,
             ]);
@@ -196,7 +196,7 @@ class DetailController extends Controller
             ], 200);
         } catch (Exception $e) {
             DB::rollBack();
-            Log::info('kontol', ['data' => $e->getMessage()]);
+            Log::info('gagal', ['data' => $e->getMessage()]);
             return response()->json([
                 'error' => true,
                 'message' => 'callback failed: ' . $e->getMessage()

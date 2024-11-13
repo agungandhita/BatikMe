@@ -28,25 +28,9 @@
                 <a href="/berita/tambah"
                     class="bg-white hover:bg-gray-100 dark:bg-gray-700 p-2 inline-block dark:hover:bg-gray-600 rounded-lg text-gray-900 dark:text-white font-semibold">Tambah
                     Berita</a>
-                {{-- <a href="/berita/kategori"
-                class="bg-white hover:bg-gray-100 dark:bg-gray-700 p-2 inline-block dark:hover:bg-gray-600 rounded-lg text-gray-900 dark:text-white font-semibold">Manage
-                Kategori</a> --}}
+
             </div>
 
-            <div class="flex flex-row overflow-x-auto gap-x-4 mt-8 text-gray-900 dark:text-white w-full py-6">
-                <a href="/admin/berita"
-                    class="border p-2 rounded-xl border-gray-500 hover:bg-black hover:text-white {{ request()->is('admin/berita') && request('admin-berita-kategori') == null ? 'bg-main text-white' : '' }} w-full cursor-pointer min-w-fit sm:w-auto text-center ">Semua
-                    Berita</a>
-                <a href="/admin/berita?admin-berita-kategori=info penting"
-                    class="border p-2 rounded-xl border-gray-500 hover:bg-black hover:text-white {{ request('admin-berita-kategori') == 'info penting' ? 'bg-main text-white' : '' }} w-full cursor-pointer min-w-fit sm:w-auto text-center ">Info
-                    Penting</a>
-                <a href="/admin/berita?admin-berita-kategori=terlama"
-                    class="border p-2 rounded-xl border-gray-500 hover:bg-black hover:text-white {{ request('admin-berita-kategori') == 'terlama' ? 'bg-main text-white' : '' }} w-full cursor-pointer min-w-fit sm:w-auto text-center ">Terlama</a>
-                <a href="/admin/berita?admin-berita-kategori=terbaru"
-                    class="border p-2 rounded-xl border-gray-500 hover:bg-black hover:text-white {{ request('admin-berita-kategori') == 'terbaru' ? 'bg-main text-white' : '' }} w-full cursor-pointer min-w-fit sm:w-auto text-center ">Terbaru</a>
-                <a href="/admin/berita?admin-berita-kategori=favorit"
-                    class="border p-2 rounded-xl border-gray-500 hover:bg-black hover:text-white {{ request('admin-berita-kategori') == 'favorit' ? 'bg-main text-white' : '' }} w-full cursor-pointer min-w-fit sm:w-auto text-center ">Favorit</a>
-            </div>
 
 
             <div class="mt-10 grid grid-cols-1 gap-y-4">
@@ -57,8 +41,6 @@
                             ->locale('id')
                             ->isoFormat('D MMMM YYYY');
 
-                //       
-
                     @endphp
                     <div
                         class="flex flex-col sm:flex-row gap-4 border-b-2 pb-4 bg-white dark:bg-gray-700 p-4 rounded-lg dark:border-none">
@@ -68,43 +50,37 @@
                             <div class="flex gap-x-2 mb-2">
                                 <div class="flex gap-x-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
-                                        class="mt-[2px] h-[14px] md:h-[1em] fill-gray-900 dark:fill-white"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                        class="mt-[2px] h-[14px] md:h-[1em] fill-gray-900 dark:fill-white">
                                         <path
                                             d="M128 0c17.7 0 32 14.3 32 32V64H288V32c0-17.7 14.3-32 32-32s32 14.3 32 32V64h48c26.5 0 48 21.5 48 48v48H0V112C0 85.5 21.5 64 48 64H96V32c0-17.7 14.3-32 32-32zM0 192H448V464c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V192zm64 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm128 0v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H208c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V272c0-8.8-7.2-16-16-16H336zM64 400v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H80c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H208zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V400c0-8.8-7.2-16-16-16H336c-8.8 0-16 7.2-16 16z" />
                                     </svg>
                                     <h1 class="text-sm md:text-base text-gray-900 dark:text-white">{{ $date }}</h1>
                                 </div>
-                                {{-- <span class="font-bold text-gray-900 dark:text-white">|</span> --}}
-                                {{-- <div class="flex gap-x-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
-                                    class="mt-[2px] h-[14px] md:h-[1em] fill-gray-900 dark:fill-white"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                    <path
-                                        d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
-                                </svg>
-                                <h1 class="text-sm md:text-base text-gray-900 dark:text-white">Admin Desa</h1>
-                            </div> --}}
-                                {{-- <span class="font-bold text-gray-900 dark:text-white">|</span> --}}
-                                {{-- <div class="flex gap-x-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"
-                                    class="mt-[2px] h-[14px] md:h-[1em] fill-gray-900 dark:fill-white"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                    <path
-                                        d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM144 256a144 144 0 1 1 288 0 144 144 0 1 1 -288 0zm144-64c0 35.3-28.7 64-64 64c-7.1 0-13.9-1.2-20.3-3.3c-5.5-1.8-11.9 1.6-11.7 7.4c.3 6.9 1.3 13.8 3.2 20.7c13.7 51.2 66.4 81.6 117.6 67.9s81.6-66.4 67.9-117.6c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3z" />
-                                </svg>
-                                <h1 class="text-sm md:text-base text-gray-900 dark:text-white">{{ $item->views }}</h1>
-                            </div> --}}
                             </div>
                             <h1
                                 class="font-semibold text-base lg:text-lg xl:text-xl line-clamp-2 text-gray-900 dark:text-white">
                                 {{ $item->judul }}</h1>
-                           
+
                             <h1 class="mt-4 text-gray-900 dark:text-white font-semibold capitalize">Kategori :
                                 {{ $item->kategori }}</h1>
-                            <a href="/admin/berita/read/{{ $item->berita_id }}"
-                                class="text-white bg-main p-2 rounded-md mt-2 inline-block text-xs md:text-base">Baca
-                                Selengkapnya</a>
-                            <div class="flex gap-x-4 mt-5">
-                                <a href="/admin/berita/edit/{{ $item->berita_id }}"
-                                    class="p-2 rounded-lg bg-lime-600 hover:bg-lime-700 font-semibold inline-block text-white">Edit</a>
+
+                                <div class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl mx-auto">
+                                    <p id="text-{{ $item->id }}" class="truncate">
+                                        {!! Str::limit($item->isi, 100, '...') !!}
+                                    </p>
+                                    <button id="toggle-button-{{ $item->id }}" class="mt-2 text-blue-500">
+                                        Lihat selengkapnya
+                                    </button>
+                                </div>
+                                
+
+
+                            <div class="flex gap-x-4 mt-10">
+                                <button>
+                                    <a href="/admin/berita/edit/{{ $item->berita_id }}"
+                                        class="p-2 rounded-lg bg-lime-600 hover:bg-lime-700 font-semibold inline-block text-white">Edit</a>
+                                </button>
+
                                 <button
                                     class="p-2 rounded-lg bg-red-600 hover:bg-red-700 font-semibold inline-block text-white"
                                     onclick="delete_{{ $key }}.showModal()">Hapus</button>
@@ -115,7 +91,6 @@
                 @endforeach
 
             </div>
-            {{-- {{ $data->links('vendor.pagination.tailwind') }} --}}
 
 
         </div>
@@ -131,16 +106,36 @@
 
             <p class="py-4">Apakah kamu yakin mau menghapus data ini ?</p>
             <div class="modal-action">
-                <label for="closeDelete" class="btn bg-red-600 hover:bg-red-700 border-none">Tidak</label>
-                <button class="btn bg-lime-600 hover:bg-lime-700 border-none">Hapus</button>
+                <label for="closeDelete" class="btn bg-red-600 text-white hover:bg-red-700 border-none">Tidak</label>
+                <button class="btn bg-lime-600 text-white hover:bg-lime-700 border-none">Hapus</button>
             </div>
         </form>
         <form method="dialog" class="modal-box bg-white dark:bg-gray-700 text-gray-900 dark:text-white hidden">
             <p class="py-4">Apakah kamu yakin mau menghapus data ini ?</p>
             <div class="modal-action">
-                <!-- if there is a button in form, it will close the modal -->
                 <button class="btn" id="closeDelete">Close</button>
             </div>
         </form>
     </dialog>
 @endforeach
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const text = document.getElementById('text-{{ $item->id }}');
+    const toggleButton = document.getElementById('toggle-button-{{ $item->id }}');
+    const fullText = `{!! addslashes($item->isi) !!}`;
+    const truncatedText = `{!! Str::limit(addslashes($item->isi), 100, '...') !!}`;
+
+    toggleButton.addEventListener('click', function () {
+        if (text.classList.contains('truncate')) {
+            text.classList.remove('truncate');
+            text.innerHTML = fullText;
+            toggleButton.textContent = 'Lihat lebih sedikit';
+        } else {
+            text.classList.add('truncate');
+            text.innerHTML = truncatedText;
+            toggleButton.textContent = 'Lihat selengkapnya';
+        }
+    });
+});
+
+</script>

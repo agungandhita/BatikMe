@@ -31,7 +31,6 @@ class DashboardController extends Controller
 
 
 
-        
 
         return view('client.home.index', compact('data'), [
             'data' => $data,

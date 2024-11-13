@@ -14,6 +14,7 @@
         <div class="flex flex-wrap gap-4 mt-10">
             @foreach ($data as $no => $item)
                 <div class="bg-white border dark:bg-gray-700 p-2 rounded-lg w-[30%] lg:w-[20%]">
+                    <img src="{{ asset('kategori/' . $item->gambar) }}" alt="{{ $item->nama_kategori }}" class="w-full h-32 object-cover mb-2">
                     <h1 class="font-semibold text-gray-900 dark:text-white text-sm lg:text-3xl text-center capitalize">
                         {{ $item->nama_kategori }}</h1>
                     <div class="gap-x-3 mx-auto justify-center text-center">
@@ -49,40 +50,51 @@
                             <span class="sr-only">Close modal</span>
                         </button>
                     </div>
-                    <!-- Modal body -->
+
                     <div class="p-4 md:p-5">
-                        <form class="space-y-4" action="/produk/kategori/add" method="POST">
+                        <form class="space-y-4" action="/produk/kategori/add" method="POST" enctype="multipart/form-data">
                             @csrf
-                                <label for="email" class="  text-sm font-medium text-gray-900 dark:text-white">
-                                    Jenis Kategori Produk</label>
-                                <input type="text" name="nama_kategori" id="nama_kategori"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                                    placeholder="jenis kain atau pakaian" required />
+                            <label for="gambar" class="block text-sm font-medium text-gray-900 dark:text-white">
+                                Jenis Kategori Produk</label>
+
+                            <!-- Image preview -->
+                            <img id="imagePreview" src="#" alt="Preview Image" class="hidden mx-auto mb-4 w-32 h-32 object-cover" />
+
+                            <input type="file" name="gambar" id="file-input" accept="image/*"
+                                class="block w-full border border-gray-200 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400file:bg-gray-50 file:border-0 file:me-4 file:py-3 file:px-4 dark:file:bg-neutral-700 dark:file:text-neutral-400" onchange="previewImage(this)">
+                            
+                            <input type="text" name="nama_kategori" id="nama_kategori"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                                placeholder="jenis kain atau pakaian" required />
 
                             <button type="submit"
                                 class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Tambah
-
+                            </button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
 
-
         {{-- edit kategori --}}
         @foreach ($data as $update => $edit)
             <dialog id="my_modal_3{{ $update }}" class="modal">
                 <div class="modal-box bg-white rounded-lg shadow dark:bg-gray-700">
 
-                    
-                    <form action="/produk/kategori/update/{{ $edit->kategori_id }}" method="POST">
+                    <form action="/produk/kategori/update/{{ $edit->kategori_id }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                        <label for="gambar" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                             Jenis Kategori Produk</label>
+
+                        <!-- Image preview for edit -->
+                        <img id="imagePreviewEdit{{ $update }}" src="{{ asset('kategori/' . $item->gambar) }}" alt="Preview Image" class="mx-auto mb-4 w-32 h-32 object-cover" />
+
+                        <input type="file" name="gambar" id="file-input-edit{{ $update }}" accept="image/*"
+                            class="block w-full border border-gray-300 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400file:bg-gray-50 file:border-0 file:me-4 file:py-3 file:px-4 dark:file:bg-neutral-700 dark:file:text-neutral-400" onchange="previewImageEdit(this, {{ $update }})">
+                        
                         <input type="text" name="nama_kategori" id="jenis"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
                             placeholder="jenis kain atau pakaian" value="{{ $edit->nama_kategori }}" required />
-
 
                         <div class="flex gap-x-4 mt-4">
                             <button type="submit" id="btn-select-file"
@@ -90,17 +102,13 @@
                             <a href="/admin/kategori" class="bg-red-600 px-4 py-2 text-white rounded-md">UNDO</a>
                         </div>
                     </form>
-
-
-
                 </div>
             </dialog>
         @endforeach
     @endsection
 
-
     @foreach ($data as $no => $item)
-        <dialog id="delete_{{ $no }}" class="modal modal-bottom sm:modal-middle ">
+        <dialog id="delete_{{ $no }}" class="modal modal-bottom sm:modal-middle">
             <form action="/produk/kategori/delete/{{ $item->kategori_id }}" method="POST"
                 class="modal-box bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
                 @csrf
@@ -119,3 +127,32 @@
             </form>
         </dialog>
     @endforeach
+
+    <script>
+        // Function to preview image before uploading
+        function previewImage(input) {
+            var file = input.files[0];
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                var imagePreview = document.getElementById('imagePreview');
+                imagePreview.src = e.target.result;
+                imagePreview.classList.remove('hidden');
+            };
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Function to preview image in edit modal
+        function previewImageEdit(input, id) {
+            var file = input.files[0];
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                var imagePreview = document.getElementById('imagePreviewEdit' + id);
+                imagePreview.src = e.target.result;
+            };
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>

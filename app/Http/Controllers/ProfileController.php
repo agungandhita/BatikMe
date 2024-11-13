@@ -44,23 +44,6 @@ class ProfileController extends Controller
         ]);
 
 
-        // $img = User::where('user_id', $id)->pluck('image')->first();
-
-        // if ($files = $request->file('image')) {
-        //     $extension = $files->getClientOriginalExtension();
-        //     $name = hash('sha256', time()) . '.'  . $extension;
-        //     $up = $files->move('ft_user', $name);
-
-        //     if ($up) {
-        //         $storage = public_path('ft_user/' . $img);
-        //         if (File::exists($storage)) {
-        //             unlink($storage);
-        //         }
-        //     }
-        // } else {
-        //     $name = $img;
-        // }
-
 
         User::find($id)->update([
             'username' => $cek['username'],

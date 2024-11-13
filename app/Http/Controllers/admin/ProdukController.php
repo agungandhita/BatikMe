@@ -27,27 +27,27 @@ class ProdukController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $data = Produk::with(['kategori', 'produkImage'])->latest();
-        $item = ProdukImage::with('produk')->latest();
+{
+    $data = Produk::with(['kategori', 'produkImage'])->latest();
 
-        $kategori = Category::where('kategori_id', request('jenis'))->first();
-
-
-
-        if (request('search')) {
-            $data->where('name', 'like', '%' . request('search') . '%');
-        }
-
-
-
-        return view('admin.produk.index', [
-            'data' => $data->paginate(10),
-            'title' => 'produk',
-            'kategori' => Category::get(),
-            'gambar' => ProdukImage::get()
-        ]);
+    $kategoriId = request('jenis');
+    if ($kategoriId) {
+        $kategori = Category::where('kategori_id', $kategoriId)->first();
     }
+
+    if ($search = request('search')) {
+        $data->where('name', 'like', '%' . $search . '%');
+    }
+
+    return view('admin.produk.index', [
+        'data' => $data->paginate(10),
+        'title' => 'produk',
+        'kategori' => Category::all(),
+        'gambar' => ProdukImage::all()
+    ]);
+}
+
+    
 
     /**
      * Show the form for creating a new resource.

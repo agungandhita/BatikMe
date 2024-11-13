@@ -15,10 +15,9 @@ return new class extends Migration
     {
         Schema::create('keranjangs', function (Blueprint $table) {
             $table->id('keranjang_id');
-            $table->foreignId('produk_id');
-            $table->foreignId('user_id');
-            $table->string('jumlah_produk');
-            $table->string('jumlah_total');
+            $table->foreignId('user_id')->constrained('users', 'user_id')->onDelete('cascade'); 
+            $table->foreignId('produk_id')->constrained('produks', 'produk_id')->onDelete('cascade'); 
+            $table->integer('qty')->default(1);;
             $table->integer('user_created')->nullable();
             $table->timestamps();
             $table->integer('user_updated')->nullable();

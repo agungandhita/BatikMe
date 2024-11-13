@@ -61,22 +61,16 @@
                             </svg>
                         </button>
                         <ul id="dropdown-example" class="hidden">
-                            <li class="py-1">
-                                <a href="/admin/produk"
-                                    class="flex items-center w-full p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">Kelola
-                                    Produk</a>
-                            </li>
                             <li>
                                 <a href="/admin/kategori"
                                     class="text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700">Kategori
                                     Produk</a>
                             </li>
-                            {{-- <li>
-                                <a href="/gambar/produk"
-                                    class="text-base text-gray-900 rounded-lg flex items-center p-2 group hover:bg-gray-100 transition duration-75 pl-11 dark:text-gray-200 dark:hover:bg-gray-700">Gambar Produk</a>
-                            </li> --}}
-
-
+                            <li class="py-1">
+                                <a href="/admin/produk"
+                                    class="flex items-center w-full p-1 text-base font-normal text-gray-900 transition duration-75 rounded-lg pl-11 group hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-700">Kelola
+                                    Produk</a>
+                            </li>
                         </ul>
                     </li>
 

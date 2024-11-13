@@ -22,6 +22,8 @@ class UserController extends Controller
         if (request('search')) {
             $data = $data->where('name', 'LIKE', '%' . request('search') . '%');
         }
+        $data = $data->where('role', '!=', 'admin');
+        
         return view('admin.user.index', [
             'data' => $data->paginate(10),
             'title' => 'admin user',
@@ -120,7 +122,6 @@ class UserController extends Controller
             'email' => 'required|email:rfc,dns|unique:users',
             'alamat' => 'required',
             'no_tlpn' => 'required',
-            'role' => 'required',
         ]);
 
 
@@ -148,7 +149,6 @@ class UserController extends Controller
             'email' => $cek['email'],
             'alamat' => $cek['alamat'],
             'no_tlpn' => $cek['no_tlpn'],
-            'role' => $cek['role'],
             'user_updated' => Auth::id(),
         ]);
 
