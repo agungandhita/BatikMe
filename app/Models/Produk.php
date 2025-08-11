@@ -38,11 +38,16 @@ class Produk extends Model
 
     public function keranjang()
     {
-        return $this->belongsTo(Keranjang::class, 'keranjang_id', 'keranjang_id');
+        return $this->hasMany(Keranjang::class, 'produk_id', 'produk_id');
     }
 
-    public function produk()
+    public function pemesanan()
     {
-        return $this->hasMany(Produk::class, 'pemesanan_id'); // Pastikan foreign key benar
+        return $this->hasMany(Pemesanan::class, 'produk_id', 'produk_id');
+    }
+
+    public function review()
+    {
+        return $this->hasMany(Review::class, 'produk_id', 'produk_id');
     }
 }

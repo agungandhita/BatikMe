@@ -29,9 +29,13 @@ class Berita extends Model
         ];
     }
 
-// public function beritakategori()
-// {
-//     return $this->belongsTo(BeritaKategori::class, 'BeritaKategori', 'berita_id');
-// }
+    public function beritakategori()
+    {
+        return $this->belongsTo(BeritaKategori::class, 'kategori_id', 'kategori_id');
+    }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_created', 'user_id');
+    }
 }

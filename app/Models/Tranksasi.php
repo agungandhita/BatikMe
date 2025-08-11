@@ -8,8 +8,23 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Tranksasi extends Model
 {
-    use HasFactory,SoftDeletes;
+    use HasFactory, SoftDeletes;
+    
+    protected $table = "tranksasis";
+    protected $primaryKey = "tranksasi_id";
+    
     protected $guarded = [
-        'transaksi_id'
+        'tranksasi_id'
     ];
+    
+    // Relationships
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'user_id');
+    }
+    
+    public function pemesanan()
+    {
+        return $this->belongsTo(Pemesanan::class, 'pemesanan_id', 'pemesanan_id');
+    }
 }

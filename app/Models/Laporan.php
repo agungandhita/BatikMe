@@ -10,11 +10,21 @@ class Laporan extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $table = "keranjangs";
-    protected $primaryKey = "keranjang_id";
+    protected $table = "laporans";
+    protected $primaryKey = "laporan_id";
 
-
-    protected $guarded =[
-        'keranjang_id'
+    protected $guarded = [
+        'laporan_id'
     ];
+
+    // Add relationships if needed
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'user_id');
+    }
+
+    public function pemesanan()
+    {
+        return $this->belongsTo(Pemesanan::class, 'pemesanan_id', 'pemesanan_id');
+    }
 }

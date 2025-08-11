@@ -20,15 +20,22 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
-        User::create([
+        $admin = User::create([
             'image' => 'ft_user/aa.jpeg',
-            'username' => 'Andhi',
-            'email' => 'example@gmail.com',
-            'password' => Hash::make(12345),
+            'username' => 'Admin BatikMe',
+            'email' => 'admin@batikme.com',
+            'password' => Hash::make('admin123!@#'),
             'no_tlpn' => '082231719219',
-            'alamat' => 'parengan',
+            'alamat' => 'Jl. Batik Nusantara No. 1',
             'role' => 'admin'
         ]);
+
+        // Assign admin role if using spatie/laravel-permission
+        if (class_exists('Spatie\Permission\Models\Role')) {
+            $adminRole = \Spatie\Permission\Models\Role::firstOrCreate(['name' => 'admin']);
+            $clientRole = \Spatie\Permission\Models\Role::firstOrCreate(['name' => 'client']);
+            $admin->assignRole('admin');
+        }
         // User::factory(5)->create();
 
         // Category::factory(2)->create();

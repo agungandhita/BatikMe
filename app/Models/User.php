@@ -47,12 +47,28 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function pemesanan(){
-        return $this->hasMany(Pemesanan::class);
+    public function pemesanan()
+    {
+        return $this->hasMany(Pemesanan::class, 'user_id', 'user_id');
+    }
+
+    public function keranjang()
+    {
+        return $this->hasMany(Keranjang::class, 'user_id', 'user_id');
+    }
+
+    public function review()
+    {
+        return $this->hasMany(Review::class, 'user_id', 'user_id');
     }
 
     public function isAdmin()
     {
-        return $this->hasRole('admin');
+        return $this->role === 'admin' || $this->hasRole('admin');
+    }
+
+    public function isClient()
+    {
+        return $this->role === 'client' || $this->hasRole('client');
     }
 }
